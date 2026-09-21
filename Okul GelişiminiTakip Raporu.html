@@ -1,0 +1,2075 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Okul Gelişimi ve Akademik Başarıyı İzleme ve Değerlendirme Raporu · 2026</title>
+<style>
+  :root{
+    --navy-950:#04102a; --navy-900:#061631; --navy-800:#0b2350; --navy-700:#133a72;
+    --navy-600:#1c4a8e; --navy-500:#2a5ba8;
+    --orange-600:#e8571a; --orange-500:#ff6b2c; --orange-400:#ff8c42; --orange-300:#ffb07c; --orange-100:#ffe8d6;
+    --white:#ffffff; --gray-50:#f8fafc; --gray-100:#f1f5f9; --gray-200:#e2e8f0;
+    --gray-300:#cbd5e1; --gray-400:#94a3b8; --gray-500:#64748b; --gray-600:#475569;
+    --gray-700:#334155; --gray-800:#1e293b;
+    --green:#16a34a; --red:#dc2626; --blue:#2563eb;
+    --radius:16px; --radius-sm:10px;
+    --shadow-sm:0 1px 2px rgba(6,22,49,.06);
+    --shadow:0 4px 16px rgba(6,22,49,.08);
+    --shadow-lg:0 24px 48px -16px rgba(6,22,49,.22);
+    --shadow-xl:0 32px 72px -20px rgba(4,16,42,.45);
+    --shadow-orange:0 12px 32px -10px rgba(255,107,44,.5);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:"Inter","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Arial,sans-serif;
+    background:
+      radial-gradient(900px 500px at 12% 0%, rgba(255,140,66,.07), transparent 60%),
+      radial-gradient(800px 500px at 100% 20%, rgba(28,74,142,.07), transparent 60%),
+      var(--gray-50);
+    color:var(--navy-900); line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    min-height:100vh;
+  }
+
+  /* NAV */
+  .nav{position:sticky; top:0; z-index:100; background:rgba(255,255,255,.9);
+    backdrop-filter:blur(18px) saturate(180%); -webkit-backdrop-filter:blur(18px) saturate(180%);
+    border-bottom:1px solid var(--gray-200);}
+  .nav-inner{max-width:1280px; margin:0 auto; padding:11px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;}
+  .brand{display:flex; align-items:center; gap:12px; min-width:0;}
+  .logo{width:42px; height:42px; flex:0 0 42px;
+    background:linear-gradient(135deg, var(--navy-700), var(--navy-900));
+    border-radius:12px; display:grid; place-items:center; color:#fff;
+    font-weight:800; font-size:18px;
+    box-shadow:0 8px 20px -6px rgba(6,22,49,.45); position:relative; overflow:hidden;}
+  .logo::after{content:""; position:absolute; width:8px; height:8px; border-radius:50%;
+    background:var(--orange-500); right:5px; top:5px; box-shadow:0 0 10px var(--orange-400);}
+  .brand-text strong{display:block; font-size:13px; font-weight:800;
+    color:var(--navy-900); letter-spacing:-.01em;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .brand-text span{display:block; font-size:11px; color:var(--gray-500); margin-top:1px;}
+
+  .nav-actions{display:flex; align-items:center; gap:6px; flex-shrink:0;}
+
+  .icon-btn{width:42px; height:42px; border-radius:11px;
+    background:var(--white); color:var(--navy-800);
+    border:1px solid var(--gray-200); cursor:pointer;
+    display:grid; place-items:center; font-size:16px;
+    transition:all .18s ease; position:relative;}
+  .icon-btn:hover{background:var(--gray-100); border-color:var(--gray-300); transform:translateY(-1px);}
+  .icon-btn:active{transform:translateY(0) scale(.97);}
+  .icon-btn.active{background:linear-gradient(135deg, var(--orange-500), var(--orange-600));
+    color:#fff; border-color:var(--orange-600);
+    box-shadow:0 8px 20px -6px rgba(255,107,44,.5);}
+  .icon-btn::after{content:attr(data-tip);
+    position:absolute; top:calc(100% + 8px); left:50%;
+    transform:translateX(-50%) translateY(-4px);
+    background:var(--navy-900); color:#fff;
+    font-size:11px; font-weight:700; letter-spacing:.03em;
+    padding:6px 10px; border-radius:7px; white-space:nowrap;
+    opacity:0; pointer-events:none; transition:all .18s ease; z-index:200;}
+  .icon-btn:hover::after{opacity:1; transform:translateX(-50%) translateY(0);}
+  .icon-btn.admin{background:linear-gradient(135deg,var(--navy-800),var(--navy-900)); color:#fff; border-color:var(--navy-900);}
+  .icon-btn.admin:hover{background:linear-gradient(135deg,var(--navy-700),var(--navy-800));}
+
+  .btn-pdf{background:linear-gradient(135deg, var(--orange-500), var(--orange-600));
+    color:#fff; border:0; cursor:pointer; font:inherit; font-weight:800; font-size:13px;
+    padding:11px 20px; border-radius:11px;
+    display:inline-flex; align-items:center; gap:8px;
+    box-shadow:var(--shadow-orange);
+    transition:all .2s cubic-bezier(.4,0,.2,1); white-space:nowrap;}
+  .btn-pdf:hover{transform:translateY(-1px); box-shadow:0 16px 40px -10px rgba(255,107,44,.65);}
+  .btn-pdf:active{transform:translateY(0) scale(.98);}
+  .btn-pdf:disabled{opacity:.7; cursor:wait;}
+
+  .btn-outline{background:#fff; color:var(--navy-800);
+    border:1.5px solid var(--gray-300); cursor:pointer; font:inherit;
+    font-weight:700; font-size:13px; padding:10px 16px; border-radius:11px;
+    display:inline-flex; align-items:center; gap:7px;
+    transition:all .18s ease; white-space:nowrap;}
+  .btn-outline:hover{background:var(--gray-100); border-color:var(--navy-700); color:var(--navy-700);}
+
+  .divider{width:1px; height:26px; background:var(--gray-200); margin:0 4px;}
+
+  /* TOAST */
+  .toast-stack{position:fixed; top:82px; right:22px; z-index:1000;
+    display:flex; flex-direction:column; gap:10px; pointer-events:none;}
+  .toast{display:flex; align-items:center; gap:10px;
+    background:var(--navy-900); color:#fff; padding:13px 18px; border-radius:12px;
+    font-size:13px; font-weight:600;
+    box-shadow:0 20px 40px -12px rgba(4,16,42,.55);
+    border-left:4px solid var(--orange-500);
+    min-width:240px; max-width:340px;
+    animation:toastIn .35s cubic-bezier(.34,1.56,.64,1); pointer-events:auto;}
+  .toast.success{border-left-color:var(--green);}
+  .toast.error{border-left-color:var(--red);}
+  .toast-icon{font-size:18px; flex-shrink:0;}
+  .toast-text{line-height:1.35;}
+  @keyframes toastIn{from{opacity:0; transform:translateX(40px) scale(.9);} to{opacity:1; transform:translateX(0) scale(1);}}
+  .toast.out{animation:toastOut .3s ease forwards;}
+  @keyframes toastOut{to{opacity:0; transform:translateX(40px) scale(.9);}}
+
+  /* MAIN */
+  main{max-width:1280px; margin:0 auto; padding:26px 24px 80px;}
+
+  /* STATUS */
+  .status-bar{display:flex; align-items:center; justify-content:space-between;
+    flex-wrap:wrap; gap:12px; background:var(--white);
+    border:1px solid var(--gray-200); border-radius:14px;
+    padding:12px 18px; margin-bottom:22px;
+    box-shadow:var(--shadow-sm); font-size:12.5px; color:var(--gray-600);}
+  .status-group{display:flex; align-items:center; gap:16px; flex-wrap:wrap;}
+  .status-item{display:inline-flex; align-items:center; gap:7px;}
+  .status-dot{width:8px; height:8px; border-radius:50%;
+    background:var(--gray-300); flex-shrink:0; transition:all .3s ease;}
+  .status-dot.live{background:var(--green);
+    box-shadow:0 0 0 3px rgba(22,163,74,.18);
+    animation:pulse-green 1.8s ease-in-out infinite;}
+  @keyframes pulse-green{0%,100%{box-shadow:0 0 0 3px rgba(22,163,74,.18);} 50%{box-shadow:0 0 0 5px rgba(22,163,74,.05);}}
+  .status-item b{color:var(--navy-900); font-weight:700;}
+  .status-item.mode-on .status-dot{background:var(--orange-500); box-shadow:0 0 0 3px rgba(255,107,44,.2);}
+  .status-item.mode-off .status-dot{background:var(--gray-400);}
+
+  /* SLIDE */
+  .slide{background:var(--white); border:1px solid var(--gray-200);
+    border-radius:var(--radius); padding:28px 32px 20px;
+    margin-bottom:24px; box-shadow:var(--shadow);
+    position:relative; overflow:hidden; scroll-margin-top:90px;}
+  .slide::before{content:""; position:absolute; top:0; left:0; right:0; height:4px;
+    background:linear-gradient(90deg, var(--navy-800) 0%, var(--navy-700) 55%, var(--orange-500) 100%);}
+
+  .cover{padding:0; border:0;
+    background:
+      radial-gradient(700px 500px at 85% 8%, rgba(255,140,66,.22), transparent 62%),
+      radial-gradient(600px 500px at 5% 100%, rgba(28,74,142,.55), transparent 60%),
+      linear-gradient(140deg, var(--navy-900) 0%, var(--navy-800) 48%, var(--navy-950) 100%);
+    color:#fff; text-align:center; position:relative; overflow:hidden;
+    box-shadow:var(--shadow-lg);}
+  .cover::before{content:""; position:absolute; inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+                     linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size:48px 48px;
+    mask-image:radial-gradient(ellipse at center, #000 22%, transparent 78%);
+    -webkit-mask-image:radial-gradient(ellipse at center, #000 22%, transparent 78%);
+    pointer-events:none;}
+  .cover::after{content:""; position:absolute;
+    width:520px; height:520px; border-radius:50%; right:-180px; top:-140px;
+    background:radial-gradient(circle, rgba(255,107,44,.35), transparent 68%);
+    filter:blur(50px); pointer-events:none;}
+  .cover-inner{position:relative; z-index:2; padding:78px 44px 70px;}
+  .cover-tag{display:inline-flex; align-items:center; gap:9px;
+    font-size:11px; font-weight:700; letter-spacing:.22em;
+    color:var(--orange-300); text-transform:uppercase;
+    background:rgba(255,107,44,.12);
+    border:1px solid rgba(255,140,66,.35);
+    padding:9px 20px; border-radius:999px; margin-bottom:32px;}
+  .cover-tag::before{content:""; width:7px; height:7px; border-radius:50%;
+    background:var(--orange-500); box-shadow:0 0 12px var(--orange-400);}
+  .cover h1{font-size:clamp(28px,4.8vw,52px); line-height:1.08;
+    font-weight:800; letter-spacing:-.03em; color:#fff;}
+  .cover h1 em{font-style:normal;
+    background:linear-gradient(100deg, var(--orange-400), var(--orange-300));
+    -webkit-background-clip:text; background-clip:text; color:transparent;}
+  .cover-line{width:72px; height:4px; border-radius:4px;
+    background:linear-gradient(90deg, var(--orange-500), var(--orange-300));
+    margin:28px auto; box-shadow:0 0 24px rgba(255,140,66,.6);}
+  .cover-sub{font-size:clamp(13px,1.5vw,16px); color:rgba(255,255,255,.72);
+    font-weight:500; letter-spacing:.03em;}
+  .cover-school{margin-top:10px; font-size:clamp(14px,1.6vw,18px); color:#fff; font-weight:700;}
+  .cover-date{margin-top:12px; font-size:12.5px; color:var(--orange-300);
+    font-weight:700; letter-spacing:.24em;}
+  .cover-stats{display:flex; justify-content:center; flex-wrap:wrap; gap:14px; margin-top:44px;}
+  .stat-pill{display:flex; flex-direction:column; gap:2px; align-items:center;
+    background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.14);
+    padding:14px 30px; border-radius:14px; min-width:130px;}
+  .stat-pill b{font-size:24px; font-weight:800; color:#fff; letter-spacing:-.02em;}
+  .stat-pill span{font-size:10px; color:rgba(255,255,255,.55);
+    letter-spacing:.16em; text-transform:uppercase; font-weight:700;}
+
+  .slide-head{display:flex; align-items:flex-start; gap:14px; margin-bottom:18px;}
+  .slide-num{flex:0 0 auto; min-width:46px; height:46px; padding:0 12px;
+    background:linear-gradient(135deg, var(--navy-700), var(--navy-900));
+    border-radius:12px; display:grid; place-items:center;
+    color:#fff; font-weight:800; font-size:13px; letter-spacing:.02em;
+    box-shadow:0 6px 16px -4px rgba(6,22,49,.35); position:relative;}
+  .slide-num::after{content:""; position:absolute; bottom:-3px; right:-3px;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--orange-500); border:2px solid var(--white);
+    box-shadow:0 0 8px rgba(255,107,44,.7);}
+  .head-text{min-width:0; flex:1;}
+  .head-text h2{font-size:clamp(14.5px,1.55vw,17.5px); font-weight:800;
+    letter-spacing:-.012em; color:var(--navy-900); line-height:1.3;
+    text-transform:uppercase;}
+  .head-text p{margin-top:5px; font-size:12.5px; color:var(--gray-500);
+    font-weight:500; line-height:1.5;}
+
+  .legend{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px;}
+  .chip{display:inline-flex; align-items:center; gap:7px;
+    font-size:10.5px; font-weight:700; letter-spacing:.08em;
+    color:var(--navy-800); background:var(--gray-100);
+    border:1px solid var(--gray-200); padding:6px 12px;
+    border-radius:999px; text-transform:uppercase;}
+  .chip i{width:8px; height:8px; border-radius:50%; display:inline-block;}
+  .chip i.g{background:var(--navy-600);}
+  .chip i.h{background:var(--orange-500);}
+  .chip i.e{background:#0891b2;}
+  .chip i.n{background:#dc2626;}
+
+  .table-wrap{overflow-x:auto; border-radius:var(--radius-sm);
+    border:1px solid var(--gray-200); background:#fff;}
+  .table-wrap::-webkit-scrollbar{height:8px;}
+  .table-wrap::-webkit-scrollbar-track{background:var(--gray-100);}
+  .table-wrap::-webkit-scrollbar-thumb{background:var(--gray-300); border-radius:8px;}
+  table{width:100%; border-collapse:separate; border-spacing:0; font-size:12px;}
+  thead th{background:linear-gradient(180deg, var(--navy-800), var(--navy-700));
+    color:#fff; font-size:10px; font-weight:800; letter-spacing:.1em;
+    text-transform:uppercase; padding:11px 5px;
+    border-right:1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid var(--navy-900); white-space:nowrap;}
+  thead tr.sub th{background:var(--navy-700); font-size:9.5px;
+    padding:8px 4px; color:rgba(255,255,255,.9);}
+  thead th.corner{background:linear-gradient(135deg, var(--navy-900), var(--navy-700));
+    text-align:left; padding-left:16px; min-width:230px;
+    border-right:2px solid var(--orange-500);}
+  thead th:last-child{border-right:0;}
+  tbody td{border-bottom:1px solid var(--gray-200);
+    border-right:1px solid var(--gray-200); padding:0;
+    text-align:center; height:40px; background:#fff; transition:background .15s ease;}
+  tbody tr:last-child td{border-bottom:0;}
+  tbody td:last-child{border-right:0;}
+  tbody td.row-label{text-align:left; padding:9px 16px;
+    font-weight:600; font-size:12px; color:var(--navy-900);
+    background:var(--gray-50); line-height:1.35;
+    border-right:2px solid var(--gray-200);}
+  tbody tr:nth-child(even) td.blank{background:var(--gray-50);}
+  tbody td.blank{min-width:38px; cursor:text; outline:none;
+    font-weight:700; font-size:12.5px; color:var(--navy-800); position:relative;}
+  tbody td.blank:hover{background:var(--orange-100) !important;}
+  tbody td.blank:focus{background:#fff8f2 !important;
+    box-shadow:inset 0 0 0 2px var(--orange-500); z-index:2;}
+  tbody td.blank:empty::before{content:attr(data-ph);
+    color:var(--gray-300); font-weight:500; font-style:italic;}
+  body.locked tbody td.blank{cursor:default; background:transparent !important;}
+  body.locked tbody td.blank:hover{background:transparent !important;}
+  body.locked tbody tr:nth-child(even) td.blank{background:var(--gray-50);}
+  body.locked tbody td.blank:focus{box-shadow:none;}
+  table.single thead th{padding:12px 6px; font-size:11px; letter-spacing:.12em;}
+  table.single tbody td.blank{min-width:76px; height:48px;
+    font-size:13.5px; letter-spacing:.03em;}
+  table.single tbody td.blank:empty::before{content:attr(data-ph);
+    color:var(--gray-300); font-weight:600; font-size:11px; letter-spacing:.1em;}
+  table.single tbody td.row-label{width:40%;}
+
+  .agenda-grid{display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:12px;}
+  .agenda-card{background:var(--gray-50); border:1px solid var(--gray-200);
+    border-radius:14px; padding:18px 20px;
+    display:flex; flex-direction:column; gap:6px;
+    transition:all .25s cubic-bezier(.4,0,.2,1);
+    position:relative; overflow:hidden;}
+  .agenda-card::before{content:""; position:absolute; left:0; top:0; bottom:0; width:3px;
+    background:linear-gradient(180deg, var(--navy-700), var(--orange-500));
+    transform:scaleY(0); transform-origin:top; transition:transform .3s ease;}
+  .agenda-card:hover{transform:translateY(-3px); border-color:var(--orange-300);
+    background:#fff; box-shadow:0 12px 28px -12px rgba(6,22,49,.18);}
+  .agenda-card:hover::before{transform:scaleY(1);}
+  .agenda-icon{width:40px; height:40px; border-radius:11px;
+    background:linear-gradient(135deg, var(--navy-800), var(--navy-600));
+    display:grid; place-items:center; font-size:19px; margin-bottom:2px;
+    box-shadow:0 6px 14px -6px rgba(6,22,49,.4);}
+  .agenda-card b{font-size:13.5px; font-weight:800;
+    color:var(--navy-900); letter-spacing:-.01em;}
+  .agenda-card span{font-size:11.5px; color:var(--gray-500); line-height:1.45;}
+
+  .slide-foot{display:flex; justify-content:space-between; align-items:center;
+    margin-top:14px; padding-top:12px; border-top:1px dashed var(--gray-200);
+    font-size:10px; color:var(--gray-500);
+    letter-spacing:.12em; text-transform:uppercase; font-weight:700;}
+  .page-foot{text-align:center; padding:20px; font-size:11.5px;
+    color:var(--gray-500); letter-spacing:.1em; font-weight:600;}
+
+  /* ADMIN ADMIN ADMIN */
+  .admin-overlay{position:fixed; inset:0; z-index:9997;
+    background:rgba(4,16,42,.72);
+    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+    display:flex; align-items:center; justify-content:center;
+    opacity:0; pointer-events:none; transition:opacity .28s ease; padding:20px;}
+  .admin-overlay.active{opacity:1; pointer-events:auto;}
+  .admin-modal{background:#fff; border-radius:20px;
+    width:min(980px, 100%); max-height:92vh; overflow:hidden;
+    box-shadow:var(--shadow-xl);
+    transform:scale(.94) translateY(20px);
+    transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+    display:flex; flex-direction:column;}
+  .admin-overlay.active .admin-modal{transform:scale(1) translateY(0);}
+  .admin-header{background:linear-gradient(135deg, var(--navy-900), var(--navy-700));
+    color:#fff; padding:20px 26px; position:relative; overflow:hidden;
+    display:flex; align-items:center; justify-content:space-between; gap:14px;}
+  .admin-header::before{content:""; position:absolute;
+    width:280px; height:280px; border-radius:50%;
+    right:-80px; top:-100px;
+    background:radial-gradient(circle, rgba(255,107,44,.35), transparent 65%);
+    filter:blur(30px);}
+  .admin-header-left{position:relative; z-index:2; display:flex; align-items:center; gap:12px;}
+  .admin-header-icon{width:46px; height:46px; border-radius:12px;
+    background:linear-gradient(135deg, var(--orange-500), var(--orange-600));
+    display:grid; place-items:center; font-size:22px; flex-shrink:0;
+    box-shadow:0 10px 24px -6px rgba(255,107,44,.6);}
+  .admin-header h2{font-size:17px; font-weight:800; letter-spacing:-.02em;}
+  .admin-header p{font-size:12px; color:rgba(255,255,255,.7); margin-top:2px;}
+  .admin-close{width:36px; height:36px; border-radius:9px;
+    background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18);
+    color:#fff; cursor:pointer; font-size:17px;
+    display:grid; place-items:center; transition:all .18s ease;
+    position:relative; z-index:2; flex-shrink:0;}
+  .admin-close:hover{background:rgba(255,255,255,.22); transform:rotate(90deg);}
+
+  .admin-tabs{display:flex; background:var(--gray-50);
+    border-bottom:1px solid var(--gray-200); padding:0 22px; gap:4px; overflow-x:auto;}
+  .admin-tab{padding:14px 16px; font-size:12.5px; font-weight:700;
+    color:var(--gray-500); border:0; background:transparent; cursor:pointer;
+    border-bottom:3px solid transparent; transition:all .18s ease;
+    display:inline-flex; align-items:center; gap:7px; white-space:nowrap;}
+  .admin-tab:hover{color:var(--navy-800); background:rgba(0,0,0,.02);}
+  .admin-tab.active{color:var(--orange-600); border-bottom-color:var(--orange-500);}
+
+  .admin-body{padding:22px 26px; overflow-y:auto; flex:1;}
+  .admin-body::-webkit-scrollbar{width:8px;}
+  .admin-body::-webkit-scrollbar-thumb{background:var(--gray-300); border-radius:8px;}
+
+  .admin-panel{display:none;}
+  .admin-panel.active{display:block;}
+
+  .admin-field{margin-bottom:16px;}
+  .admin-field label{display:block; font-size:11.5px; font-weight:800;
+    color:var(--gray-600); letter-spacing:.06em;
+    text-transform:uppercase; margin-bottom:6px;}
+  .admin-field input[type="text"], .admin-field textarea, .admin-field select{
+    width:100%; padding:10px 14px; border-radius:10px;
+    border:1.5px solid var(--gray-300); background:#fff;
+    font:inherit; font-size:13px; font-weight:600; color:var(--navy-900);
+    outline:none; transition:all .18s ease;}
+  .admin-field input[type="text"]:focus, .admin-field textarea:focus, .admin-field select:focus{
+    border-color:var(--orange-500); box-shadow:0 0 0 3px rgba(255,107,44,.15);}
+  .admin-field textarea{resize:vertical; min-height:60px; line-height:1.5;}
+
+  .admin-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+
+  .admin-btn{display:inline-flex; align-items:center; gap:8px;
+    padding:10px 16px; border-radius:10px; font:inherit; font-size:12.5px;
+    font-weight:800; cursor:pointer; border:0; transition:all .18s ease;
+    white-space:nowrap;}
+  .admin-btn-primary{background:linear-gradient(135deg,var(--orange-500),var(--orange-600));
+    color:#fff; box-shadow:var(--shadow-orange);}
+  .admin-btn-primary:hover{transform:translateY(-1px);}
+  .admin-btn-navy{background:linear-gradient(135deg,var(--navy-700),var(--navy-900)); color:#fff;}
+  .admin-btn-navy:hover{transform:translateY(-1px);}
+  .admin-btn-ghost{background:#fff; border:1.5px solid var(--gray-300); color:var(--navy-800);}
+  .admin-btn-ghost:hover{background:var(--gray-100); border-color:var(--navy-700);}
+  .admin-btn-danger{background:#fff; border:1.5px solid var(--red); color:var(--red);}
+  .admin-btn-danger:hover{background:var(--red); color:#fff;}
+  .admin-btn-sm{padding:7px 12px; font-size:11.5px; border-radius:8px;}
+
+  /* Slide list */
+  .slide-list{display:flex; flex-direction:column; gap:10px;}
+  .slide-list-item{background:var(--gray-50); border:1.5px solid var(--gray-200);
+    border-radius:12px; padding:12px 14px;
+    display:flex; align-items:center; gap:12px;
+    transition:all .18s ease;}
+  .slide-list-item:hover{border-color:var(--orange-300); background:#fff;}
+  .slide-list-item.cover{background:linear-gradient(135deg,var(--navy-900),var(--navy-700));
+    color:#fff; border-color:var(--navy-800);}
+  .slide-list-item.cover .slide-list-num{background:rgba(255,255,255,.15); color:#fff;}
+  .slide-list-item.cover .slide-list-info strong{color:#fff;}
+  .slide-list-item.cover .slide-list-info span{color:rgba(255,255,255,.7);}
+  .slide-list-item.cover .slide-list-actions .admin-btn-ghost{background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.25); color:#fff;}
+  .slide-list-item.cover .slide-list-actions .admin-btn-ghost:hover{background:rgba(255,255,255,.22);}
+  .slide-list-num{flex-shrink:0; min-width:38px; height:38px; padding:0 10px;
+    background:linear-gradient(135deg,var(--navy-800),var(--navy-600));
+    color:#fff; border-radius:9px; font-weight:800; font-size:12px;
+    display:grid; place-items:center;}
+  .slide-list-info{flex:1; min-width:0;}
+  .slide-list-info strong{display:block; font-size:13px; font-weight:800;
+    color:var(--navy-900); letter-spacing:-.01em;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .slide-list-info span{display:block; font-size:11px; color:var(--gray-500); margin-top:2px;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .slide-list-actions{display:flex; gap:6px; flex-shrink:0;}
+
+  .row-editor{background:var(--gray-50); border:1.5px solid var(--gray-200);
+    border-radius:10px; padding:10px 12px; margin-bottom:8px;
+    display:flex; align-items:center; gap:10px;}
+  .row-editor-drag{color:var(--gray-400); font-size:16px; cursor:grab; user-select:none;}
+  .row-editor-input{flex:1; padding:8px 12px; border-radius:8px;
+    border:1.5px solid var(--gray-300); background:#fff;
+    font:inherit; font-size:12.5px; font-weight:600; outline:none;
+    transition:all .18s ease;}
+  .row-editor-input:focus{border-color:var(--orange-500); box-shadow:0 0 0 3px rgba(255,107,44,.15);}
+  .row-editor-actions{display:flex; gap:4px;}
+  .row-editor-actions button{width:30px; height:30px; border-radius:7px;
+    border:1px solid var(--gray-200); background:#fff; cursor:pointer;
+    display:grid; place-items:center; font-size:12px; color:var(--navy-800);
+    transition:all .15s ease;}
+  .row-editor-actions button:hover{background:var(--orange-100); border-color:var(--orange-400);}
+  .row-editor-actions button.del:hover{background:#fee2e2; border-color:var(--red); color:var(--red);}
+
+  .empty-state{padding:40px 20px; text-align:center;
+    color:var(--gray-500); font-size:13px; font-weight:600;}
+  .empty-state div{font-size:36px; margin-bottom:10px; opacity:.4;}
+
+  .admin-footer{padding:14px 26px 18px; border-top:1px solid var(--gray-200);
+    background:linear-gradient(180deg,#fff,var(--gray-50));
+    display:flex; align-items:center; justify-content:space-between;
+    gap:14px; flex-wrap:wrap;}
+  .admin-footer-info{font-size:12px; color:var(--gray-500); font-weight:600;}
+  .admin-footer-actions{display:flex; gap:8px; flex-wrap:wrap;}
+
+  /* Login */
+  .login-box{padding:36px 34px 30px; text-align:center;}
+  .login-icon{width:64px; height:64px; margin:0 auto 16px; border-radius:18px;
+    background:linear-gradient(135deg,var(--navy-800),var(--navy-900));
+    display:grid; place-items:center; font-size:28px;
+    box-shadow:0 14px 30px -8px rgba(6,22,49,.5);}
+  .login-box h3{font-size:18px; font-weight:800; color:var(--navy-900); margin-bottom:6px;}
+  .login-box p{font-size:12.5px; color:var(--gray-500); margin-bottom:22px;}
+  .login-box input[type="password"]{width:100%; padding:12px 16px;
+    border-radius:11px; border:1.5px solid var(--gray-300);
+    font:inherit; font-size:14px; font-weight:600; text-align:center;
+    letter-spacing:.15em; outline:none; transition:all .18s ease;}
+  .login-box input[type="password"]:focus{border-color:var(--orange-500);
+    box-shadow:0 0 0 3px rgba(255,107,44,.15);}
+  .login-error{color:var(--red); font-size:12px; font-weight:700;
+    margin-top:10px; min-height:16px;}
+
+  .admin-empty-hint{background:var(--orange-100); border:1px solid var(--orange-300);
+    border-radius:10px; padding:12px 16px; margin-bottom:16px;
+    font-size:12px; color:var(--navy-900); font-weight:600;
+    display:flex; align-items:center; gap:10px;}
+  .admin-empty-hint::before{content:"💡"; font-size:16px;}
+
+  /* RESPONSIVE */
+  @media (max-width:900px){
+    .nav-actions{gap:4px;}
+    .icon-btn{width:38px; height:38px; font-size:15px; border-radius:10px;}
+    .btn-pdf, .btn-outline{padding:10px 14px; font-size:12px;}
+    .btn-pdf .lbl, .btn-outline .lbl{display:none;}
+    .divider{display:none;}
+    .admin-row{grid-template-columns:1fr;}
+  }
+  @media (max-width:720px){
+    .brand-text span{display:none;}
+    main{padding:20px 14px 60px;}
+    .slide{padding:22px 18px 16px; border-radius:14px; margin-bottom:16px;}
+    .cover-inner{padding:56px 22px 52px;}
+    .slide-head{gap:10px;}
+    .slide-num{min-width:38px; height:38px; padding:0 9px; font-size:11px;}
+    thead th.corner{min-width:140px; padding-left:10px; font-size:9px;}
+    tbody td.row-label{font-size:11px; padding:8px 10px;}
+    table.single tbody td.blank{min-width:60px;}
+    .agenda-grid{grid-template-columns:1fr;}
+    .toast-stack{top:74px; right:12px; left:12px;}
+    .toast{min-width:0; max-width:100%;}
+    .status-bar{padding:10px 14px; font-size:11.5px;}
+    .admin-tab{padding:12px 10px; font-size:11.5px;}
+    .admin-body{padding:18px 16px;}
+    .admin-footer{padding:12px 16px 14px; flex-direction:column; align-items:stretch;}
+    .admin-footer-actions{width:100%;}
+    .admin-footer-actions .admin-btn{flex:1; justify-content:center;}
+  }
+
+  @page{size:A4 landscape; margin:0;}
+  @media print{
+    body{background:#fff !important;}
+    .nav,.page-foot,.admin-overlay,.dl-overlay,.toast-stack,.status-bar{display:none !important;}
+    main{max-width:none; padding:0; margin:0;}
+    .slide{break-after:page; page-break-after:always;
+      break-inside:avoid; page-break-inside:avoid;
+      box-shadow:none !important; border-radius:0 !important;
+      margin:0 !important; border:0 !important;}
+    .slide:last-child{break-after:auto; page-break-after:auto;}
+    .slide::before{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">
+      <div class="logo">S</div>
+      <div class="brand-text">
+        <strong id="navTitle">Okul Gelişimi ve Akademik Başarıyı İzleme ve Değerlendirme Raporu</strong>
+        <span id="navSubtitle">Samsat İlçe MEM · 2026–2027</span>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn active" id="editBtn" data-tip="Düzenleme Modu">🖊️</button>
+      <button class="icon-btn" id="saveBtn" data-tip="PDF Olarak Kaydet">💾</button>
+      <button class="icon-btn" id="loadBtn" data-tip="Proje Yükle">📂</button>
+      <span class="divider"></span>
+      <button class="icon-btn" id="printBtn" data-tip="Yazdır">🖨️</button>
+      <button class="icon-btn admin" id="adminBtn" data-tip="Admin Paneli">⚙️</button>
+      <span class="divider"></span>
+      <button class="btn-pdf" id="pdfDirectBtn" title="PDF olarak indir">
+        <span>📄</span><span class="lbl">PDF İndir</span>
+      </button>
+      <button class="btn-outline" id="downloadBtn" title="Diğer formatlar">
+        <span>⬇</span><span class="lbl">Formatlar</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<input type="file" id="fileInput" accept=".json,application/json" style="display:none">
+
+<main>
+  <div class="status-bar">
+    <div class="status-group">
+      <div class="status-item" id="saveStatus">
+        <span class="status-dot live"></span>
+        <span>Otomatik kayıt: <b id="saveStatusText">Aktif</b></span>
+      </div>
+      <div class="status-item mode-on" id="modeStatus">
+        <span class="status-dot"></span>
+        <span>Mod: <b id="modeStatusText">Düzenleme</b></span>
+      </div>
+    </div>
+    <div class="status-group">
+      <div class="status-item">
+        <span>📄 <b id="filledCount">0</b> / <span id="totalCount">0</span> hücre dolu</span>
+      </div>
+      <div class="status-item">
+        <span>🕒 <b id="lastUpdate">—</b></span>
+      </div>
+    </div>
+  </div>
+  <div id="slides"></div>
+</main>
+
+<footer class="page-foot" id="pageFooter">
+  Samsat İlçe Milli Eğitim Müdürlüğü · Okul Gelişimi ve Akademik Başarıyı İzleme ve Değerlendirme Raporu · 21.09.2026
+</footer>
+
+<!-- ADMIN PANELİ -->
+<div class="admin-overlay" id="adminOverlay">
+  <div class="admin-modal">
+    <div class="admin-header">
+      <div class="admin-header-left">
+        <div class="admin-header-icon">⚙️</div>
+        <div>
+          <h2>Admin Paneli</h2>
+          <p>İçerikleri düzenle, ekle veya sil</p>
+        </div>
+      </div>
+      <button class="admin-close" id="adminClose">✕</button>
+    </div>
+
+    <!-- LOGIN -->
+    <div id="adminLogin">
+      <div class="login-box">
+        <div class="login-icon">🔒</div>
+        <h3>Yönetici Girişi</h3>
+        <p>Devam etmek için şifreyi girin</p>
+        <input type="password" id="adminPassword" placeholder="••••••••" autocomplete="off">
+        <div class="login-error" id="loginError"></div>
+        <button class="admin-btn admin-btn-primary" id="loginBtn" style="margin-top:14px;justify-content:center;width:100%">
+          <span>🔓</span><span>Giriş Yap</span>
+        </button>
+        <p style="font-size:11px;color:var(--gray-400);margin-top:14px">
+          Varsayılan şifre: <b style="color:var(--orange-600)">admin2026</b>
+        </p>
+      </div>
+    </div>
+
+    <!-- PANEL -->
+    <div id="adminPanel" style="display:none;flex-direction:column;flex:1;overflow:hidden">
+      <div class="admin-tabs">
+        <button class="admin-tab active" data-tab="general">📋 Genel Bilgiler</button>
+        <button class="admin-tab" data-tab="slides">📑 Slaytlar</button>
+        <button class="admin-tab" data-tab="agenda">🎯 Gündem</button>
+        <button class="admin-tab" data-tab="backup">💾 Yedek / Sıfırla</button>
+      </div>
+
+      <div class="admin-body">
+        <!-- GENEL -->
+        <div class="admin-panel active" data-panel="general">
+          <div class="admin-empty-hint">Buradaki değişiklikler kaydedildiğinde tüm rapor (kapak, navbar, PDF) otomatik güncellenir.</div>
+
+          <div class="admin-field">
+            <label>Rapor Başlığı (Uzun)</label>
+            <input type="text" id="inpTitleLong">
+          </div>
+          <div class="admin-field">
+            <label>Rapor Başlığı (Kısa — PDF üst bilgi)</label>
+            <input type="text" id="inpTitleShort">
+          </div>
+          <div class="admin-row">
+            <div class="admin-field">
+              <label>Kurum</label>
+              <input type="text" id="inpAuthor">
+            </div>
+            <div class="admin-field">
+              <label>Okul Adı</label>
+              <input type="text" id="inpSchool">
+            </div>
+          </div>
+          <div class="admin-row">
+            <div class="admin-field">
+              <label>Eğitim Öğretim Yılı</label>
+              <input type="text" id="inpYear">
+            </div>
+            <div class="admin-field">
+              <label>Dosya Adı (uzantısız)</label>
+              <input type="text" id="inpFilename">
+            </div>
+          </div>
+          <div class="admin-row">
+            <div class="admin-field">
+              <label>Rapor Tarihi (Kapak)</label>
+              <input type="text" id="inpDate">
+            </div>
+            <div class="admin-field">
+              <label>Admin Şifresi</label>
+              <input type="text" id="inpPassword">
+            </div>
+          </div>
+
+          <div class="admin-field">
+            <label>Kapak Alt Metni</label>
+            <input type="text" id="inpCoverSub">
+          </div>
+
+          <div class="admin-row">
+            <div class="admin-field">
+              <label>Kapak — 1. İstatistik Değeri</label>
+              <input type="text" id="inpStat1v">
+            </div>
+            <div class="admin-field">
+              <label>Kapak — 1. İstatistik Etiketi</label>
+              <input type="text" id="inpStat1l">
+            </div>
+          </div>
+          <div class="admin-row">
+            <div class="admin-field">
+              <label>Kapak — 2. İstatistik Değeri</label>
+              <input type="text" id="inpStat2v">
+            </div>
+            <div class="admin-field">
+              <label>Kapak — 2. İstatistik Etiketi</label>
+              <input type="text" id="inpStat2l">
+            </div>
+          </div>
+          <div class="admin-row">
+            <div class="admin-field">
+              <label>Kapak — 3. İstatistik Değeri</label>
+              <input type="text" id="inpStat3v">
+            </div>
+            <div class="admin-field">
+              <label>Kapak — 3. İstatistik Etiketi</label>
+              <input type="text" id="inpStat3l">
+            </div>
+          </div>
+
+          <div class="admin-field">
+            <label>Sayfa Alt Yazısı (Footer)</label>
+            <input type="text" id="inpPageFooter">
+          </div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+            <button class="admin-btn admin-btn-primary" id="saveGeneral">
+              <span>💾</span><span>Genel Bilgileri Kaydet</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- SLAYT LİSTESİ -->
+        <div class="admin-panel" data-panel="slides">
+          <div class="admin-empty-hint">Slaytları düzenlemek için kalem ikonuna, silmek için çöp kutusuna tıklayın. Yeni slayt ekleyebilirsiniz.</div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
+            <button class="admin-btn admin-btn-primary" id="addSlideBtn">
+              <span>➕</span><span>Yeni Slayt Ekle</span>
+            </button>
+            <button class="admin-btn admin-btn-ghost" id="resetSlidesBtn">
+              <span>↻</span><span>Varsayılan Slaytlara Dön</span>
+            </button>
+          </div>
+
+          <div class="slide-list" id="slideList"></div>
+        </div>
+
+        <!-- GÜNDEM -->
+        <div class="admin-panel" data-panel="agenda">
+          <div class="admin-empty-hint">Rapor Gündemi kartlarındaki gelişim alanlarını düzenleyin.</div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
+            <button class="admin-btn admin-btn-primary" id="addAgendaBtn">
+              <span>➕</span><span>Yeni Kart Ekle</span>
+            </button>
+            <button class="admin-btn admin-btn-ghost" id="resetAgendaBtn">
+              <span>↻</span><span>Varsayılana Dön</span>
+            </button>
+          </div>
+
+          <div class="slide-list" id="agendaList"></div>
+        </div>
+
+        <!-- YEDEK -->
+        <div class="admin-panel" data-panel="backup">
+          <div class="admin-empty-hint">Tüm rapor yapılandırmasını (başlıklar + slaytlar + gündem + hücre verileri) tek dosyada yedekleyin.</div>
+
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px">
+            <button class="admin-btn admin-btn-primary" id="backupBtn">
+              <span>💾</span><span>Tam Yedek İndir (JSON)</span>
+            </button>
+            <button class="admin-btn admin-btn-navy" id="restoreBtn">
+              <span>📂</span><span>Yedekten Geri Yükle</span>
+            </button>
+          </div>
+
+          <div class="admin-field">
+            <label>Fabrika Ayarlarına Dön</label>
+            <div style="background:#fff5f5;border:1px solid #fecaca;border-radius:10px;padding:14px;font-size:12.5px;color:#991b1b;font-weight:600;margin-bottom:12px">
+              ⚠️ Bu işlem tüm özelleştirmeleri, eklenen slaytları ve girilen verileri <b>siler</b>. Rapor orijinal haline döner. Geri alınamaz.
+            </div>
+            <button class="admin-btn admin-btn-danger" id="factoryResetBtn">
+              <span>🗑</span><span>Tüm Verileri Sıfırla</span>
+            </button>
+          </div>
+
+          <div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--gray-200)">
+            <div style="font-size:11.5px;font-weight:800;color:var(--gray-600);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px">
+              Depolama Bilgisi
+            </div>
+            <div style="font-size:12.5px;color:var(--gray-500);line-height:1.7">
+              <div>Tüm veriler tarayıcıda <b>localStorage</b> üzerinde saklanır.</div>
+              <div>Farklı bir bilgisayarda açmak için yedek dosyasını kullanın.</div>
+              <div id="storageStats" style="margin-top:8px;font-weight:700;color:var(--navy-800)"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-footer">
+        <div class="admin-footer-info" id="adminFooterInfo">Hazır</div>
+        <div class="admin-footer-actions">
+          <button class="admin-btn admin-btn-ghost" id="adminLogout">🚪 Çıkış Yap</button>
+          <button class="admin-btn admin-btn-navy" id="adminCloseFooter">Kapat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLAYT DÜZENLEME ALT PANELİ -->
+<div class="admin-overlay" id="slideEditOverlay">
+  <div class="admin-modal" style="width:min(720px,100%)">
+    <div class="admin-header">
+      <div class="admin-header-left">
+        <div class="admin-header-icon">📝</div>
+        <div>
+          <h2 id="slideEditTitle">Slaytı Düzenle</h2>
+          <p id="slideEditSub">Metinleri ve satırları düzenle</p>
+        </div>
+      </div>
+      <button class="admin-close" id="slideEditClose">✕</button>
+    </div>
+
+    <div class="admin-body">
+      <div class="admin-field">
+        <label>Slayt Başlığı</label>
+        <input type="text" id="seTitle">
+      </div>
+      <div class="admin-field">
+        <label>Açıklama</label>
+        <textarea id="seDesc" rows="2"></textarea>
+      </div>
+      <div class="admin-row">
+        <div class="admin-field">
+          <label>Kategori Etiketi</label>
+          <input type="text" id="seCat" placeholder="🎓 Akademik Gelişim">
+        </div>
+        <div class="admin-field">
+          <label>Tablo Tipi</label>
+          <select id="seMode">
+            <option value="HG">H / G (Hedef / Gerçekleşen)</option>
+            <option value="EH">E / H (Evet / Hayır)</option>
+            <option value="SINGLE">SINGLE (Tek sütun E/H)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;margin:18px 0 10px">
+        <label style="font-size:11.5px;font-weight:800;color:var(--gray-600);letter-spacing:.06em;text-transform:uppercase">
+          Tablo Satırları
+        </label>
+        <button class="admin-btn admin-btn-primary admin-btn-sm" id="addRowBtn">
+          <span>➕</span><span>Satır Ekle</span>
+        </button>
+      </div>
+
+      <div id="rowEditorList"></div>
+    </div>
+
+    <div class="admin-footer">
+      <div class="admin-footer-info">Satırları yukarı/aşağı taşı, düzenle veya sil</div>
+      <div class="admin-footer-actions">
+        <button class="admin-btn admin-btn-ghost" id="slideEditCancel">Vazgeç</button>
+        <button class="admin-btn admin-btn-primary" id="slideEditSave">💾 Kaydet</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- DİĞER FORMATLAR MODALI -->
+<div class="dl-overlay" id="dlOverlay" style="position:fixed;inset:0;z-index:9998;background:rgba(4,16,42,.68);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .28s ease;padding:20px">
+  <div class="dl-modal" style="background:#fff;border-radius:24px;width:min(720px,100%);max-height:90vh;overflow:hidden;box-shadow:0 32px 72px -20px rgba(4,16,42,.45);transform:scale(.94) translateY(20px);transition:transform .35s cubic-bezier(.34,1.56,.64,1);display:flex;flex-direction:column">
+    <div class="admin-header">
+      <div class="admin-header-left">
+        <div class="admin-header-icon">📥</div>
+        <div>
+          <h2>Diğer Formatlar</h2>
+          <p>Excel, JSON veya yazdırma seçenekleri</p>
+        </div>
+      </div>
+      <button class="admin-close" id="dlClose">✕</button>
+    </div>
+    <div class="admin-body">
+      <div class="admin-field">
+        <label>Dosya Adı</label>
+        <input type="text" id="filenameInput">
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
+        <button class="admin-btn admin-btn-navy" id="dlExcel" style="justify-content:center;padding:16px">
+          <span>📊</span><span>Excel (CSV)</span>
+        </button>
+        <button class="admin-btn admin-btn-navy" id="dlJson" style="justify-content:center;padding:16px">
+          <span>🗂️</span><span>JSON Yedek</span>
+        </button>
+        <button class="admin-btn admin-btn-navy" id="dlPrint" style="justify-content:center;padding:16px">
+          <span>🖨️</span><span>Yazdır</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PDF OVERLAY -->
+<div class="dl-overlay" id="pdfOverlay" style="position:fixed;inset:0;z-index:9998;background:rgba(4,16,42,.68);backdrop-filter:blur(10px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .28s ease;padding:20px">
+  <div style="background:#fff;border-radius:24px;width:min(420px,90vw);box-shadow:0 32px 72px -20px rgba(4,16,42,.45);text-align:center;padding:40px 34px 30px">
+    <div style="width:64px;height:64px;margin:0 auto 18px;border-radius:50%;border:4px solid #e2e8f0;border-top-color:#ff6b2c;border-right-color:#133a72;animation:spin .9s linear infinite"></div>
+    <h3 style="font-size:17px;font-weight:800;color:#061631;margin-bottom:6px">PDF Hazırlanıyor</h3>
+    <p style="font-size:12.5px;color:#64748b;margin-bottom:22px">Sayfalar işleniyor, lütfen bekleyin…</p>
+    <div style="height:10px;border-radius:100px;background:#e2e8f0;overflow:hidden;margin-bottom:10px">
+      <div id="pdfProgressFill" style="height:100%;width:0%;background:linear-gradient(90deg,#133a72,#ff6b2c);border-radius:100px;transition:width .3s ease"></div>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:space-between;font-size:12px;color:#64748b;font-weight:700">
+      <span id="pdfStatusText">Hazırlanıyor…</span>
+      <span style="color:#e8571a;font-size:13px" id="pdfPercent">%0</span>
+    </div>
+  </div>
+</div>
+
+<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
+
+<div id="pdfStage" aria-hidden="true" style="position:fixed;top:0;left:0;width:297mm;height:210mm;z-index:-100;pointer-events:none;background:#fff;overflow:hidden"></div>
+<div class="toast-stack" id="toastStack"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+/* =====================================================
+   VARSAYILAN YAPILANDIRMA (Fabrika Ayarları)
+===================================================== */
+const DEFAULT_CONFIG = {
+  title: "Okul Gelişimi ve Akademik Başarıyı İzleme ve Değerlendirme Raporu",
+  titleShort: "Okul Gelişimi ve Akademik Başarıyı İzleme Raporu",
+  author: "Samsat İlçe Milli Eğitim Müdürlüğü",
+  school: "......................... ORTAOKULU / LİSESİ",
+  year: "2026 – 2027 Eğitim Öğretim Yılı",
+  filename: "Okul-Gelisimi-Akademik-Basari-İzleme-Raporu",
+  date: "21.09.2026",
+  password: "admin2026",
+  coverSub: "SAMSAT İLÇE MİLLİ EĞİTİM MÜDÜRLÜĞÜ",
+  pageFooter: "Samsat İlçe Milli Eğitim Müdürlüğü · Okul Gelişimi ve Akademik Başarıyı İzleme ve Değerlendirme Raporu · 21.09.2026",
+  stats: [
+    { value: "17", label: "Sayfa" },
+    { value: "16", label: "Performans Tablosu" },
+    { value: "10", label: "Ay Takibi" }
+  ]
+};
+
+const DEFAULT_AGENDA = [
+  { icon:"🎓", title:"Akademik Gelişim",     desc:"Öğrenci öğrenme düzeyleri ve akademik gelişim" },
+  { icon:"🧠", title:"Beceri Gelişimi",      desc:"Öğrenme çıktıları ve beceri gelişimi" },
+  { icon:"❤️", title:"Değerler Eğitimi",     desc:"Değerlerin eğitim süreçlerine yansıtılması" },
+  { icon:"👤", title:"Öğrenci Profili",      desc:"Bütüncül öğrenci gelişiminin izlenmesi" },
+  { icon:"🏫", title:"Okul Gelişimi",        desc:"Okulun gelişim alanları ve ihtiyaçları" },
+  { icon:"📊", title:"İzleme-Değerlendirme", desc:"Verilerin analizi ve gelişim göstergeleri" },
+  { icon:"🎯", title:"Eylem Planı",          desc:"Tespit edilen ihtiyaçlara yönelik çalışmalar" }
+];
+
+const DEFAULT_SLIDES = [
+  { type:"cover" },
+  { type:"agenda",
+    title:"Rapor Gündemi",
+    desc:"Okul gelişimi ve akademik başarının izlenmesinde yedi temel gelişim alanı." },
+  { title:"Koçluk ve İletişim Faaliyetleri",
+    desc:"Aylık koçluk toplantıları, öğrenci ve veli görüşme/ziyaret sayıları.",
+    cat:"🎓 Akademik Gelişim", mode:"HG",
+    rows:["Koçluk Değerlendirme Toplantı Sayısı","Öğrenci Görüşme Sayısı","Veli Görüşme Sayısı","Veli Toplantı Sayısı","Veli Ziyaret Sayısı"] },
+  { title:"Kariyer Rehberliği",
+    desc:"Kariyer rehberliği kapsamında yürütülen faaliyetler ve katılım oranları.",
+    cat:"👤 Öğrenci Profili", mode:"HG",
+    rows:["Kariyer Rehberliği Faaliyet Sayısı","Faaliyete Katılan Öğrenci Oranı (%)","AÇIKLAMA"] },
+  { title:"Sosyal, Kültürel ve Sanatsal Faaliyetler",
+    desc:"Bilimsel, kültürel, sportif ve sanatsal faaliyetler ile katılım oranları.",
+    cat:"❤️ Değerler Eğitimi", mode:"HG",
+    rows:["Bilimsel Faaliyet Sayısı","Bilimsel Faaliyetlere Katılan Öğrenci Oranı (%)","Kültürel Faaliyet Sayısı","Kültürel Faaliyetlere Katılan Öğrenci Oranı (%)","Sporsal Faaliyet Sayısı","Sporsal Faaliyetlere Katılan Öğrenci Oranı (%)","Sanatsal Faaliyet Sayısı","Sanatsal Faaliyetlere Katılan Öğrenci Oranı (%)"] },
+  { title:"Sosyal Sorumluluk Faaliyetleri",
+    desc:"Sosyal sorumluluk kapsamında yapılan faaliyetler ve öğrenci katılımı.",
+    cat:"❤️ Değerler Eğitimi", mode:"HG",
+    rows:["Sosyal Sorumluluk Faaliyet Sayısı","Faaliyete Katılan Öğrenci Oranı (%)"] },
+  { title:"EBA – MEBİ Kullanımı",
+    desc:"Öğrenci ve öğretmenlerin dijital platform kullanım oranları.",
+    cat:"🧠 Beceri Gelişimi", mode:"HG",
+    rows:["EBA Kullanım Oranı (Öğrenci)","EBA Kullanım Oranı (Öğretmen)","MEBİ Kullanım Oranı (Öğrenci)","MEBİ Kullanım Oranı (Öğretmen)"] },
+  { title:"Devamsızlık Oranı",
+    desc:"Aylık devamsızlık oranı ve devamı sağlanan öğrenci sayısı.",
+    cat:"📊 İzleme-Değerlendirme", mode:"HG",
+    rows:["Devamsızlık Oranı (%)","Devamsız Olup Devamı Sağlanan Öğrenci Sayısı","AÇIKLAMA"] },
+  { title:"Dilimizin Zenginlikleri",
+    desc:"Dilimizin Zenginlikleri projesi kapsamında yürütülen çalışmalar.",
+    cat:"❤️ Değerler Eğitimi", mode:"HG",
+    rows:["Dilimizin Zenginlikleri Kapsamında Yapılan Etkinlik Sayısı","Etkinliklere Katılan Öğrenci Oranı (%)","AÇIKLAMA"] },
+  { title:"Çevreme Duyarlıyım, Değerlerime Sahip Çıkıyorum (ÇEDES)",
+    desc:"ÇEDES projesi kapsamında öğretmen ve öğrenci katılımı.",
+    cat:"❤️ Değerler Eğitimi", mode:"HG",
+    rows:["Faaliyete Katılan Öğretmen Sayısı","Faaliyete Katılan Öğrenci Oranı (%)"] },
+  { title:"Kütüphane Kullanımı",
+    desc:"Kütüphane kitap varlığı, yararlanma ve öğrenci kullanım oranı.",
+    cat:"🎓 Akademik Gelişim", mode:"HG",
+    rows:["Kütüphanedeki Kitap Sayısı","Kütüphaneden Yararlanılan Kitap Sayısı","Kütüphanede Yararlanan Öğrenci Oranı (%)","AÇIKLAMA"] },
+  { title:"Okuma Etkinlikleri",
+    desc:"Okunan kitap sayıları ve okuma kültürünü artırmaya yönelik etkinlikler.",
+    cat:"🎓 Akademik Gelişim", mode:"HG",
+    rows:["Okunan Kitap Sayısı","Öğrenci Başına Okunan Kitap Sayısı","Okuma Kültürünü Arttırmaya Yönelik Etkinliklere Katılan Öğrenci Oranı (%)"] },
+  { title:"Hizmet İçi Eğitim",
+    desc:"Öğretmen ve yöneticilerin hizmet içi eğitim katılım verileri.",
+    cat:"🏫 Okul Gelişimi", mode:"HG",
+    rows:["Hizmet İçi Eğitim Programlarına Katılan Öğretmen Sayısı","Öğretmen Başına Düşen Yıllık Hizmet İçi Eğitim Süresi (Dakika)","Hizmet İçi Eğitim Programlarına Katılan Yönetici Sayısı"] },
+  { title:"Proje ve Patent",
+    desc:"Yürütülen projeler, patent/faydalı model başvuruları ve katılım.",
+    cat:"🏫 Okul Gelişimi", mode:"HG",
+    rows:["Yürütülen Proje Sayısı","Patent / Faydalı Model Başvuru Sayısı","Projelere Katılan Öğrenci Oranı (%)","AÇIKLAMA"] },
+  { title:"Yarışmalar ve Akademik Etkinlikler",
+    desc:"Yarışmalarda derece alan öğrenci sayıları ve çözülen soru sayıları.",
+    cat:"🎓 Akademik Gelişim", mode:"HG",
+    rows:["Hikâye Yazma Yarışmasında Derece Alan Öğrenci Sayısı","Kompozisyon Yarışmasında Dereceye Giren Öğrenci Sayısı","Anı Yazma Yarışmasında Dereceye Giren Öğrenci Sayısı","7/8 ve 11/12. Sınıflarda Çözülen Soru Sayısı","Şiir Okuma Yarışmasında Dereceye Giren Öğrenci Sayısı"] },
+  { title:"Okul Rehberlik Servisi Çalışmaları",
+    desc:"Akademik başarıyı artırmaya yönelik seminer, toplantı ve bireysel görüşmeler.",
+    cat:"👤 Öğrenci Profili", mode:"HG",
+    rows:["Düzenlenen Seminer Sayısı","Yapılan Toplantı Sayısı","Bireysel Görüşme Sayısı","Veli Görüşme Sayısı","AÇIKLAMA"] },
+  { title:"Değerlendirme Sonuçlarına Göre Alınan Önlemler",
+    desc:"Ölçme ve değerlendirme sonuçlarına göre alınan önlemlerin aylık gerçekleşme durumu (E/H).",
+    cat:"📊 İzleme-Değerlendirme", mode:"SINGLE",
+    rows:[
+      "Ders öğretmenleri tarafından öğrencilere ölçme ve değerlendirme sonuçlarına ilişkin geri bildirim sağlandı mı?",
+      "Belirlenen öğrenme eksikliklerine yönelik telafi ve destekleyici eğitim çalışmaları yapıldı mı?",
+      "Ünite/konu izleme ve değerlendirme çalışmaları gerçekleştirildi mi?",
+      "EBA ve MEBİ üzerinden öğrencilerin öğrenme süreçlerini destekleyici çalışmalar/ödevler verildi ve takibi yapıldı mı?",
+      "Öğrencilerin akademik gelişimleri sınıf/alan öğretmenleri ve rehberlik servisi iş birliğiyle takip edildi mi?"
+    ] },
+  { title:"Projelerin Uygulanması ve Takibi",
+    desc:"Proje ve okuma etkinliklerinin uygulanma durumunun aylık takibi.",
+    cat:"🎯 Eylem Planı", mode:"EH",
+    rows:["“Öncü Şahsiyetler ve Mimari Harikalar” sunumları yapılıyor mu?","İlgili görsel pano, afiş veya duyuru çalışmaları yapılıyor mu?","Okul kütüphanesi veya sınıf kitaplığı okuma saatleri için etkin kullanılıyor mu?","Okuma saatlerinden sonra kitaplarla ilgili paylaşım/değerlendirme yapılıyor mu?","Veliler, evde okuma etkinliklerini destekliyor mu?"] }
+];
+
+/* =====================================================
+   STATE YÖNETİMİ
+===================================================== */
+const CONFIG_KEY = "rapor-config";
+const AGENDA_KEY = "rapor-agenda";
+const SLIDES_KEY = "rapor-slides";
+const CELL_PREFIX = "rapor-cell-";
+const META_KEY = "rapor-meta";
+
+let CONFIG = loadJSON(CONFIG_KEY, DEFAULT_CONFIG);
+let AGENDA = loadJSON(AGENDA_KEY, DEFAULT_AGENDA);
+let SLIDES = loadJSON(SLIDES_KEY, DEFAULT_SLIDES);
+
+function loadJSON(key, fallback){
+  try{
+    const raw = localStorage.getItem(key);
+    if (!raw) return JSON.parse(JSON.stringify(fallback));
+    return JSON.parse(raw);
+  }catch(e){
+    return JSON.parse(JSON.stringify(fallback));
+  }
+}
+function saveJSON(key, val){
+  localStorage.setItem(key, JSON.stringify(val));
+}
+function saveConfig(){ saveJSON(CONFIG_KEY, CONFIG); }
+function saveAgenda(){ saveJSON(AGENDA_KEY, AGENDA); }
+function saveSlides(){ saveJSON(SLIDES_KEY, SLIDES); }
+
+const MONTHS = ["EYLÜL","EKİM","KASIM","ARALIK","OCAK","ŞUBAT","MART","NİSAN","MAYIS","HAZİRAN"];
+const pad = n => String(n).padStart(2,"0");
+
+/* =====================================================
+   TOAST
+===================================================== */
+function toast(message, type = "info", icon){
+  const stack = document.getElementById("toastStack");
+  const el = document.createElement("div");
+  el.className = "toast " + type;
+  const icons = { success:"✓", error:"✕", info:"ℹ" };
+  el.innerHTML = `<span class="toast-icon">${icon || icons[type] || "•"}</span><span class="toast-text">${message}</span>`;
+  stack.appendChild(el);
+  setTimeout(() => { el.classList.add("out"); setTimeout(() => el.remove(), 320); }, 2600);
+}
+
+/* =====================================================
+   RENDER — ANA RAPOR
+===================================================== */
+function legend(mode){
+  if (mode === "EH" || mode === "SINGLE"){
+    return `<div class="legend">
+      <span class="chip"><i class="e"></i>E · Evet</span>
+      <span class="chip"><i class="n"></i>H · Hayır</span>
+    </div>`;
+  }
+  return `<div class="legend">
+    <span class="chip"><i class="h"></i>H · Hedef</span>
+    <span class="chip"><i class="g"></i>G · Gerçekleşen</span>
+  </div>`;
+}
+
+function buildTable(rows, mode, slideIdx){
+  const isSingle = mode === "SINGLE";
+  const subs = mode === "EH" ? ["E","H"] : ["H","G"];
+  const colCount = isSingle ? MONTHS.length : MONTHS.length * 2;
+  let html = '<div class="table-wrap"><table class="' + (isSingle ? "single" : "") + '">';
+  html += "<thead><tr>";
+  html += `<th class="corner" rowspan="${isSingle ? 1 : 2}">FAALİYET</th>`;
+  if (isSingle){ MONTHS.forEach(m => html += `<th>${m}</th>`); }
+  else { MONTHS.forEach(m => html += `<th colspan="2">${m}</th>`); }
+  html += "</tr>";
+  if (!isSingle){
+    html += '<tr class="sub">';
+    MONTHS.forEach(() => subs.forEach(s => html += `<th>${s}</th>`));
+    html += "</tr>";
+  }
+  html += "</thead><tbody>";
+  rows.forEach((label, r) => {
+    html += `<tr><td class="row-label">${escapeHTML(label)}</td>`;
+    for (let c = 0; c < colCount; c++){
+      const key = `s${slideIdx}-r${r}-c${c}`;
+      const saved = localStorage.getItem(CELL_PREFIX + key) || "";
+      const ph = isSingle ? "E / H" : "—";
+      html += `<td class="blank" contenteditable="true" spellcheck="false" data-key="${key}" data-ph="${ph}">${escapeHTML(saved)}</td>`;
+    }
+    html += "</tr>";
+  });
+  html += "</tbody></table></div>";
+  return html;
+}
+
+function escapeHTML(s){
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+}
+
+function renderReport(){
+  // Navbar
+  document.getElementById("navTitle").textContent = CONFIG.title;
+  document.getElementById("navSubtitle").textContent = CONFIG.author + " · " + CONFIG.year.replace(" Eğitim Öğretim Yılı","");
+  document.getElementById("pageFooter").textContent = CONFIG.pageFooter;
+  document.title = CONFIG.title + " · 2026";
+
+  const root = document.getElementById("slides");
+  root.innerHTML = "";
+  let pageNo = 0;
+
+  SLIDES.forEach((s) => {
+    if (s.type === "cover"){
+      const sec = document.createElement("section");
+      sec.className = "slide cover";
+      sec.innerHTML = `
+        <div class="cover-inner">
+          <div class="cover-tag">${escapeHTML(CONFIG.author)}</div>
+          <h1>${escapeHTML(CONFIG.title.split(" İzleme")[0] || CONFIG.title)}<br><em>İzleme ve Değerlendirme Raporu</em></h1>
+          <div class="cover-line"></div>
+          <div class="cover-sub">${escapeHTML(CONFIG.school)}</div>
+          <div class="cover-school">${escapeHTML(CONFIG.year)}</div>
+          <div class="cover-date">${escapeHTML(CONFIG.date)}</div>
+          <div class="cover-stats">
+            ${CONFIG.stats.map(st => `
+              <div class="stat-pill"><b>${escapeHTML(st.value)}</b><span>${escapeHTML(st.label)}</span></div>
+            `).join("")}
+          </div>
+        </div>`;
+      root.appendChild(sec);
+      return;
+    }
+    if (s.type === "agenda"){
+      pageNo++;
+      const sec = document.createElement("section");
+      sec.className = "slide";
+      sec.innerHTML = `
+        <div class="slide-head">
+          <div class="slide-num">${pad(pageNo)}</div>
+          <div class="head-text">
+            <h2>${escapeHTML(s.title)}</h2>
+            <p>${escapeHTML(s.desc)}</p>
+          </div>
+        </div>
+        <div class="agenda-grid">
+          ${AGENDA.map(a => `
+            <div class="agenda-card">
+              <div class="agenda-icon">${escapeHTML(a.icon)}</div>
+              <b>${escapeHTML(a.title)}</b>
+              <span>${escapeHTML(a.desc)}</span>
+            </div>
+          `).join("")}
+        </div>
+        <div class="slide-foot">
+          <span>${escapeHTML(CONFIG.author)}</span>
+          <span>Sayfa ${pad(pageNo)} / ${pad(SLIDES.length - 1)}</span>
+        </div>`;
+      root.appendChild(sec);
+      return;
+    }
+    pageNo++;
+    const sec = document.createElement("section");
+    sec.className = "slide";
+    sec.dataset.slideIndex = pageNo;
+    sec.dataset.slideTitle = s.title;
+    sec.dataset.slideDesc  = s.desc;
+    sec.dataset.slideCat   = s.cat || CONFIG.author;
+    sec.dataset.slideMode  = s.mode;
+    sec.dataset.slideRows  = JSON.stringify(s.rows);
+    sec.innerHTML = `
+      <div class="slide-head">
+        <div class="slide-num">${pad(pageNo)}</div>
+        <div class="head-text">
+          <h2>${escapeHTML(s.title)}</h2>
+          <p>${escapeHTML(s.desc)}</p>
+        </div>
+      </div>
+      ${legend(s.mode)}
+      ${buildTable(s.rows, s.mode, pageNo)}
+      <div class="slide-foot">
+        <span>${escapeHTML(s.cat || CONFIG.author)}</span>
+        <span>Sayfa ${pad(pageNo)} / ${pad(SLIDES.length - 1)}</span>
+      </div>`;
+    root.appendChild(sec);
+  });
+
+  applyEditMode();
+  updateCounters();
+}
+
+/* =====================================================
+   DÜZENLEME MODU
+===================================================== */
+const editBtn = document.getElementById("editBtn");
+const modeStatus = document.getElementById("modeStatus");
+const modeStatusText = document.getElementById("modeStatusText");
+let editMode = localStorage.getItem("rapor-edit-mode") !== "off";
+
+function applyEditMode(){
+  document.body.classList.toggle("locked", !editMode);
+  document.querySelectorAll(".blank").forEach(td => {
+    td.setAttribute("contenteditable", editMode ? "true" : "false");
+  });
+  editBtn.classList.toggle("active", editMode);
+  modeStatus.classList.toggle("mode-on", editMode);
+  modeStatus.classList.toggle("mode-off", !editMode);
+  modeStatusText.textContent = editMode ? "Düzenleme" : "Salt Okunur";
+  localStorage.setItem("rapor-edit-mode", editMode ? "on" : "off");
+}
+
+editBtn.addEventListener("click", () => {
+  editMode = !editMode;
+  applyEditMode();
+  toast(editMode ? "Düzenleme modu açıldı" : "Salt okunur moda geçildi", "info", editMode ? "🖊️" : "🔒");
+});
+
+/* =====================================================
+   OTOMATİK KAYIT
+===================================================== */
+const saveStatusText = document.getElementById("saveStatusText");
+const lastUpdate = document.getElementById("lastUpdate");
+const filledCount = document.getElementById("filledCount");
+const totalCount = document.getElementById("totalCount");
+let saveTimer = null;
+
+function updateCounters(){
+  const all = document.querySelectorAll(".blank");
+  let filled = 0;
+  all.forEach(td => { if (td.textContent.trim() !== "") filled++; });
+  filledCount.textContent = filled;
+  totalCount.textContent = all.length;
+}
+function updateTimestamp(){
+  const now = new Date();
+  lastUpdate.textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}`;
+}
+function saveMeta(){
+  localStorage.setItem(META_KEY, JSON.stringify({ lastUpdate: new Date().toISOString() }));
+}
+function loadMeta(){
+  try{
+    const meta = JSON.parse(localStorage.getItem(META_KEY) || "{}");
+    if (meta.lastUpdate){
+      const d = new Date(meta.lastUpdate);
+      lastUpdate.textContent = `${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    }
+  }catch(e){}
+}
+
+document.addEventListener("input", e => {
+  if (e.target.classList && e.target.classList.contains("blank")){
+    const key = e.target.dataset.key;
+    const val = e.target.textContent.trim();
+    if (val === "") localStorage.removeItem(CELL_PREFIX + key);
+    else localStorage.setItem(CELL_PREFIX + key, val);
+    saveStatusText.textContent = "Kaydediliyor…";
+    document.querySelector("#saveStatus .status-dot").classList.remove("live");
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => {
+      saveStatusText.textContent = "Aktif";
+      document.querySelector("#saveStatus .status-dot").classList.add("live");
+      updateTimestamp(); saveMeta(); updateCounters();
+    }, 550);
+  }
+});
+
+document.addEventListener("keydown", e => {
+  if (e.target.classList && e.target.classList.contains("blank") && editMode){
+    if (e.key === "Enter"){
+      e.preventDefault();
+      const next = e.target.nextElementSibling;
+      if (next && next.classList.contains("blank")) next.focus();
+      else {
+        const row = e.target.closest("tr");
+        const nxtRow = row && row.nextElementSibling;
+        if (nxtRow){
+          const fb = nxtRow.querySelector("td.blank");
+          if (fb) fb.focus();
+        }
+      }
+    }
+    if (e.key === "Escape") e.target.blur();
+  }
+});
+
+/* =====================================================
+   BAŞLANGIÇ
+===================================================== */
+renderReport();
+loadMeta();
+
+/* =====================================================
+   PDF SAYFA ÜRETİCİ
+===================================================== */
+function buildPDFPage(slide, pageNum, totalPages){
+  const isCover = slide.classList.contains("cover");
+  if (isCover){
+    return `
+      <div class="pdf-page pdf-cover">
+        <div class="pdf-cover-tag">${escapeHTML(CONFIG.author)}</div>
+        <h1>${escapeHTML(CONFIG.title.split(" İzleme")[0] || CONFIG.title)}<br><em>İzleme ve Değerlendirme Raporu</em></h1>
+        <div class="pdf-cover-line"></div>
+        <div class="pdf-cover-sub">${escapeHTML(CONFIG.school)}</div>
+        <div class="pdf-cover-school">${escapeHTML(CONFIG.year)}</div>
+        <div class="pdf-cover-date">${escapeHTML(CONFIG.date)}</div>
+        <div class="pdf-cover-stats">
+          ${CONFIG.stats.map(st => `
+            <div class="pdf-stat"><b>${escapeHTML(st.value)}</b><span>${escapeHTML(st.label)}</span></div>
+          `).join("")}
+        </div>
+      </div>`;
+  }
+  const title = slide.dataset.slideTitle || "";
+  const desc  = slide.dataset.slideDesc  || "";
+  const cat   = slide.dataset.slideCat   || "";
+  const mode  = slide.dataset.slideMode  || "HG";
+  const slideIdx = parseInt(slide.dataset.slideIndex) || 0;
+
+  if (!title){
+    return `
+      <div class="pdf-page">
+        <div class="pdf-page-header">
+          <div class="pdf-header-left">
+            <div class="pdf-header-logo">S</div>
+            <div class="pdf-header-text">
+              <strong>${escapeHTML(CONFIG.titleShort)}</strong>
+              <span>${escapeHTML(CONFIG.author)}</span>
+            </div>
+          </div>
+          <div class="pdf-header-right">Sayfa <b>${pad(pageNum)}</b> / ${pad(totalPages)}</div>
+        </div>
+        <div class="pdf-page-content">
+          <div class="pdf-slide-num">RAPOR GÜNDEMİ</div>
+          <div class="pdf-slide-title">Okul Gelişimi ve Akademik Başarı Alanları</div>
+          <div class="pdf-slide-desc">Okul gelişimi ve akademik başarının izlenmesinde yedi temel gelişim alanı.</div>
+          <table class="pdf-table" style="font-size:10px">
+            <tbody>
+              ${AGENDA.map(a => `
+                <tr>
+                  <td class="row-label" style="width:30%">${escapeHTML(a.icon)} ${escapeHTML(a.title)}</td>
+                  <td style="text-align:left; padding-left:12px; color:#475569">${escapeHTML(a.desc)}</td>
+                </tr>
+              `).join("")}
+            </tbody>
+          </table>
+        </div>
+        <div class="pdf-page-footer">
+          <span>© ${new Date().getFullYear()} ${escapeHTML(CONFIG.author)}</span>
+          <span>Okul Gelişimi Raporu · <b>${escapeHTML(CONFIG.date)}</b></span>
+        </div>
+      </div>`;
+  }
+
+  const isSingle = mode === "SINGLE";
+  const subs = mode === "EH" ? ["E","H"] : ["H","G"];
+  const colCount = isSingle ? MONTHS.length : MONTHS.length * 2;
+  const rows = JSON.parse(slide.dataset.slideRows || "[]");
+
+  let headerRow = `<tr><th class="corner" rowspan="${isSingle ? 1 : 2}">FAALİYET</th>`;
+  if (isSingle){ MONTHS.forEach(m => headerRow += `<th>${m}</th>`); }
+  else { MONTHS.forEach(m => headerRow += `<th colspan="2">${m}</th>`); }
+  headerRow += "</tr>";
+  if (!isSingle){
+    headerRow += "<tr class='sub'>";
+    MONTHS.forEach(() => subs.forEach(s => headerRow += `<th>${s}</th>`));
+    headerRow += "</tr>";
+  }
+
+  let bodyRows = "";
+  rows.forEach((label, r) => {
+    bodyRows += `<tr><td class="row-label">${escapeHTML(label)}</td>`;
+    for (let c = 0; c < colCount; c++){
+      const key = `s${slideIdx}-r${r}-c${c}`;
+      const val = localStorage.getItem(CELL_PREFIX + key) || "";
+      bodyRows += `<td>${val ? escapeHTML(val) : "&nbsp;"}</td>`;
+    }
+    bodyRows += "</tr>";
+  });
+
+  return `
+    <div class="pdf-page">
+      <div class="pdf-page-header">
+        <div class="pdf-header-left">
+          <div class="pdf-header-logo">S</div>
+          <div class="pdf-header-text">
+            <strong>${escapeHTML(CONFIG.titleShort)}</strong>
+            <span>${escapeHTML(CONFIG.author)}</span>
+          </div>
+        </div>
+        <div class="pdf-header-right">Sayfa <b>${pad(pageNum)}</b> / ${pad(totalPages)}</div>
+      </div>
+      <div class="pdf-page-content">
+        <div class="pdf-slide-num">${pad(slideIdx)} · ${escapeHTML(cat)}</div>
+        <div class="pdf-slide-title">${escapeHTML(title)}</div>
+        <div class="pdf-slide-desc">${escapeHTML(desc)}</div>
+        <table class="pdf-table">
+          <thead>${headerRow}</thead>
+          <tbody>${bodyRows}</tbody>
+        </table>
+      </div>
+      <div class="pdf-page-footer">
+        <span>© ${new Date().getFullYear()} ${escapeHTML(CONFIG.author)} · ${escapeHTML(cat)}</span>
+        <span>Okul Gelişimi Raporu · <b>${escapeHTML(CONFIG.date)}</b></span>
+      </div>
+    </div>`;
+}
+
+/* =====================================================
+   PDF STİLLERİ (dynamic)
+===================================================== */
+const pdfStyles = document.createElement("style");
+pdfStyles.textContent = `
+.pdf-page{width:297mm;height:210mm;background:#fff;position:relative;padding:12mm 14mm 16mm;box-sizing:border-box;font-family:"Inter","Segoe UI",Arial,sans-serif;color:#0e211d;overflow:hidden;}
+.pdf-page-header{display:flex;align-items:center;justify-content:space-between;padding-bottom:5mm;border-bottom:2px solid #061631;margin-bottom:6mm;}
+.pdf-header-left{display:flex;align-items:center;gap:10px;}
+.pdf-header-logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,#133a72,#061631);color:#fff;font-weight:800;font-size:15px;display:grid;place-items:center;position:relative;}
+.pdf-header-logo::after{content:"";position:absolute;width:6px;height:6px;background:#ff6b2c;border-radius:50%;top:3px;right:3px;}
+.pdf-header-text{display:flex;flex-direction:column;gap:1px;max-width:150mm;}
+.pdf-header-text strong{font-size:10px;font-weight:800;color:#061631;letter-spacing:.04em;text-transform:uppercase;line-height:1.25;}
+.pdf-header-text span{font-size:8px;color:#64748b;font-weight:600;letter-spacing:.12em;text-transform:uppercase;}
+.pdf-header-right{text-align:right;font-size:8.5px;color:#64748b;letter-spacing:.12em;text-transform:uppercase;font-weight:700;}
+.pdf-header-right b{color:#ff6b2c;font-weight:800;}
+.pdf-page-content{flex:1;}
+.pdf-slide-num{display:inline-block;background:linear-gradient(135deg,#133a72,#061631);color:#fff;font-size:10px;font-weight:800;letter-spacing:.06em;padding:4px 10px;border-radius:6px;margin-bottom:3mm;}
+.pdf-slide-title{font-size:15px;font-weight:800;color:#061631;letter-spacing:-.01em;line-height:1.25;text-transform:uppercase;margin-bottom:2mm;}
+.pdf-slide-desc{font-size:10px;color:#64748b;font-weight:500;margin-bottom:5mm;line-height:1.45;}
+.pdf-table{width:100%;border-collapse:collapse;font-size:8.5px;border:1px solid #cbd5e1;border-radius:6px;overflow:hidden;}
+.pdf-table thead th{background:linear-gradient(180deg,#0b2350,#133a72);color:#fff;font-size:7.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 4px;text-align:center;border-right:1px solid rgba(255,255,255,.12);border-bottom:1px solid #061631;}
+.pdf-table thead tr.sub th{background:#133a72;font-size:7px;padding:4px 3px;}
+.pdf-table thead th.corner{text-align:left;padding-left:10px;background:linear-gradient(135deg,#061631,#133a72);border-right:2px solid #ff6b2c;}
+.pdf-table tbody td{padding:5px 6px;border-bottom:1px solid #e2e8f0;border-right:1px solid #e2e8f0;font-size:8.5px;text-align:center;color:#0b2350;font-weight:600;height:14px;}
+.pdf-table tbody td.row-label{text-align:left;padding:5px 10px;background:#f8fafc;font-weight:700;color:#061631;border-right:2px solid #e2e8f0;font-size:8.5px;}
+.pdf-table tbody tr:nth-child(even) td:not(.row-label){background:#f8fafc;}
+.pdf-page-footer{position:absolute;left:14mm;right:14mm;bottom:7mm;display:flex;align-items:center;justify-content:space-between;padding-top:3mm;border-top:1px solid #e2e8f0;font-size:8px;color:#94a3b8;letter-spacing:.12em;text-transform:uppercase;font-weight:700;}
+.pdf-page-footer b{color:#133a72;font-weight:800;}
+.pdf-cover{background:radial-gradient(400px 300px at 85% 10%,rgba(255,140,66,.28),transparent 65%),radial-gradient(400px 400px at 5% 100%,rgba(28,74,142,.5),transparent 60%),linear-gradient(140deg,#061631 0%,#0b2350 48%,#04102a 100%);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20mm;}
+.pdf-cover-tag{display:inline-block;font-size:9px;font-weight:800;letter-spacing:.3em;color:#ffb07c;text-transform:uppercase;border:1px solid rgba(255,140,66,.4);background:rgba(255,107,44,.12);padding:6px 16px;border-radius:100px;margin-bottom:12mm;}
+.pdf-cover h1{font-size:34px;line-height:1.1;font-weight:800;letter-spacing:-.025em;color:#fff;margin-bottom:8mm;max-width:230mm;}
+.pdf-cover h1 em{font-style:normal;background:linear-gradient(100deg,#ff8c42,#ffb07c);-webkit-background-clip:text;background-clip:text;color:transparent;}
+.pdf-cover-line{width:60px;height:4px;border-radius:4px;background:linear-gradient(90deg,#ff6b2c,#ffb07c);margin:0 auto 8mm;}
+.pdf-cover-sub{font-size:12px;color:rgba(255,255,255,.72);font-weight:500;letter-spacing:.03em;}
+.pdf-cover-school{font-size:14px;color:#fff;font-weight:700;margin-top:4mm;}
+.pdf-cover-date{font-size:11px;color:#ffb07c;font-weight:800;letter-spacing:.24em;margin-top:5mm;}
+.pdf-cover-stats{display:flex;gap:5mm;margin-top:14mm;}
+.pdf-stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:8px 18px;display:flex;flex-direction:column;align-items:center;gap:2px;}
+.pdf-stat b{font-size:18px;font-weight:800;color:#fff;}
+.pdf-stat span{font-size:8px;color:rgba(255,255,255,.55);letter-spacing:.16em;text-transform:uppercase;font-weight:700;}
+`;
+document.head.appendChild(pdfStyles);
+
+/* =====================================================
+   CANVAS RENDER
+===================================================== */
+async function renderPageToCanvas(html, scale){
+  const container = document.createElement("div");
+  container.style.cssText = `position:fixed;top:0;left:0;width:297mm;height:210mm;z-index:-100;pointer-events:none;background:#ffffff;overflow:hidden;`;
+  container.innerHTML = html;
+  document.body.appendChild(container);
+  const target = container.firstElementChild;
+  await new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r)));
+  await new Promise(r => setTimeout(r, 60));
+  if (typeof html2canvas !== "function"){
+    container.remove();
+    throw new Error("html2canvas yüklenemedi");
+  }
+  const canvas = await html2canvas(target, {
+    scale: scale, useCORS: true, allowTaint: false,
+    backgroundColor: "#ffffff", logging: false,
+    width: target.offsetWidth, height: target.offsetHeight,
+    windowWidth: target.offsetWidth, windowHeight: target.offsetHeight,
+    scrollX: 0, scrollY: 0
+  });
+  container.remove();
+  return canvas;
+}
+
+/* =====================================================
+   PDF OLUŞTUR
+===================================================== */
+async function generatePDF(setProgressFn, filename, quality){
+  const scale = quality === 1 ? 1.5 : quality === 3 ? 3 : 2;
+  const jpegQuality = quality === 1 ? 0.85 : quality === 3 ? 1.0 : 0.95;
+  const slides = Array.from(document.querySelectorAll(".slide"));
+  const totalPages = slides.length;
+
+  if (!window.jspdf || !window.jspdf.jsPDF) throw new Error("jsPDF yüklenemedi");
+  const { jsPDF } = window.jspdf;
+
+  const pdf = new jsPDF({ unit:"mm", format:"a4", orientation:"landscape", compress:true });
+  const pageW = pdf.internal.pageSize.getWidth();
+  const pageH = pdf.internal.pageSize.getHeight();
+
+  for (let i = 0; i < slides.length; i++){
+    setProgressFn(10 + ((i + 1) / slides.length) * 80, `Sayfa ${i + 1} / ${slides.length}`);
+    const pageHTML = buildPDFPage(slides[i], i + 1, totalPages);
+    const canvas = await renderPageToCanvas(pageHTML, scale);
+    const imgData = canvas.toDataURL("image/jpeg", jpegQuality);
+    if (i > 0) pdf.addPage();
+    pdf.addImage(imgData, "JPEG", 0, 0, pageW, pageH, undefined, "FAST");
+    await new Promise(r => setTimeout(r, 25));
+  }
+
+  setProgressFn(95, "PDF kaydediliyor…");
+  await new Promise(r => setTimeout(r, 200));
+  pdf.save(filename + ".pdf");
+  setProgressFn(100, "Tamamlandı ✓");
+  return totalPages;
+}
+
+const pdfOverlay = document.getElementById("pdfOverlay");
+const pdfProgressFill = document.getElementById("pdfProgressFill");
+const pdfPercent = document.getElementById("pdfPercent");
+const pdfStatusText = document.getElementById("pdfStatusText");
+let isGeneratingPdf = false;
+
+function setPdfProgress(p, txt){
+  p = Math.max(0, Math.min(100, p));
+  pdfProgressFill.style.width = p + "%";
+  pdfPercent.textContent = "%" + Math.round(p);
+  if (txt) pdfStatusText.textContent = txt;
+}
+
+async function runPDFGeneration(){
+  if (isGeneratingPdf) return;
+  isGeneratingPdf = true;
+  pdfOverlay.classList.add("active");
+  pdfOverlay.style.opacity = "1";
+  pdfOverlay.style.pointerEvents = "auto";
+  setPdfProgress(0, "Sayfalar hazırlanıyor…");
+  document.body.style.overflow = "hidden";
+
+  try {
+    const totalPages = await generatePDF(setPdfProgress, CONFIG.filename, 2);
+    toast(`PDF kaydedildi · ${totalPages} sayfa`, "success", "📄");
+  } catch(err){
+    console.error(err);
+    toast("PDF hatası: " + err.message, "error", "⚠️");
+  } finally {
+    setTimeout(() => {
+      pdfOverlay.classList.remove("active");
+      pdfOverlay.style.opacity = "0";
+      pdfOverlay.style.pointerEvents = "none";
+      document.body.style.overflow = "";
+      isGeneratingPdf = false;
+    }, 900);
+  }
+}
+
+document.getElementById("pdfDirectBtn").addEventListener("click", runPDFGeneration);
+document.getElementById("saveBtn").addEventListener("click", () => {
+  toast("PDF olarak kaydediliyor…", "info", "💾");
+  runPDFGeneration();
+});
+document.getElementById("printBtn").addEventListener("click", () => {
+  toast("Yazdırma penceresi açılıyor…", "info", "🖨️");
+  setTimeout(() => window.print(), 220);
+});
+
+/* =====================================================
+   FORMATLAR MODALI
+===================================================== */
+const dlOverlay = document.getElementById("dlOverlay");
+document.getElementById("downloadBtn").addEventListener("click", () => {
+  document.getElementById("filenameInput").value = CONFIG.filename;
+  dlOverlay.style.opacity = "1";
+  dlOverlay.style.pointerEvents = "auto";
+});
+function closeDL(){ dlOverlay.style.opacity = "0"; dlOverlay.style.pointerEvents = "none"; }
+document.getElementById("dlClose").addEventListener("click", closeDL);
+dlOverlay.addEventListener("click", e => { if (e.target === dlOverlay) closeDL(); });
+
+document.getElementById("dlExcel").addEventListener("click", async () => {
+  closeDL();
+  const esc = v => `"${String(v).replace(/"/g,'""')}"`;
+  const lines = [];
+  lines.push(esc(CONFIG.author.toUpperCase()));
+  lines.push(esc(CONFIG.title));
+  lines.push(esc(CONFIG.year));
+  lines.push(esc("Rapor Tarihi: " + CONFIG.date));
+  lines.push("");
+  document.querySelectorAll(".slide").forEach((slide, i) => {
+    const table = slide.querySelector("table");
+    if (!table) return;
+    const title = slide.querySelector(".head-text h2");
+    lines.push("");
+    lines.push(esc("═══ " + (title ? title.textContent.trim() : "Tablo " + (i+1)) + " ═══"));
+    lines.push("");
+    table.querySelectorAll("tr").forEach(tr => {
+      const cells = [];
+      tr.querySelectorAll("th, td").forEach(cell => cells.push(esc(cell.textContent.trim())));
+      if (cells.length) lines.push(cells.join(";"));
+    });
+  });
+  const csv = "\uFEFF" + lines.join("\n");
+  const blob = new Blob([csv], { type:"text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = CONFIG.filename + ".csv";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast("Excel/CSV indirildi", "success", "📊");
+});
+
+document.getElementById("dlJson").addEventListener("click", () => {
+  closeDL();
+  downloadFullBackup();
+});
+
+document.getElementById("dlPrint").addEventListener("click", () => {
+  closeDL();
+  setTimeout(() => window.print(), 220);
+});
+
+/* =====================================================
+   TAM YEDEK (JSON)
+===================================================== */
+function downloadFullBackup(){
+  const cells = {};
+  document.querySelectorAll(".blank").forEach(td => {
+    const v = td.textContent.trim();
+    if (v !== "") cells[td.dataset.key] = v;
+  });
+
+  const payload = {
+    format: "okul-gelisimi-raporu-full",
+    version: "2.0",
+    savedAt: new Date().toISOString(),
+    config: CONFIG,
+    agenda: AGENDA,
+    slides: SLIDES,
+    cells: cells
+  };
+
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type:"application/json" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = CONFIG.filename + "-FULL-BACKUP-" + new Date().toISOString().slice(0,10) + ".json";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast("Tam yedek indirildi", "success", "💾");
+}
+
+/* =====================================================
+   YÜKLE (JSON) — navbar
+===================================================== */
+const fileInput = document.getElementById("fileInput");
+document.getElementById("loadBtn").addEventListener("click", () => fileInput.click());
+fileInput.addEventListener("change", e => {
+  const file = e.target.files && e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try{
+      const payload = JSON.parse(ev.target.result);
+      if (payload.format === "okul-gelisimi-raporu-full"){
+        if (payload.config) { CONFIG = payload.config; saveConfig(); }
+        if (payload.agenda) { AGENDA = payload.agenda; saveAgenda(); }
+        if (payload.slides) { SLIDES = payload.slides; saveSlides(); }
+        if (payload.cells){
+          Object.keys(localStorage).forEach(k => {
+            if (k.startsWith(CELL_PREFIX)) localStorage.removeItem(k);
+          });
+          Object.entries(payload.cells).forEach(([k, v]) => localStorage.setItem(CELL_PREFIX + k, v));
+        }
+        renderReport();
+        toast("Tam yedek geri yüklendi", "success", "📂");
+      } else if (payload.data){
+        // Eski format uyumluluğu
+        Object.keys(localStorage).forEach(k => {
+          if (k.startsWith(CELL_PREFIX)) localStorage.removeItem(k);
+        });
+        Object.entries(payload.data).forEach(([k, v]) => localStorage.setItem(CELL_PREFIX + k, v));
+        renderReport();
+        toast("Eski format yedek yüklendi", "success", "📂");
+      } else {
+        throw new Error("Tanınmayan dosya formatı");
+      }
+    }catch(err){
+      console.error(err);
+      toast("Dosya okunamadı: " + err.message, "error", "⚠️");
+    }finally{ fileInput.value = ""; }
+  };
+  reader.readAsText(file);
+});
+
+/* =====================================================
+   ADMIN PANELİ
+===================================================== */
+const adminOverlay = document.getElementById("adminOverlay");
+const adminLogin = document.getElementById("adminLogin");
+const adminPanel = document.getElementById("adminPanel");
+const adminPassword = document.getElementById("adminPassword");
+const loginError = document.getElementById("loginError");
+const loginBtn = document.getElementById("loginBtn");
+const adminBtn = document.getElementById("adminBtn");
+
+const SESSION_KEY = "rapor-admin-session";
+let adminAuthed = sessionStorage.getItem(SESSION_KEY) === "1";
+
+function openAdmin(){
+  adminOverlay.classList.add("active");
+  if (adminAuthed){
+    adminLogin.style.display = "none";
+    adminPanel.style.display = "flex";
+    fillGeneralInputs();
+    renderSlideList();
+    renderAgendaList();
+    updateStorageStats();
+  } else {
+    adminLogin.style.display = "block";
+    adminPanel.style.display = "none";
+    adminPassword.value = "";
+    loginError.textContent = "";
+    setTimeout(() => adminPassword.focus(), 200);
+  }
+}
+function closeAdmin(){
+  adminOverlay.classList.remove("active");
+}
+
+adminBtn.addEventListener("click", openAdmin);
+document.getElementById("adminClose").addEventListener("click", closeAdmin);
+document.getElementById("adminCloseFooter").addEventListener("click", closeAdmin);
+adminOverlay.addEventListener("click", e => { if (e.target === adminOverlay) closeAdmin(); });
+
+loginBtn.addEventListener("click", () => {
+  const val = adminPassword.value;
+  if (val === CONFIG.password){
+    adminAuthed = true;
+    sessionStorage.setItem(SESSION_KEY, "1");
+    adminLogin.style.display = "none";
+    adminPanel.style.display = "flex";
+    fillGeneralInputs();
+    renderSlideList();
+    renderAgendaList();
+    updateStorageStats();
+    toast("Admin girişi başarılı", "success", "🔓");
+  } else {
+    loginError.textContent = "Hatalı şifre. Tekrar deneyin.";
+    adminPassword.value = "";
+    adminPassword.focus();
+  }
+});
+adminPassword.addEventListener("keydown", e => { if (e.key === "Enter") loginBtn.click(); });
+
+document.getElementById("adminLogout").addEventListener("click", () => {
+  adminAuthed = false;
+  sessionStorage.removeItem(SESSION_KEY);
+  closeAdmin();
+  toast("Çıkış yapıldı", "info", "🚪");
+});
+
+// Sekmeler
+document.querySelectorAll(".admin-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".admin-tab").forEach(t => t.classList.remove("active"));
+    document.querySelectorAll(".admin-panel").forEach(p => p.classList.remove("active"));
+    tab.classList.add("active");
+    const panel = document.querySelector(`.admin-panel[data-panel="${tab.dataset.tab}"]`);
+    if (panel) panel.classList.add("active");
+  });
+});
+
+// GENEL
+function fillGeneralInputs(){
+  document.getElementById("inpTitleLong").value = CONFIG.title;
+  document.getElementById("inpTitleShort").value = CONFIG.titleShort;
+  document.getElementById("inpAuthor").value = CONFIG.author;
+  document.getElementById("inpSchool").value = CONFIG.school;
+  document.getElementById("inpYear").value = CONFIG.year;
+  document.getElementById("inpFilename").value = CONFIG.filename;
+  document.getElementById("inpDate").value = CONFIG.date;
+  document.getElementById("inpPassword").value = CONFIG.password;
+  document.getElementById("inpCoverSub").value = CONFIG.coverSub;
+  document.getElementById("inpPageFooter").value = CONFIG.pageFooter;
+  document.getElementById("inpStat1v").value = CONFIG.stats[0]?.value || "";
+  document.getElementById("inpStat1l").value = CONFIG.stats[0]?.label || "";
+  document.getElementById("inpStat2v").value = CONFIG.stats[1]?.value || "";
+  document.getElementById("inpStat2l").value = CONFIG.stats[1]?.label || "";
+  document.getElementById("inpStat3v").value = CONFIG.stats[2]?.value || "";
+  document.getElementById("inpStat3l").value = CONFIG.stats[2]?.label || "";
+}
+
+document.getElementById("saveGeneral").addEventListener("click", () => {
+  CONFIG.title = document.getElementById("inpTitleLong").value.trim() || DEFAULT_CONFIG.title;
+  CONFIG.titleShort = document.getElementById("inpTitleShort").value.trim() || DEFAULT_CONFIG.titleShort;
+  CONFIG.author = document.getElementById("inpAuthor").value.trim() || DEFAULT_CONFIG.author;
+  CONFIG.school = document.getElementById("inpSchool").value.trim() || DEFAULT_CONFIG.school;
+  CONFIG.year = document.getElementById("inpYear").value.trim() || DEFAULT_CONFIG.year;
+  CONFIG.filename = document.getElementById("inpFilename").value.trim() || DEFAULT_CONFIG.filename;
+  CONFIG.date = document.getElementById("inpDate").value.trim() || DEFAULT_CONFIG.date;
+  CONFIG.password = document.getElementById("inpPassword").value.trim() || DEFAULT_CONFIG.password;
+  CONFIG.coverSub = document.getElementById("inpCoverSub").value.trim();
+  CONFIG.pageFooter = document.getElementById("inpPageFooter").value.trim();
+  CONFIG.stats = [
+    { value: document.getElementById("inpStat1v").value.trim(), label: document.getElementById("inpStat1l").value.trim() },
+    { value: document.getElementById("inpStat2v").value.trim(), label: document.getElementById("inpStat2l").value.trim() },
+    { value: document.getElementById("inpStat3v").value.trim(), label: document.getElementById("inpStat3l").value.trim() }
+  ];
+  saveConfig();
+  renderReport();
+  toast("Genel bilgiler kaydedildi", "success", "💾");
+});
+
+// SLAYT LİSTESİ
+function renderSlideList(){
+  const list = document.getElementById("slideList");
+  list.innerHTML = "";
+  SLIDES.forEach((s, idx) => {
+    const isCover = s.type === "cover";
+    const item = document.createElement("div");
+    item.className = "slide-list-item" + (isCover ? " cover" : "");
+    const num = isCover ? "🏠" : (idx);
+    const title = isCover ? "Kapak Sayfası" : (s.type === "agenda" ? s.title : s.title);
+    const sub = isCover ? "Giriş slaytı" : (s.type === "agenda" ? s.desc : (s.rows ? s.rows.length + " satır" : ""));
+    item.innerHTML = `
+      <div class="slide-list-num">${isCover ? "🏠" : pad(idx)}</div>
+      <div class="slide-list-info">
+        <strong>${escapeHTML(title)}</strong>
+        <span>${escapeHTML(sub)}</span>
+      </div>
+      <div class="slide-list-actions">
+        <button class="admin-btn admin-btn-ghost admin-btn-sm" data-action="edit" data-idx="${idx}">✏️ Düzenle</button>
+        ${!isCover ? `<button class="admin-btn admin-btn-ghost admin-btn-sm" data-action="del" data-idx="${idx}" style="color:#dc2626">🗑</button>` : ""}
+      </div>`;
+    list.appendChild(item);
+  });
+}
+
+document.getElementById("slideList").addEventListener("click", e => {
+  const btn = e.target.closest("button[data-action]");
+  if (!btn) return;
+  const idx = parseInt(btn.dataset.idx);
+  const action = btn.dataset.action;
+  if (action === "edit"){
+    openSlideEditor(idx);
+  } else if (action === "del"){
+    if (!confirm(`"${SLIDES[idx].title}" slaytı silinecek. Emin misiniz?`)) return;
+    SLIDES.splice(idx, 1);
+    saveSlides();
+    renderSlideList();
+    renderReport();
+    toast("Slayt silindi", "success", "🗑");
+  }
+});
+
+document.getElementById("addSlideBtn").addEventListener("click", () => {
+  const newSlide = {
+    title: "Yeni Slayt",
+    desc: "Slayt açıklaması",
+    cat: "🎯 Eylem Planı",
+    mode: "HG",
+    rows: ["Yeni Faaliyet 1", "Yeni Faaliyet 2"]
+  };
+  SLIDES.push(newSlide);
+  saveSlides();
+  renderSlideList();
+  renderReport();
+  openSlideEditor(SLIDES.length - 1);
+  toast("Yeni slayt eklendi", "success", "➕");
+});
+
+document.getElementById("resetSlidesBtn").addEventListener("click", () => {
+  if (!confirm("Tüm slaytlar varsayılana dönecek. Özelleştirmeler silinir. Emin misiniz?")) return;
+  SLIDES = JSON.parse(JSON.stringify(DEFAULT_SLIDES));
+  saveSlides();
+  // Hücre verilerini de temizle
+  Object.keys(localStorage).forEach(k => {
+    if (k.startsWith(CELL_PREFIX)) localStorage.removeItem(k);
+  });
+  renderSlideList();
+  renderReport();
+  toast("Slaytlar varsayılana döndü", "info", "↻");
+});
+
+// SLAYT DÜZENLEME
+const slideEditOverlay = document.getElementById("slideEditOverlay");
+let editingSlideIdx = -1;
+let editingRows = [];
+
+function openSlideEditor(idx){
+  editingSlideIdx = idx;
+  const s = SLIDES[idx];
+  document.getElementById("slideEditTitle").textContent = `Slaytı Düzenle — #${pad(idx)}`;
+  document.getElementById("slideEditSub").textContent = s.title;
+  document.getElementById("seTitle").value = s.title || "";
+  document.getElementById("seDesc").value = s.desc || "";
+  document.getElementById("seCat").value = s.cat || "";
+  document.getElementById("seMode").value = s.mode || "HG";
+  editingRows = JSON.parse(JSON.stringify(s.rows || []));
+  renderRowEditors();
+  slideEditOverlay.classList.add("active");
+}
+function closeSlideEditor(){
+  slideEditOverlay.classList.remove("active");
+  editingSlideIdx = -1;
+  editingRows = [];
+}
+
+document.getElementById("slideEditClose").addEventListener("click", closeSlideEditor);
+document.getElementById("slideEditCancel").addEventListener("click", closeSlideEditor);
+slideEditOverlay.addEventListener("click", e => { if (e.target === slideEditOverlay) closeSlideEditor(); });
+
+function renderRowEditors(){
+  const list = document.getElementById("rowEditorList");
+  list.innerHTML = "";
+  if (editingRows.length === 0){
+    list.innerHTML = '<div class="empty-state"><div>📋</div>Henüz satır yok. Yukarıdan ekleyin.</div>';
+    return;
+  }
+  editingRows.forEach((row, i) => {
+    const div = document.createElement("div");
+    div.className = "row-editor";
+    div.innerHTML = `
+      <span class="row-editor-drag">⋮⋮</span>
+      <input type="text" class="row-editor-input" value="${escapeHTML(row)}" data-idx="${i}">
+      <div class="row-editor-actions">
+        <button data-act="up" data-idx="${i}" ${i===0?"disabled":""} title="Yukarı">▲</button>
+        <button data-act="down" data-idx="${i}" ${i===editingRows.length-1?"disabled":""} title="Aşağı">▼</button>
+        <button class="del" data-act="del" data-idx="${i}" title="Sil">🗑</button>
+      </div>`;
+    list.appendChild(div);
+  });
+}
+
+document.getElementById("rowEditorList").addEventListener("input", e => {
+  if (e.target.classList.contains("row-editor-input")){
+    const i = parseInt(e.target.dataset.idx);
+    editingRows[i] = e.target.value;
+  }
+});
+
+document.getElementById("rowEditorList").addEventListener("click", e => {
+  const btn = e.target.closest("button[data-act]");
+  if (!btn) return;
+  const i = parseInt(btn.dataset.idx);
+  const act = btn.dataset.act;
+  if (act === "up" && i > 0){
+    [editingRows[i-1], editingRows[i]] = [editingRows[i], editingRows[i-1]];
+    renderRowEditors();
+  } else if (act === "down" && i < editingRows.length - 1){
+    [editingRows[i+1], editingRows[i]] = [editingRows[i], editingRows[i+1]];
+    renderRowEditors();
+  } else if (act === "del"){
+    editingRows.splice(i, 1);
+    renderRowEditors();
+  }
+});
+
+document.getElementById("addRowBtn").addEventListener("click", () => {
+  editingRows.push("Yeni faaliyet satırı");
+  renderRowEditors();
+});
+
+document.getElementById("slideEditSave").addEventListener("click", () => {
+  if (editingSlideIdx < 0) return;
+  const s = SLIDES[editingSlideIdx];
+  s.title = document.getElementById("seTitle").value.trim() || s.title;
+  s.desc = document.getElementById("seDesc").value.trim();
+  s.cat = document.getElementById("seCat").value.trim();
+  s.mode = document.getElementById("seMode").value;
+  s.rows = editingRows.filter(r => r.trim() !== "");
+  saveSlides();
+  renderSlideList();
+  renderReport();
+  closeSlideEditor();
+  toast("Slayt kaydedildi", "success", "💾");
+});
+
+// GÜNDEM
+function renderAgendaList(){
+  const list = document.getElementById("agendaList");
+  list.innerHTML = "";
+  AGENDA.forEach((a, i) => {
+    const div = document.createElement("div");
+    div.className = "row-editor";
+    div.innerHTML = `
+      <input type="text" class="row-editor-input" style="max-width:50px;text-align:center" value="${escapeHTML(a.icon)}" data-field="icon" data-idx="${i}" placeholder="İkon">
+      <input type="text" class="row-editor-input" style="max-width:200px" value="${escapeHTML(a.title)}" data-field="title" data-idx="${i}" placeholder="Başlık">
+      <input type="text" class="row-editor-input" value="${escapeHTML(a.desc)}" data-field="desc" data-idx="${i}" placeholder="Açıklama">
+      <div class="row-editor-actions">
+        <button class="del" data-act="del" data-idx="${i}" title="Sil">🗑</button>
+      </div>`;
+    list.appendChild(div);
+  });
+}
+
+document.getElementById("agendaList").addEventListener("input", e => {
+  const inp = e.target;
+  if (inp.dataset.field && inp.dataset.idx !== undefined){
+    const i = parseInt(inp.dataset.idx);
+    AGENDA[i][inp.dataset.field] = inp.value;
+    saveAgenda();
+    renderReport();
+  }
+});
+
+document.getElementById("agendaList").addEventListener("click", e => {
+  const btn = e.target.closest("button[data-act='del']");
+  if (!btn) return;
+  const i = parseInt(btn.dataset.idx);
+  AGENDA.splice(i, 1);
+  saveAgenda();
+  renderAgendaList();
+  renderReport();
+  toast("Kart silindi", "info", "🗑");
+});
+
+document.getElementById("addAgendaBtn").addEventListener("click", () => {
+  AGENDA.push({ icon:"⭐", title:"Yeni Alan", desc:"Açıklama" });
+  saveAgenda();
+  renderAgendaList();
+  renderReport();
+});
+
+document.getElementById("resetAgendaBtn").addEventListener("click", () => {
+  if (!confirm("Gündem kartları varsayılana dönecek. Emin misiniz?")) return;
+  AGENDA = JSON.parse(JSON.stringify(DEFAULT_AGENDA));
+  saveAgenda();
+  renderAgendaList();
+  renderReport();
+  toast("Gündem varsayılana döndü", "info", "↻");
+});
+
+// YEDEK
+document.getElementById("backupBtn").addEventListener("click", downloadFullBackup);
+
+document.getElementById("restoreBtn").addEventListener("click", () => fileInput.click());
+
+document.getElementById("factoryResetBtn").addEventListener("click", () => {
+  if (!confirm("TÜM VERİLER SİLİNECEK ve rapor fabrika ayarlarına dönecek. Emin misiniz?")) return;
+  if (!confirm("Bu işlem geri alınamaz. Son kez onaylıyor musunuz?")) return;
+  Object.keys(localStorage).forEach(k => {
+    if (k.startsWith("rapor-")) localStorage.removeItem(k);
+  });
+  CONFIG = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
+  AGENDA = JSON.parse(JSON.stringify(DEFAULT_AGENDA));
+  SLIDES = JSON.parse(JSON.stringify(DEFAULT_SLIDES));
+  saveConfig(); saveAgenda(); saveSlides();
+  renderReport();
+  fillGeneralInputs();
+  renderSlideList();
+  renderAgendaList();
+  updateStorageStats();
+  toast("Fabrika ayarlarına dönüldü", "success", "↻");
+});
+
+function updateStorageStats(){
+  let total = 0;
+  let cellCount = 0;
+  Object.keys(localStorage).forEach(k => {
+    if (k.startsWith("rapor-")){
+      total += (localStorage.getItem(k) || "").length;
+      if (k.startsWith(CELL_PREFIX)) cellCount++;
+    }
+  });
+  const kb = (total / 1024).toFixed(2);
+  document.getElementById("storageStats").textContent = `📦 ${kb} KB kullanılıyor · ${cellCount} hücre kaydı`;
+}
+
+/* =====================================================
+   İNDİRME YÖNLENDİRME — NAVBAR
+===================================================== */
+document.getElementById("saveBtn").setAttribute("data-tip", "PDF Olarak Kaydet");
+
+/* KLAVYE */
+document.addEventListener("keydown", e => {
+  const mod = e.ctrlKey || e.metaKey;
+  if (e.key === "Escape"){
+    if (adminOverlay.classList.contains("active")) closeAdmin();
+    if (slideEditOverlay.classList.contains("active")) closeSlideEditor();
+    if (dlOverlay.style.opacity === "1") closeDL();
+    if (pdfOverlay.classList.contains("active")) return;
+    return;
+  }
+  if (!mod) return;
+  if (e.key.toLowerCase() === "s" && !e.shiftKey){ e.preventDefault(); document.getElementById("pdfDirectBtn").click(); }
+  if (e.key.toLowerCase() === "s" && e.shiftKey){ e.preventDefault(); document.getElementById("saveBtn").click(); }
+  if (e.key.toLowerCase() === "o"){ e.preventDefault(); fileInput.click(); }
+  if (e.key.toLowerCase() === "p"){ e.preventDefault(); window.print(); }
+  if (e.key.toLowerCase() === "e"){ e.preventDefault(); editBtn.click(); }
+  if (e.key.toLowerCase() === "a" && e.shiftKey){ e.preventDefault(); openAdmin(); }
+});
+</script>
+</body>
+</html>
