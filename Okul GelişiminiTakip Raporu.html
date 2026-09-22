@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Okul Gelişimi ve Akademik Başarıyı İzleme ve Değerlendirme Raporu · 2026</title>
 
-<!-- FAVICON -->
+<!-- FAVICON (404 hatasını çözer) -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23133a72'/%3E%3Cstop offset='1' stop-color='%23061631'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='58' font-weight='800' fill='white' text-anchor='middle'%3ES%3C/text%3E%3Ccircle cx='78' cy='22' r='9' fill='%23ff6b2c'/%3E%3C/svg%3E">
-<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23061631'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='58' font-weight='800' fill='white' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
 <meta name="theme-color" content="#061631">
 
 <style>
@@ -101,7 +100,6 @@
 
   .divider{width:1px; height:26px; background:var(--gray-200); margin:0 4px;}
 
-  /* TOAST */
   .toast-stack{position:fixed; top:82px; right:22px; z-index:1000;
     display:flex; flex-direction:column; gap:10px; pointer-events:none;}
   .toast{display:flex; align-items:center; gap:10px;
@@ -119,10 +117,8 @@
   .toast.out{animation:toastOut .3s ease forwards;}
   @keyframes toastOut{to{opacity:0; transform:translateX(40px) scale(.9);}}
 
-  /* MAIN */
   main{max-width:1280px; margin:0 auto; padding:26px 24px 80px;}
 
-  /* STATUS */
   .status-bar{display:flex; align-items:center; justify-content:space-between;
     flex-wrap:wrap; gap:12px; background:var(--white);
     border:1px solid var(--gray-200); border-radius:14px;
@@ -140,7 +136,6 @@
   .status-item.mode-on .status-dot{background:var(--orange-500); box-shadow:0 0 0 3px rgba(255,107,44,.2);}
   .status-item.mode-off .status-dot{background:var(--gray-400);}
 
-  /* SLIDE */
   .slide{background:var(--white); border:1px solid var(--gray-200);
     border-radius:var(--radius); padding:28px 32px 20px;
     margin-bottom:24px; box-shadow:var(--shadow);
@@ -389,7 +384,6 @@
   .slide-list-item.cover .slide-list-num{background:rgba(255,255,255,.15); color:#fff;}
   .slide-list-item.cover .slide-list-info strong{color:#fff;}
   .slide-list-item.cover .slide-list-info span{color:rgba(255,255,255,.7);}
-  .slide-list-item.cover .slide-list-actions .admin-btn-ghost{background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.25); color:#fff;}
   .slide-list-num{flex-shrink:0; min-width:38px; height:38px; padding:0 10px;
     background:linear-gradient(135deg,var(--navy-800),var(--navy-600));
     color:#fff; border-radius:9px; font-weight:800; font-size:12px;
@@ -405,7 +399,6 @@
   .row-editor{background:var(--gray-50); border:1.5px solid var(--gray-200);
     border-radius:10px; padding:10px 12px; margin-bottom:8px;
     display:flex; align-items:center; gap:10px;}
-  .row-editor-drag{color:var(--gray-400); font-size:16px; cursor:grab; user-select:none;}
   .row-editor-input{flex:1; padding:8px 12px; border-radius:8px;
     border:1.5px solid var(--gray-300); background:#fff;
     font:inherit; font-size:12.5px; font-weight:600; outline:none;
@@ -452,7 +445,6 @@
     display:flex; align-items:center; gap:10px;}
   .admin-empty-hint::before{content:"💡"; font-size:16px;}
 
-  /* DL MODAL */
   .dl-overlay{position:fixed; inset:0; z-index:9998;
     background:rgba(4,16,42,.68);
     backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
@@ -467,7 +459,6 @@
     display:flex; flex-direction:column;}
   .dl-overlay.active .dl-modal{transform:scale(1) translateY(0);}
 
-  /* PDF STAGE */
   #pdfStage{position:fixed; top:0; left:0; width:297mm; height:210mm;
     z-index:-100; pointer-events:none; background:#fff; overflow:hidden;}
 
@@ -573,16 +564,12 @@
   Samsat İlçe Milli Eğitim Müdürlüğü · Okul Gelişimi ve Akademik Başarıyı İzleme ve Değerlendirme Raporu · 21.09.2026
 </footer>
 
-<!-- ADMIN PANELİ -->
 <div class="admin-overlay" id="adminOverlay">
   <div class="admin-modal">
     <div class="admin-header">
       <div class="admin-header-left">
         <div class="admin-header-icon">⚙️</div>
-        <div>
-          <h2>Admin Paneli</h2>
-          <p>İçerikleri düzenle, ekle veya sil</p>
-        </div>
+        <div><h2>Admin Paneli</h2><p>İçerikleri düzenle, ekle veya sil</p></div>
       </div>
       <button class="admin-close" id="adminClose">✕</button>
     </div>
@@ -628,7 +615,6 @@
             <div class="admin-field"><label>Rapor Tarihi (Kapak)</label><input type="text" id="inpDate"></div>
             <div class="admin-field"><label>Admin Şifresi</label><input type="text" id="inpPassword"></div>
           </div>
-          <div class="admin-field"><label>Kapak Alt Metni</label><input type="text" id="inpCoverSub"></div>
           <div class="admin-row">
             <div class="admin-field"><label>Kapak — 1. İstatistik Değeri</label><input type="text" id="inpStat1v"></div>
             <div class="admin-field"><label>Kapak — 1. İstatistik Etiketi</label><input type="text" id="inpStat1l"></div>
@@ -648,7 +634,7 @@
         </div>
 
         <div class="admin-panel" data-panel="slides">
-          <div class="admin-empty-hint">Slaytları düzenlemek için kalem ikonuna, silmek için çöp kutusuna tıklayın. Yeni slayt ekleyebilirsiniz.</div>
+          <div class="admin-empty-hint">Slaytları düzenlemek için kalem ikonuna, silmek için çöp kutusuna tıklayın.</div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
             <button class="admin-btn admin-btn-primary" id="addSlideBtn"><span>➕</span><span>Yeni Slayt Ekle</span></button>
             <button class="admin-btn admin-btn-ghost" id="resetSlidesBtn"><span>↻</span><span>Varsayılan Slaytlara Dön</span></button>
@@ -666,7 +652,7 @@
         </div>
 
         <div class="admin-panel" data-panel="backup">
-          <div class="admin-empty-hint">Tüm rapor yapılandırmasını (başlıklar + slaytlar + gündem + hücre verileri) tek dosyada yedekleyin.</div>
+          <div class="admin-empty-hint">Tüm rapor yapılandırmasını tek dosyada yedekleyin.</div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px">
             <button class="admin-btn admin-btn-primary" id="backupBtn"><span>💾</span><span>Tam Yedek İndir (JSON)</span></button>
             <button class="admin-btn admin-btn-navy" id="restoreBtn"><span>📂</span><span>Yedekten Geri Yükle</span></button>
@@ -674,7 +660,7 @@
           <div class="admin-field">
             <label>Fabrika Ayarlarına Dön</label>
             <div style="background:#fff5f5;border:1px solid #fecaca;border-radius:10px;padding:14px;font-size:12.5px;color:#991b1b;font-weight:600;margin-bottom:12px">
-              ⚠️ Bu işlem tüm özelleştirmeleri, eklenen slaytları ve girilen verileri <b>siler</b>. Rapor orijinal haline döner. Geri alınamaz.
+              ⚠️ Bu işlem tüm özelleştirmeleri ve girilen verileri <b>siler</b>. Geri alınamaz.
             </div>
             <button class="admin-btn admin-btn-danger" id="factoryResetBtn"><span>🗑</span><span>Tüm Verileri Sıfırla</span></button>
           </div>
@@ -682,7 +668,6 @@
             <div style="font-size:11.5px;font-weight:800;color:var(--gray-600);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px">Depolama Bilgisi</div>
             <div style="font-size:12.5px;color:var(--gray-500);line-height:1.7">
               <div>Tüm veriler tarayıcıda <b>localStorage</b> üzerinde saklanır.</div>
-              <div>Farklı bir bilgisayarda açmak için yedek dosyasını kullanın.</div>
               <div id="storageStats" style="margin-top:8px;font-weight:700;color:var(--navy-800)"></div>
             </div>
           </div>
@@ -700,16 +685,12 @@
   </div>
 </div>
 
-<!-- SLAYT DÜZENLEME -->
 <div class="admin-overlay" id="slideEditOverlay">
   <div class="admin-modal" style="width:min(720px,100%)">
     <div class="admin-header">
       <div class="admin-header-left">
         <div class="admin-header-icon">📝</div>
-        <div>
-          <h2 id="slideEditTitle">Slaytı Düzenle</h2>
-          <p id="slideEditSub">Metinleri ve satırları düzenle</p>
-        </div>
+        <div><h2 id="slideEditTitle">Slaytı Düzenle</h2><p id="slideEditSub">Metinleri ve satırları düzenle</p></div>
       </div>
       <button class="admin-close" id="slideEditClose">✕</button>
     </div>
@@ -717,7 +698,7 @@
       <div class="admin-field"><label>Slayt Başlığı</label><input type="text" id="seTitle"></div>
       <div class="admin-field"><label>Açıklama</label><textarea id="seDesc" rows="2"></textarea></div>
       <div class="admin-row">
-        <div class="admin-field"><label>Kategori Etiketi</label><input type="text" id="seCat" placeholder="🎓 Akademik Gelişim"></div>
+        <div class="admin-field"><label>Kategori Etiketi</label><input type="text" id="seCat"></div>
         <div class="admin-field">
           <label>Tablo Tipi</label>
           <select id="seMode">
@@ -734,7 +715,7 @@
       <div id="rowEditorList"></div>
     </div>
     <div class="admin-footer">
-      <div class="admin-footer-info">Satırları yukarı/aşağı taşı, düzenle veya sil</div>
+      <div class="admin-footer-info">Satırları düzenle veya sil</div>
       <div class="admin-footer-actions">
         <button class="admin-btn admin-btn-ghost" id="slideEditCancel">Vazgeç</button>
         <button class="admin-btn admin-btn-primary" id="slideEditSave">💾 Kaydet</button>
@@ -743,16 +724,12 @@
   </div>
 </div>
 
-<!-- FORMATLAR MODALI -->
 <div class="dl-overlay" id="dlOverlay">
   <div class="dl-modal">
     <div class="admin-header">
       <div class="admin-header-left">
         <div class="admin-header-icon">📥</div>
-        <div>
-          <h2>Diğer Formatlar</h2>
-          <p>Excel, JSON veya yazdırma seçenekleri</p>
-        </div>
+        <div><h2>Diğer Formatlar</h2><p>Excel, JSON veya yazdırma</p></div>
       </div>
       <button class="admin-close" id="dlClose">✕</button>
     </div>
@@ -767,7 +744,6 @@
   </div>
 </div>
 
-<!-- PDF OVERLAY -->
 <div class="dl-overlay" id="pdfOverlay">
   <div class="dl-modal" style="width:min(420px,90vw)">
     <div style="text-align:center;padding:40px 34px 30px">
@@ -942,9 +918,6 @@ function toast(message, type = "info", icon){
   setTimeout(() => { el.classList.add("out"); setTimeout(() => el.remove(), 320); }, 2600);
 }
 
-/* =====================================================
-   RENDER
-===================================================== */
 function legend(mode){
   if (mode === "EH" || mode === "SINGLE"){
     return `<div class="legend">
@@ -1077,9 +1050,6 @@ function renderReport(){
   updateCounters();
 }
 
-/* =====================================================
-   DÜZENLEME MODU
-===================================================== */
 const editBtn = document.getElementById("editBtn");
 const modeStatus = document.getElementById("modeStatus");
 const modeStatusText = document.getElementById("modeStatusText");
@@ -1103,9 +1073,6 @@ editBtn.addEventListener("click", () => {
   toast(editMode ? "Düzenleme modu açıldı" : "Salt okunur moda geçildi", "info", editMode ? "🖊️" : "🔒");
 });
 
-/* =====================================================
-   OTOMATİK KAYIT
-===================================================== */
 const saveStatusText = document.getElementById("saveStatusText");
 const lastUpdate = document.getElementById("lastUpdate");
 const filledCount = document.getElementById("filledCount");
@@ -1176,7 +1143,7 @@ renderReport();
 loadMeta();
 
 /* =====================================================
-   PDF SAYFA ÜRETİCİ
+   PDF
 ===================================================== */
 function buildPDFPage(slide, pageNum, totalPages){
   const isCover = slide.classList.contains("cover");
@@ -1291,9 +1258,6 @@ function buildPDFPage(slide, pageNum, totalPages){
     </div>`;
 }
 
-/* =====================================================
-   PDF STİLLERİ
-===================================================== */
 const pdfStyles = document.createElement("style");
 pdfStyles.textContent = `
 .pdf-page{width:297mm;height:210mm;background:#fff;position:relative;padding:12mm 14mm 16mm;box-sizing:border-box;font-family:"Inter","Segoe UI",Arial,sans-serif;color:#0e211d;overflow:hidden;}
@@ -1334,9 +1298,6 @@ pdfStyles.textContent = `
 `;
 document.head.appendChild(pdfStyles);
 
-/* =====================================================
-   CANVAS RENDER
-===================================================== */
 async function renderPageToCanvas(html, scale){
   const container = document.createElement("div");
   container.style.cssText = `position:fixed;top:0;left:0;width:297mm;height:210mm;z-index:-100;pointer-events:none;background:#ffffff;overflow:hidden;`;
@@ -1360,9 +1321,6 @@ async function renderPageToCanvas(html, scale){
   return canvas;
 }
 
-/* =====================================================
-   PDF OLUŞTUR
-===================================================== */
 async function generatePDF(setProgressFn, filename, quality){
   const scale = quality === 1 ? 1.5 : quality === 3 ? 3 : 2;
   const jpegQuality = quality === 1 ? 0.85 : quality === 3 ? 1.0 : 0.95;
@@ -1438,9 +1396,6 @@ document.getElementById("printBtn").addEventListener("click", () => {
   setTimeout(() => window.print(), 220);
 });
 
-/* =====================================================
-   FORMATLAR MODALI
-===================================================== */
 const dlOverlay = document.getElementById("dlOverlay");
 document.getElementById("downloadBtn").addEventListener("click", () => {
   document.getElementById("filenameInput").value = CONFIG.filename;
@@ -1450,7 +1405,7 @@ function closeDL(){ dlOverlay.classList.remove("active"); }
 document.getElementById("dlClose").addEventListener("click", closeDL);
 dlOverlay.addEventListener("click", e => { if (e.target === dlOverlay) closeDL(); });
 
-document.getElementById("dlExcel").addEventListener("click", async () => {
+document.getElementById("dlExcel").addEventListener("click", () => {
   closeDL();
   const esc = v => `"${String(v).replace(/"/g,'""')}"`;
   const lines = [];
@@ -1483,15 +1438,8 @@ document.getElementById("dlExcel").addEventListener("click", async () => {
   toast("Excel/CSV indirildi", "success", "📊");
 });
 
-document.getElementById("dlJson").addEventListener("click", () => {
-  closeDL();
-  downloadFullBackup();
-});
-
-document.getElementById("dlPrint").addEventListener("click", () => {
-  closeDL();
-  setTimeout(() => window.print(), 220);
-});
+document.getElementById("dlJson").addEventListener("click", () => { closeDL(); downloadFullBackup(); });
+document.getElementById("dlPrint").addEventListener("click", () => { closeDL(); setTimeout(() => window.print(), 220); });
 
 function downloadFullBackup(){
   const cells = {};
@@ -1499,17 +1447,12 @@ function downloadFullBackup(){
     const v = td.textContent.trim();
     if (v !== "") cells[td.dataset.key] = v;
   });
-
   const payload = {
     format: "okul-gelisimi-raporu-full",
     version: "2.0",
     savedAt: new Date().toISOString(),
-    config: CONFIG,
-    agenda: AGENDA,
-    slides: SLIDES,
-    cells: cells
+    config: CONFIG, agenda: AGENDA, slides: SLIDES, cells: cells
   };
-
   const blob = new Blob([JSON.stringify(payload, null, 2)], { type:"application/json" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
@@ -1520,7 +1463,6 @@ function downloadFullBackup(){
   toast("Tam yedek indirildi", "success", "💾");
 }
 
-/* YÜKLE */
 const fileInput = document.getElementById("fileInput");
 document.getElementById("loadBtn").addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", e => {
@@ -1535,23 +1477,17 @@ fileInput.addEventListener("change", e => {
         if (payload.agenda) { AGENDA = payload.agenda; saveAgenda(); }
         if (payload.slides) { SLIDES = payload.slides; saveSlides(); }
         if (payload.cells){
-          Object.keys(localStorage).forEach(k => {
-            if (k.startsWith(CELL_PREFIX)) localStorage.removeItem(k);
-          });
+          Object.keys(localStorage).forEach(k => { if (k.startsWith(CELL_PREFIX)) localStorage.removeItem(k); });
           Object.entries(payload.cells).forEach(([k, v]) => localStorage.setItem(CELL_PREFIX + k, v));
         }
         renderReport();
         toast("Tam yedek geri yüklendi", "success", "📂");
       } else if (payload.data){
-        Object.keys(localStorage).forEach(k => {
-          if (k.startsWith(CELL_PREFIX)) localStorage.removeItem(k);
-        });
+        Object.keys(localStorage).forEach(k => { if (k.startsWith(CELL_PREFIX)) localStorage.removeItem(k); });
         Object.entries(payload.data).forEach(([k, v]) => localStorage.setItem(CELL_PREFIX + k, v));
         renderReport();
         toast("Eski format yedek yüklendi", "success", "📂");
-      } else {
-        throw new Error("Tanınmayan dosya formatı");
-      }
+      } else { throw new Error("Tanınmayan dosya formatı"); }
     }catch(err){
       console.error(err);
       toast("Dosya okunamadı: " + err.message, "error", "⚠️");
@@ -1560,9 +1496,7 @@ fileInput.addEventListener("change", e => {
   reader.readAsText(file);
 });
 
-/* =====================================================
-   ADMIN PANELİ
-===================================================== */
+/* ADMIN */
 const adminOverlay = document.getElementById("adminOverlay");
 const adminLogin = document.getElementById("adminLogin");
 const adminPanel = document.getElementById("adminPanel");
@@ -1570,7 +1504,6 @@ const adminPassword = document.getElementById("adminPassword");
 const loginError = document.getElementById("loginError");
 const loginBtn = document.getElementById("loginBtn");
 const adminBtn = document.getElementById("adminBtn");
-
 const SESSION_KEY = "rapor-admin-session";
 let adminAuthed = sessionStorage.getItem(SESSION_KEY) === "1";
 
@@ -1579,15 +1512,11 @@ function openAdmin(){
   if (adminAuthed){
     adminLogin.style.display = "none";
     adminPanel.style.display = "flex";
-    fillGeneralInputs();
-    renderSlideList();
-    renderAgendaList();
-    updateStorageStats();
+    fillGeneralInputs(); renderSlideList(); renderAgendaList(); updateStorageStats();
   } else {
     adminLogin.style.display = "block";
     adminPanel.style.display = "none";
-    adminPassword.value = "";
-    loginError.textContent = "";
+    adminPassword.value = ""; loginError.textContent = "";
     setTimeout(() => adminPassword.focus(), 200);
   }
 }
@@ -1599,29 +1528,21 @@ document.getElementById("adminCloseFooter").addEventListener("click", closeAdmin
 adminOverlay.addEventListener("click", e => { if (e.target === adminOverlay) closeAdmin(); });
 
 loginBtn.addEventListener("click", () => {
-  const val = adminPassword.value;
-  if (val === CONFIG.password){
+  if (adminPassword.value === CONFIG.password){
     adminAuthed = true;
     sessionStorage.setItem(SESSION_KEY, "1");
     adminLogin.style.display = "none";
     adminPanel.style.display = "flex";
-    fillGeneralInputs();
-    renderSlideList();
-    renderAgendaList();
-    updateStorageStats();
+    fillGeneralInputs(); renderSlideList(); renderAgendaList(); updateStorageStats();
     toast("Admin girişi başarılı", "success", "🔓");
   } else {
     loginError.textContent = "Hatalı şifre. Tekrar deneyin.";
-    adminPassword.value = "";
-    adminPassword.focus();
+    adminPassword.value = ""; adminPassword.focus();
   }
 });
 adminPassword.addEventListener("keydown", e => { if (e.key === "Enter") loginBtn.click(); });
-
 document.getElementById("adminLogout").addEventListener("click", () => {
-  adminAuthed = false;
-  sessionStorage.removeItem(SESSION_KEY);
-  closeAdmin();
+  adminAuthed = false; sessionStorage.removeItem(SESSION_KEY); closeAdmin();
   toast("Çıkış yapıldı", "info", "🚪");
 });
 
@@ -1644,7 +1565,6 @@ function fillGeneralInputs(){
   document.getElementById("inpFilename").value = CONFIG.filename;
   document.getElementById("inpDate").value = CONFIG.date;
   document.getElementById("inpPassword").value = CONFIG.password;
-  document.getElementById("inpCoverSub").value = CONFIG.coverSub;
   document.getElementById("inpPageFooter").value = CONFIG.pageFooter;
   document.getElementById("inpStat1v").value = CONFIG.stats[0]?.value || "";
   document.getElementById("inpStat1l").value = CONFIG.stats[0]?.label || "";
@@ -1663,15 +1583,13 @@ document.getElementById("saveGeneral").addEventListener("click", () => {
   CONFIG.filename = document.getElementById("inpFilename").value.trim() || DEFAULT_CONFIG.filename;
   CONFIG.date = document.getElementById("inpDate").value.trim() || DEFAULT_CONFIG.date;
   CONFIG.password = document.getElementById("inpPassword").value.trim() || DEFAULT_CONFIG.password;
-  CONFIG.coverSub = document.getElementById("inpCoverSub").value.trim();
   CONFIG.pageFooter = document.getElementById("inpPageFooter").value.trim();
   CONFIG.stats = [
     { value: document.getElementById("inpStat1v").value.trim(), label: document.getElementById("inpStat1l").value.trim() },
     { value: document.getElementById("inpStat2v").value.trim(), label: document.getElementById("inpStat2l").value.trim() },
     { value: document.getElementById("inpStat3v").value.trim(), label: document.getElementById("inpStat3l").value.trim() }
   ];
-  saveConfig();
-  renderReport();
+  saveConfig(); renderReport();
   toast("Genel bilgiler kaydedildi", "success", "💾");
 });
 
@@ -1682,7 +1600,7 @@ function renderSlideList(){
     const isCover = s.type === "cover";
     const item = document.createElement("div");
     item.className = "slide-list-item" + (isCover ? " cover" : "");
-    const title = isCover ? "Kapak Sayfası" : (s.type === "agenda" ? s.title : s.title);
+    const title = isCover ? "Kapak Sayfası" : s.title;
     const sub = isCover ? "Giriş slaytı" : (s.type === "agenda" ? s.desc : (s.rows ? s.rows.length + " satır" : ""));
     item.innerHTML = `
       <div class="slide-list-num">${isCover ? "🏠" : pad(idx)}</div>
@@ -1702,44 +1620,26 @@ document.getElementById("slideList").addEventListener("click", e => {
   const btn = e.target.closest("button[data-action]");
   if (!btn) return;
   const idx = parseInt(btn.dataset.idx);
-  const action = btn.dataset.action;
-  if (action === "edit"){
-    openSlideEditor(idx);
-  } else if (action === "del"){
+  if (btn.dataset.action === "edit") openSlideEditor(idx);
+  else if (btn.dataset.action === "del"){
     if (!confirm(`"${SLIDES[idx].title}" slaytı silinecek. Emin misiniz?`)) return;
-    SLIDES.splice(idx, 1);
-    saveSlides();
-    renderSlideList();
-    renderReport();
+    SLIDES.splice(idx, 1); saveSlides(); renderSlideList(); renderReport();
     toast("Slayt silindi", "success", "🗑");
   }
 });
 
 document.getElementById("addSlideBtn").addEventListener("click", () => {
-  const newSlide = {
-    title: "Yeni Slayt",
-    desc: "Slayt açıklaması",
-    cat: "🎯 Eylem Planı",
-    mode: "HG",
-    rows: ["Yeni Faaliyet 1", "Yeni Faaliyet 2"]
-  };
-  SLIDES.push(newSlide);
-  saveSlides();
-  renderSlideList();
-  renderReport();
+  SLIDES.push({ title: "Yeni Slayt", desc: "Slayt açıklaması", cat: "🎯 Eylem Planı", mode: "HG", rows: ["Yeni Faaliyet 1", "Yeni Faaliyet 2"] });
+  saveSlides(); renderSlideList(); renderReport();
   openSlideEditor(SLIDES.length - 1);
   toast("Yeni slayt eklendi", "success", "➕");
 });
 
 document.getElementById("resetSlidesBtn").addEventListener("click", () => {
-  if (!confirm("Tüm slaytlar varsayılana dönecek. Özelleştirmeler silinir. Emin misiniz?")) return;
-  SLIDES = JSON.parse(JSON.stringify(DEFAULT_SLIDES));
-  saveSlides();
-  Object.keys(localStorage).forEach(k => {
-    if (k.startsWith(CELL_PREFIX)) localStorage.removeItem(k);
-  });
-  renderSlideList();
-  renderReport();
+  if (!confirm("Tüm slaytlar varsayılana dönecek. Emin misiniz?")) return;
+  SLIDES = JSON.parse(JSON.stringify(DEFAULT_SLIDES)); saveSlides();
+  Object.keys(localStorage).forEach(k => { if (k.startsWith(CELL_PREFIX)) localStorage.removeItem(k); });
+  renderSlideList(); renderReport();
   toast("Slaytlar varsayılana döndü", "info", "↻");
 });
 
@@ -1762,10 +1662,8 @@ function openSlideEditor(idx){
 }
 function closeSlideEditor(){
   slideEditOverlay.classList.remove("active");
-  editingSlideIdx = -1;
-  editingRows = [];
+  editingSlideIdx = -1; editingRows = [];
 }
-
 document.getElementById("slideEditClose").addEventListener("click", closeSlideEditor);
 document.getElementById("slideEditCancel").addEventListener("click", closeSlideEditor);
 slideEditOverlay.addEventListener("click", e => { if (e.target === slideEditOverlay) closeSlideEditor(); });
@@ -1774,19 +1672,18 @@ function renderRowEditors(){
   const list = document.getElementById("rowEditorList");
   list.innerHTML = "";
   if (editingRows.length === 0){
-    list.innerHTML = '<div class="empty-state"><div>📋</div>Henüz satır yok. Yukarıdan ekleyin.</div>';
+    list.innerHTML = '<div class="empty-state"><div>📋</div>Henüz satır yok.</div>';
     return;
   }
   editingRows.forEach((row, i) => {
     const div = document.createElement("div");
     div.className = "row-editor";
     div.innerHTML = `
-      <span class="row-editor-drag">⋮⋮</span>
       <input type="text" class="row-editor-input" value="${escapeHTML(row)}" data-idx="${i}">
       <div class="row-editor-actions">
-        <button data-act="up" data-idx="${i}" ${i===0?"disabled":""} title="Yukarı">▲</button>
-        <button data-act="down" data-idx="${i}" ${i===editingRows.length-1?"disabled":""} title="Aşağı">▼</button>
-        <button class="del" data-act="del" data-idx="${i}" title="Sil">🗑</button>
+        <button data-act="up" data-idx="${i}" ${i===0?"disabled":""}>▲</button>
+        <button data-act="down" data-idx="${i}" ${i===editingRows.length-1?"disabled":""}>▼</button>
+        <button class="del" data-act="del" data-idx="${i}">🗑</button>
       </div>`;
     list.appendChild(div);
   });
@@ -1794,33 +1691,19 @@ function renderRowEditors(){
 
 document.getElementById("rowEditorList").addEventListener("input", e => {
   if (e.target.classList.contains("row-editor-input")){
-    const i = parseInt(e.target.dataset.idx);
-    editingRows[i] = e.target.value;
+    editingRows[parseInt(e.target.dataset.idx)] = e.target.value;
   }
 });
-
 document.getElementById("rowEditorList").addEventListener("click", e => {
   const btn = e.target.closest("button[data-act]");
   if (!btn) return;
   const i = parseInt(btn.dataset.idx);
   const act = btn.dataset.act;
-  if (act === "up" && i > 0){
-    [editingRows[i-1], editingRows[i]] = [editingRows[i], editingRows[i-1]];
-    renderRowEditors();
-  } else if (act === "down" && i < editingRows.length - 1){
-    [editingRows[i+1], editingRows[i]] = [editingRows[i], editingRows[i+1]];
-    renderRowEditors();
-  } else if (act === "del"){
-    editingRows.splice(i, 1);
-    renderRowEditors();
-  }
+  if (act === "up" && i > 0){ [editingRows[i-1], editingRows[i]] = [editingRows[i], editingRows[i-1]]; renderRowEditors(); }
+  else if (act === "down" && i < editingRows.length - 1){ [editingRows[i+1], editingRows[i]] = [editingRows[i], editingRows[i+1]]; renderRowEditors(); }
+  else if (act === "del"){ editingRows.splice(i, 1); renderRowEditors(); }
 });
-
-document.getElementById("addRowBtn").addEventListener("click", () => {
-  editingRows.push("Yeni faaliyet satırı");
-  renderRowEditors();
-});
-
+document.getElementById("addRowBtn").addEventListener("click", () => { editingRows.push("Yeni faaliyet satırı"); renderRowEditors(); });
 document.getElementById("slideEditSave").addEventListener("click", () => {
   if (editingSlideIdx < 0) return;
   const s = SLIDES[editingSlideIdx];
@@ -1829,10 +1712,7 @@ document.getElementById("slideEditSave").addEventListener("click", () => {
   s.cat = document.getElementById("seCat").value.trim();
   s.mode = document.getElementById("seMode").value;
   s.rows = editingRows.filter(r => r.trim() !== "");
-  saveSlides();
-  renderSlideList();
-  renderReport();
-  closeSlideEditor();
+  saveSlides(); renderSlideList(); renderReport(); closeSlideEditor();
   toast("Slayt kaydedildi", "success", "💾");
 });
 
@@ -1843,77 +1723,54 @@ function renderAgendaList(){
     const div = document.createElement("div");
     div.className = "row-editor";
     div.innerHTML = `
-      <input type="text" class="row-editor-input" style="max-width:50px;text-align:center" value="${escapeHTML(a.icon)}" data-field="icon" data-idx="${i}" placeholder="İkon">
-      <input type="text" class="row-editor-input" style="max-width:200px" value="${escapeHTML(a.title)}" data-field="title" data-idx="${i}" placeholder="Başlık">
-      <input type="text" class="row-editor-input" value="${escapeHTML(a.desc)}" data-field="desc" data-idx="${i}" placeholder="Açıklama">
-      <div class="row-editor-actions">
-        <button class="del" data-act="del" data-idx="${i}" title="Sil">🗑</button>
-      </div>`;
+      <input type="text" class="row-editor-input" style="max-width:50px;text-align:center" value="${escapeHTML(a.icon)}" data-field="icon" data-idx="${i}">
+      <input type="text" class="row-editor-input" style="max-width:200px" value="${escapeHTML(a.title)}" data-field="title" data-idx="${i}">
+      <input type="text" class="row-editor-input" value="${escapeHTML(a.desc)}" data-field="desc" data-idx="${i}">
+      <div class="row-editor-actions"><button class="del" data-act="del" data-idx="${i}">🗑</button></div>`;
     list.appendChild(div);
   });
 }
-
 document.getElementById("agendaList").addEventListener("input", e => {
   const inp = e.target;
   if (inp.dataset.field && inp.dataset.idx !== undefined){
-    const i = parseInt(inp.dataset.idx);
-    AGENDA[i][inp.dataset.field] = inp.value;
-    saveAgenda();
-    renderReport();
+    AGENDA[parseInt(inp.dataset.idx)][inp.dataset.field] = inp.value;
+    saveAgenda(); renderReport();
   }
 });
-
 document.getElementById("agendaList").addEventListener("click", e => {
   const btn = e.target.closest("button[data-act='del']");
   if (!btn) return;
-  const i = parseInt(btn.dataset.idx);
-  AGENDA.splice(i, 1);
-  saveAgenda();
-  renderAgendaList();
-  renderReport();
+  AGENDA.splice(parseInt(btn.dataset.idx), 1);
+  saveAgenda(); renderAgendaList(); renderReport();
   toast("Kart silindi", "info", "🗑");
 });
-
 document.getElementById("addAgendaBtn").addEventListener("click", () => {
   AGENDA.push({ icon:"⭐", title:"Yeni Alan", desc:"Açıklama" });
-  saveAgenda();
-  renderAgendaList();
-  renderReport();
+  saveAgenda(); renderAgendaList(); renderReport();
 });
-
 document.getElementById("resetAgendaBtn").addEventListener("click", () => {
   if (!confirm("Gündem kartları varsayılana dönecek. Emin misiniz?")) return;
   AGENDA = JSON.parse(JSON.stringify(DEFAULT_AGENDA));
-  saveAgenda();
-  renderAgendaList();
-  renderReport();
+  saveAgenda(); renderAgendaList(); renderReport();
   toast("Gündem varsayılana döndü", "info", "↻");
 });
 
 document.getElementById("backupBtn").addEventListener("click", downloadFullBackup);
 document.getElementById("restoreBtn").addEventListener("click", () => fileInput.click());
-
 document.getElementById("factoryResetBtn").addEventListener("click", () => {
-  if (!confirm("TÜM VERİLER SİLİNECEK ve rapor fabrika ayarlarına dönecek. Emin misiniz?")) return;
+  if (!confirm("TÜM VERİLER SİLİNECEK. Emin misiniz?")) return;
   if (!confirm("Bu işlem geri alınamaz. Son kez onaylıyor musunuz?")) return;
-  Object.keys(localStorage).forEach(k => {
-    if (k.startsWith("rapor-")) localStorage.removeItem(k);
-  });
+  Object.keys(localStorage).forEach(k => { if (k.startsWith("rapor-")) localStorage.removeItem(k); });
   CONFIG = JSON.parse(JSON.stringify(DEFAULT_CONFIG));
   AGENDA = JSON.parse(JSON.stringify(DEFAULT_AGENDA));
   SLIDES = JSON.parse(JSON.stringify(DEFAULT_SLIDES));
   saveConfig(); saveAgenda(); saveSlides();
-  renderReport();
-  fillGeneralInputs();
-  renderSlideList();
-  renderAgendaList();
-  updateStorageStats();
+  renderReport(); fillGeneralInputs(); renderSlideList(); renderAgendaList(); updateStorageStats();
   toast("Fabrika ayarlarına dönüldü", "success", "↻");
 });
 
 function updateStorageStats(){
-  let total = 0;
-  let cellCount = 0;
+  let total = 0, cellCount = 0;
   Object.keys(localStorage).forEach(k => {
     if (k.startsWith("rapor-")){
       total += (localStorage.getItem(k) || "").length;
@@ -1924,7 +1781,6 @@ function updateStorageStats(){
   document.getElementById("storageStats").textContent = `📦 ${kb} KB kullanılıyor · ${cellCount} hücre kaydı`;
 }
 
-/* KLAVYE */
 document.addEventListener("keydown", e => {
   const mod = e.ctrlKey || e.metaKey;
   if (e.key === "Escape"){
