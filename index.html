@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Samsat Okul Gelişimi ve Akademik Başarı İzleme, Analiz ve Değerlendirme Sistemi · 2026–2027</title>
 
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23133a72'/%3E%3Cstop offset='1' stop-color='%23061631'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='58' font-weight='800' fill='white' text-anchor='middle'%3ES%3C/text%3E%3Ccircle cx='78' cy='22' r='9' fill='%23ff6b2c'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23133a72'/%3E%3Cstop offset='1' stop-color='%23061631'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='Arial' font-size='58' font-weight='800' fill='white' text-anchor='middle'%3ES%3C/text%3E%3Ccircle cx='78' cy='22' r='9' fill='%23ff6b2c'/%3E%3C/svg%3E">
 <meta name="theme-color" content="#061631">
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -47,7 +47,6 @@
     min-height:100vh;
   }
 
-  /* NAV */
   .nav{position:sticky; top:0; z-index:100; background:rgba(255,255,255,.94);
     backdrop-filter:blur(18px) saturate(180%); -webkit-backdrop-filter:blur(18px) saturate(180%);
     border-bottom:1px solid var(--gray-200);}
@@ -65,7 +64,6 @@
     color:var(--navy-900); letter-spacing:-.01em;
     white-space:nowrap; overflow:hidden; text-overflow:ellipsis; max-width:340px;}
   .brand-text span{display:block; font-size:10.5px; color:var(--gray-500); margin-top:1px;}
-
   .nav-actions{display:flex; align-items:center; gap:5px; flex-shrink:0; flex-wrap:wrap;}
 
   .icon-btn{width:38px; height:38px; border-radius:10px;
@@ -107,7 +105,6 @@
 
   .divider{width:1px; height:24px; background:var(--gray-200); margin:0 3px;}
 
-  /* SCHOOL SELECTOR BAR */
   .school-bar{
     background:linear-gradient(135deg, var(--navy-900), var(--navy-700));
     color:#fff; padding:14px 22px;
@@ -116,8 +113,7 @@
     position:relative; overflow:hidden;
   }
   .school-bar::before{
-    content:""; position:absolute;
-    width:400px; height:400px; border-radius:50%;
+    content:""; position:absolute; width:400px; height:400px; border-radius:50%;
     right:-120px; top:-200px;
     background:radial-gradient(circle, rgba(255,107,44,.35), transparent 65%);
     filter:blur(40px); pointer-events:none;
@@ -143,43 +139,27 @@
   .school-select:hover{background-color:rgba(255,255,255,.15);}
   .school-select:focus{border-color:var(--orange-500); box-shadow:0 0 0 3px rgba(255,107,44,.25);}
   .school-select option{background:var(--navy-900); color:#fff;}
-
-  .school-status{
-    display:flex; align-items:center; gap:8px;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.15);
+  .school-status{display:flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.15);
     padding:9px 16px; border-radius:11px;
     font-size:12px; font-weight:600; color:rgba(255,255,255,.9);
-    flex-shrink:0;
-  }
+    flex-shrink:0;}
   .school-status b{color:var(--orange-300); font-weight:800;}
 
-  /* TABS */
-  .tabs-bar{
-    background:var(--white); border-bottom:1px solid var(--gray-200);
+  .tabs-bar{background:var(--white); border-bottom:1px solid var(--gray-200);
     position:sticky; top:76px; z-index:99;
-    box-shadow:0 2px 8px rgba(6,22,49,.04);
-  }
+    box-shadow:0 2px 8px rgba(6,22,49,.04);}
   .tabs-inner{max-width:1440px; margin:0 auto; padding:0 22px;
-    display:flex; gap:4px; overflow-x:auto;
-    scrollbar-width:none;}
+    display:flex; gap:4px; overflow-x:auto; scrollbar-width:none;}
   .tabs-inner::-webkit-scrollbar{display:none;}
   .tab-btn{
     padding:15px 18px; font:inherit; font-size:12.5px; font-weight:700;
     color:var(--gray-500); background:transparent; border:0; cursor:pointer;
     border-bottom:3px solid transparent; transition:all .18s ease;
-    display:inline-flex; align-items:center; gap:7px; white-space:nowrap;
-    position:relative;
-  }
+    display:inline-flex; align-items:center; gap:7px; white-space:nowrap; position:relative;}
   .tab-btn:hover{color:var(--navy-800); background:rgba(0,0,0,.02);}
   .tab-btn.active{color:var(--orange-600); border-bottom-color:var(--orange-500);}
-  .tab-btn .tab-badge{
-    background:var(--orange-500); color:#fff;
-    font-size:9.5px; font-weight:800; padding:2px 6px; border-radius:6px;
-    letter-spacing:.04em;
-  }
 
-  /* TOAST */
   .toast-stack{position:fixed; top:150px; right:22px; z-index:1100;
     display:flex; flex-direction:column; gap:10px; pointer-events:none;}
   .toast{display:flex; align-items:center; gap:10px;
@@ -198,12 +178,10 @@
   @keyframes toastOut{to{opacity:0; transform:translateX(40px) scale(.9);}}
 
   main{max-width:1440px; margin:0 auto; padding:22px 22px 80px;}
-
   .view{display:none;}
   .view.active{display:block; animation:viewIn .35s cubic-bezier(.34,1.2,.64,1);}
   @keyframes viewIn{from{opacity:0; transform:translateY(8px);} to{opacity:1; transform:translateY(0);}}
 
-  /* STATUS */
   .status-bar{display:flex; align-items:center; justify-content:space-between;
     flex-wrap:wrap; gap:12px; background:var(--white);
     border:1px solid var(--gray-200); border-radius:14px;
@@ -221,7 +199,6 @@
   .status-item.mode-on .status-dot{background:var(--orange-500); box-shadow:0 0 0 3px rgba(255,107,44,.2);}
   .status-item.mode-off .status-dot{background:var(--gray-400);}
 
-  /* SLIDE */
   .slide{background:var(--white); border:1px solid var(--gray-200);
     border-radius:var(--radius); padding:26px 30px 18px;
     margin-bottom:22px; box-shadow:var(--shadow);
@@ -264,8 +241,6 @@
   .cover-line{width:72px; height:4px; border-radius:4px;
     background:linear-gradient(90deg, var(--orange-500), var(--orange-300));
     margin:24px auto; box-shadow:0 0 24px rgba(255,140,66,.6);}
-  .cover-sub{font-size:clamp(13px,1.5vw,16px); color:rgba(255,255,255,.72);
-    font-weight:500; letter-spacing:.03em;}
   .cover-school{margin-top:10px; font-size:clamp(14px,1.6vw,18px); color:#fff; font-weight:700;}
   .cover-selected-school{
     display:inline-block; margin-top:20px;
@@ -386,7 +361,6 @@
   .page-foot{text-align:center; padding:20px; font-size:11.5px;
     color:var(--gray-500); letter-spacing:.1em; font-weight:600;}
 
-  /* GENERAL STATUS CARDS */
   .gs-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-bottom:20px;}
   .gs-card{background:linear-gradient(180deg,#fff,var(--gray-50));
     border:1px solid var(--gray-200); border-radius:14px;
@@ -408,7 +382,6 @@
   .gs-card-footer{margin-top:12px; padding-top:10px; border-top:1px dashed var(--gray-200);
     display:flex; align-items:center; justify-content:space-between; gap:8px;}
 
-  /* STATUS BADGES */
   .sb{display:inline-flex; align-items:center; gap:6px;
     font-size:10.5px; font-weight:800; letter-spacing:.05em;
     padding:4px 10px; border-radius:999px; text-transform:uppercase;}
@@ -426,7 +399,6 @@
   .sb-red .sb-dot{background:var(--red);}
   .sb-gray .sb-dot{background:var(--gray-400);}
 
-  /* CHARTS */
   .chart-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(380px,1fr)); gap:18px; margin-bottom:18px;}
   .chart-card{background:#fff; border:1px solid var(--gray-200);
     border-radius:14px; padding:20px 22px; box-shadow:var(--shadow-sm);
@@ -441,7 +413,6 @@
     background:var(--gray-50); border-radius:10px;
     border-left:3px solid var(--orange-500);
     font-size:12px; color:var(--gray-700); line-height:1.6;}
-  .chart-comment b{color:var(--navy-900); font-weight:800;}
   .chart-comment-title{display:flex; align-items:center; gap:6px;
     font-size:11px; font-weight:800; color:var(--orange-600);
     letter-spacing:.06em; text-transform:uppercase; margin-bottom:6px;}
@@ -452,10 +423,8 @@
     text-align:center; padding:20px; gap:8px;}
   .no-data-box::before{content:"📊"; font-size:36px; opacity:.5;}
 
-  /* EVALUATION */
   .eval-section{background:#fff; border:1px solid var(--gray-200);
-    border-radius:14px; padding:22px 24px; margin-bottom:16px;
-    box-shadow:var(--shadow-sm);}
+    border-radius:14px; padding:22px 24px; margin-bottom:16px; box-shadow:var(--shadow-sm);}
   .eval-section-head{display:flex; align-items:center; gap:12px; margin-bottom:16px; padding-bottom:12px;
     border-bottom:2px solid var(--gray-200);}
   .eval-section-icon{width:42px; height:42px; border-radius:12px; flex-shrink:0;
@@ -464,10 +433,8 @@
   .eval-section-icon.dev{background:linear-gradient(135deg,#f59e0b,#d97706);}
   .eval-section-icon.priority{background:linear-gradient(135deg,#dc2626,#991b1b);}
   .eval-section-icon.action{background:linear-gradient(135deg,var(--navy-700),var(--navy-900));}
-  .eval-section-icon.summary{background:linear-gradient(135deg,var(--orange-500),var(--orange-600));}
   .eval-section h3{font-size:15px; font-weight:800; color:var(--navy-900); letter-spacing:-.01em;}
   .eval-section p.sub{font-size:11.5px; color:var(--gray-500); margin-top:2px;}
-
   .eval-list{display:flex; flex-direction:column; gap:10px;}
   .eval-item{padding:14px 16px; background:var(--gray-50); border-radius:10px;
     border-left:4px solid var(--gray-300); font-size:13px; color:var(--gray-700);
@@ -478,14 +445,12 @@
   .eval-item.action{border-left-color:var(--navy-700); background:#f0f7ff;}
   .eval-item b{color:var(--navy-900); font-weight:800;}
   .eval-item-icon{font-size:18px; flex-shrink:0; line-height:1.3;}
-
   .empty-eval{padding:30px 20px; text-align:center;
     color:var(--gray-500); font-size:13px; font-weight:600;
     background:var(--gray-50); border-radius:10px;
     border:2px dashed var(--gray-300);}
   .empty-eval::before{content:"—"; display:block; font-size:30px; margin-bottom:8px; opacity:.4;}
 
-  /* PRIORITY TABLE */
   .priority-table{width:100%; border-collapse:separate; border-spacing:0; font-size:12px; margin-top:8px;}
   .priority-table thead th{background:linear-gradient(180deg,var(--navy-800),var(--navy-700));
     color:#fff; padding:10px 8px; text-align:left; font-size:10px; font-weight:800;
@@ -496,23 +461,19 @@
   .priority-table tbody tr:last-child td{border-bottom:0;}
   .priority-table tbody tr:hover td{background:var(--gray-50);}
 
-  /* MONTH SELECTOR */
   .month-selector{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:18px;}
   .month-btn{padding:9px 14px; border:1.5px solid var(--gray-300); background:#fff;
     border-radius:10px; font:inherit; font-size:12px; font-weight:700;
-    color:var(--gray-600); cursor:pointer; transition:all .18s ease;
-    position:relative;}
+    color:var(--gray-600); cursor:pointer; transition:all .18s ease; position:relative;}
   .month-btn:hover{border-color:var(--orange-400); background:var(--orange-100); color:var(--orange-600);}
   .month-btn.active{background:linear-gradient(135deg,var(--orange-500),var(--orange-600));
     color:#fff; border-color:var(--orange-600);
     box-shadow:0 6px 16px -6px rgba(255,107,44,.55);}
-  .month-btn .m-dot{
-    position:absolute; top:5px; right:5px;
+  .month-btn .m-dot{position:absolute; top:5px; right:5px;
     width:7px; height:7px; border-radius:50%; background:var(--gray-400);}
   .month-btn.has-data .m-dot{background:var(--green);}
   .month-btn.partial .m-dot{background:var(--yellow);}
 
-  /* EXECUTIVE SUMMARY */
   .exec-summary{background:linear-gradient(180deg,#fff,var(--gray-50));
     border:1px solid var(--gray-200); border-radius:14px;
     padding:24px 26px; box-shadow:var(--shadow-sm);}
@@ -528,7 +489,6 @@
     display:flex; align-items:center; gap:8px;}
   .exec-block-content{font-size:13px; color:var(--gray-700); line-height:1.7;}
 
-  /* COMPARISON */
   .compare-selector{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
     gap:10px; margin-bottom:20px;}
   .compare-check{display:flex; align-items:center; gap:12px;
@@ -541,7 +501,6 @@
   .compare-check.selected{background:linear-gradient(135deg,var(--orange-100),#fff);
     border-color:var(--orange-500); box-shadow:0 6px 16px -8px rgba(255,107,44,.4);}
 
-  /* ADMIN OVERLAY */
   .admin-overlay{position:fixed; inset:0; z-index:9997;
     background:rgba(4,16,42,.72);
     backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
@@ -576,7 +535,6 @@
     display:grid; place-items:center; transition:all .18s ease;
     position:relative; z-index:2; flex-shrink:0;}
   .admin-close:hover{background:rgba(255,255,255,.22); transform:rotate(90deg);}
-
   .admin-tabs{display:flex; background:var(--gray-50);
     border-bottom:1px solid var(--gray-200); padding:0 22px; gap:4px; overflow-x:auto;}
   .admin-tab{padding:14px 16px; font-size:12.5px; font-weight:700;
@@ -585,13 +543,11 @@
     display:inline-flex; align-items:center; gap:7px; white-space:nowrap;}
   .admin-tab:hover{color:var(--navy-800); background:rgba(0,0,0,.02);}
   .admin-tab.active{color:var(--orange-600); border-bottom-color:var(--orange-500);}
-
   .admin-body{padding:22px 26px; overflow-y:auto; flex:1;}
   .admin-body::-webkit-scrollbar{width:8px;}
   .admin-body::-webkit-scrollbar-thumb{background:var(--gray-300); border-radius:8px;}
   .admin-panel{display:none;}
   .admin-panel.active{display:block;}
-
   .admin-field{margin-bottom:16px;}
   .admin-field label{display:block; font-size:11.5px; font-weight:800;
     color:var(--gray-600); letter-spacing:.06em;
@@ -606,11 +562,9 @@
   .admin-field textarea{resize:vertical; min-height:60px; line-height:1.5;}
   .admin-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
   .admin-row-3{display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;}
-
   .admin-btn{display:inline-flex; align-items:center; gap:8px;
     padding:10px 16px; border-radius:10px; font:inherit; font-size:12.5px;
-    font-weight:800; cursor:pointer; border:0; transition:all .18s ease;
-    white-space:nowrap;}
+    font-weight:800; cursor:pointer; border:0; transition:all .18s ease; white-space:nowrap;}
   .admin-btn-primary{background:linear-gradient(135deg,var(--orange-500),var(--orange-600));
     color:#fff; box-shadow:var(--shadow-orange);}
   .admin-btn-primary:hover{transform:translateY(-1px);}
@@ -621,12 +575,10 @@
   .admin-btn-danger{background:#fff; border:1.5px solid var(--red); color:var(--red);}
   .admin-btn-danger:hover{background:var(--red); color:#fff;}
   .admin-btn-sm{padding:7px 12px; font-size:11.5px; border-radius:8px;}
-
   .slide-list{display:flex; flex-direction:column; gap:10px;}
   .slide-list-item{background:var(--gray-50); border:1.5px solid var(--gray-200);
     border-radius:12px; padding:12px 14px;
-    display:flex; align-items:center; gap:12px;
-    transition:all .18s ease;}
+    display:flex; align-items:center; gap:12px; transition:all .18s ease;}
   .slide-list-item:hover{border-color:var(--orange-300); background:#fff;}
   .slide-list-num{flex-shrink:0; min-width:38px; height:38px; padding:0 10px;
     background:linear-gradient(135deg,var(--navy-800),var(--navy-600));
@@ -639,7 +591,6 @@
   .slide-list-info span{display:block; font-size:11px; color:var(--gray-500); margin-top:2px;
     white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
   .slide-list-actions{display:flex; gap:6px; flex-shrink:0;}
-
   .row-editor{background:var(--gray-50); border:1.5px solid var(--gray-200);
     border-radius:10px; padding:10px 12px; margin-bottom:8px;
     display:flex; align-items:center; gap:10px;}
@@ -655,18 +606,15 @@
     transition:all .15s ease;}
   .row-editor-actions button:hover{background:var(--orange-100); border-color:var(--orange-400);}
   .row-editor-actions button.del:hover{background:#fee2e2; border-color:var(--red); color:var(--red);}
-
   .empty-state{padding:40px 20px; text-align:center;
     color:var(--gray-500); font-size:13px; font-weight:600;}
   .empty-state div{font-size:36px; margin-bottom:10px; opacity:.4;}
-
   .admin-footer{padding:14px 26px 18px; border-top:1px solid var(--gray-200);
     background:linear-gradient(180deg,#fff,var(--gray-50));
     display:flex; align-items:center; justify-content:space-between;
     gap:14px; flex-wrap:wrap;}
   .admin-footer-info{font-size:12px; color:var(--gray-500); font-weight:600;}
   .admin-footer-actions{display:flex; gap:8px; flex-wrap:wrap;}
-
   .login-box{padding:36px 34px 30px; text-align:center;}
   .login-icon{width:64px; height:64px; margin:0 auto 16px; border-radius:18px;
     background:linear-gradient(135deg,var(--navy-800),var(--navy-900));
@@ -682,7 +630,6 @@
     box-shadow:0 0 0 3px rgba(255,107,44,.15);}
   .login-error{color:var(--red); font-size:12px; font-weight:700;
     margin-top:10px; min-height:16px;}
-
   .admin-empty-hint{background:var(--orange-100); border:1px solid var(--orange-300);
     border-radius:10px; padding:12px 16px; margin-bottom:16px;
     font-size:12px; color:var(--navy-900); font-weight:600;
@@ -696,13 +643,12 @@
     opacity:0; pointer-events:none; transition:opacity .28s ease; padding:20px;}
   .dl-overlay.active{opacity:1; pointer-events:auto;}
   .dl-modal{background:#fff; border-radius:24px;
-    width:min(760px, 100%); max-height:90vh; overflow:hidden;
+    width:min(820px, 100%); max-height:92vh; overflow:hidden;
     box-shadow:var(--shadow-xl);
     transform:scale(.94) translateY(20px);
     transition:transform .35s cubic-bezier(.34,1.56,.64,1);
     display:flex; flex-direction:column;}
   .dl-overlay.active .dl-modal{transform:scale(1) translateY(0);}
-
   .pdf-opt-row{display:flex; align-items:center; justify-content:space-between;
     padding:12px 14px; background:var(--gray-50); border-radius:10px;
     margin-bottom:8px; border:1px solid var(--gray-200);
@@ -714,11 +660,36 @@
   .pdf-opt-row input[type="checkbox"]{width:18px; height:18px; accent-color:var(--orange-500); cursor:pointer;}
   .pdf-opt-row small{display:block; font-size:11px; color:var(--gray-500); margin-top:2px; font-weight:500;}
 
-  /* PDF STAGE */
+  .school-picker{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:8px; margin:10px 0 12px;
+  }
+  .school-picker-item{
+    display:flex; align-items:center; gap:10px;
+    background:var(--gray-50); border:1.5px solid var(--gray-200);
+    border-radius:10px; padding:11px 14px; cursor:pointer;
+    transition:all .18s ease; font-size:12.5px; font-weight:700;
+    color:var(--navy-900);
+  }
+  .school-picker-item:hover{border-color:var(--orange-300); background:#fff;}
+  .school-picker-item.selected{background:linear-gradient(135deg,var(--orange-100),#fff);
+    border-color:var(--orange-500); box-shadow:0 4px 12px -6px rgba(255,107,44,.4);}
+  .school-picker-item input{width:16px; height:16px; accent-color:var(--orange-500); cursor:pointer; margin:0;}
+  .school-picker-item .spi-name{flex:1; min-width:0;
+    white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+  .school-picker-actions{
+    display:flex; gap:6px; flex-wrap:wrap; margin-bottom:16px;
+  }
+  .school-picker-actions button{
+    padding:6px 12px; border:1px solid var(--gray-300); background:#fff;
+    border-radius:8px; font:inherit; font-size:11.5px; font-weight:700;
+    color:var(--gray-600); cursor:pointer; transition:all .15s ease;
+  }
+  .school-picker-actions button:hover{background:var(--gray-100); color:var(--navy-900); border-color:var(--navy-700);}
+
   #pdfStage{position:fixed; top:0; left:0; width:297mm; height:210mm;
     z-index:-100; pointer-events:none; background:#fff; overflow:hidden;}
 
-  /* RESPONSIVE */
   @media (max-width:900px){
     .nav-actions{gap:4px;}
     .icon-btn{width:36px; height:36px; font-size:14px; border-radius:9px;}
@@ -755,8 +726,8 @@
     .gs-grid{grid-template-columns:1fr;}
     .chart-grid{grid-template-columns:1fr;}
     .chart-box{height:220px;}
+    .school-picker{grid-template-columns:1fr;}
   }
-
   @page{size:A4 landscape; margin:0;}
   @media print{
     body{background:#fff !important;}
@@ -773,7 +744,6 @@
 </head>
 <body>
 
-<!-- ANA NAVBAR -->
 <header class="nav">
   <div class="nav-inner">
     <div class="brand">
@@ -785,8 +755,9 @@
     </div>
     <div class="nav-actions">
       <button class="icon-btn active" id="editBtn" data-tip="Düzenleme Modu">🖊️</button>
-      <button class="icon-btn" id="saveBtn" data-tip="PDF Olarak Kaydet">💾</button>
-      <button class="icon-btn" id="loadBtn" data-tip="Proje Yükle">📂</button>
+      <button class="icon-btn" id="saveBtn" data-tip="Kaydet (Ctrl+S)">💾</button>
+      <button class="icon-btn" id="loadBtn" data-tip="Okul JSON'larını Yükle (Çoklu)">📂</button>
+      <button class="icon-btn" id="exportSchoolBtn" data-tip="Bu Okulu JSON Olarak İndir">📤</button>
       <span class="divider"></span>
       <button class="icon-btn" id="printBtn" data-tip="Yazdır">🖨️</button>
       <button class="icon-btn admin" id="adminBtn" data-tip="Admin Paneli">⚙️</button>
@@ -801,7 +772,6 @@
   </div>
 </header>
 
-<!-- OKUL SEÇİM ÇUBUĞU -->
 <div class="school-bar">
   <div class="school-bar-inner">
     <div class="school-bar-label">Okul Seçiniz</div>
@@ -812,7 +782,6 @@
   </div>
 </div>
 
-<!-- SEKMELER -->
 <div class="tabs-bar">
   <div class="tabs-inner">
     <button class="tab-btn active" data-view="report">📋 Ana Rapor</button>
@@ -826,10 +795,9 @@
   </div>
 </div>
 
-<input type="file" id="fileInput" accept=".json,application/json" style="display:none">
+<input type="file" id="fileInput" accept=".json,application/json" multiple style="display:none">
 
 <main>
-  <!-- ANA RAPOR -->
   <div class="view active" id="view-report">
     <div class="status-bar">
       <div class="status-group">
@@ -853,48 +821,20 @@
     </div>
     <div id="slides"></div>
   </div>
-
-  <!-- GENEL DURUM -->
-  <div class="view" id="view-status">
-    <div id="genelDurumContent"></div>
-  </div>
-
-  <!-- GRAFİKLER -->
-  <div class="view" id="view-charts">
-    <div id="chartsContent"></div>
-  </div>
-
-  <!-- OTOMATİK DEĞERLENDİRME -->
-  <div class="view" id="view-eval">
-    <div id="evalContent"></div>
-  </div>
-
-  <!-- AYLIK DEĞERLENDİRME -->
-  <div class="view" id="view-monthly">
-    <div id="monthlyContent"></div>
-  </div>
-
-  <!-- YÖNETİCİ ÖZETİ -->
-  <div class="view" id="view-summary">
-    <div id="summaryContent"></div>
-  </div>
-
-  <!-- YILLIK DEĞERLENDİRME -->
-  <div class="view" id="view-annual">
-    <div id="annualContent"></div>
-  </div>
-
-  <!-- OKUL KARŞILAŞTIRMA -->
-  <div class="view" id="view-compare">
-    <div id="compareContent"></div>
-  </div>
+  <div class="view" id="view-status"><div id="genelDurumContent"></div></div>
+  <div class="view" id="view-charts"><div id="chartsContent"></div></div>
+  <div class="view" id="view-eval"><div id="evalContent"></div></div>
+  <div class="view" id="view-monthly"><div id="monthlyContent"></div></div>
+  <div class="view" id="view-summary"><div id="summaryContent"></div></div>
+  <div class="view" id="view-annual"><div id="annualContent"></div></div>
+  <div class="view" id="view-compare"><div id="compareContent"></div></div>
 </main>
 
 <footer class="page-foot" id="pageFooter">
   Samsat İlçe Milli Eğitim Müdürlüğü · Okul Gelişimi ve Akademik Başarıyı İzleme ve Değerlendirme Sistemi · 2026–2027
 </footer>
 
-<!-- ADMIN OVERLAY -->
+<!-- ADMIN -->
 <div class="admin-overlay" id="adminOverlay">
   <div class="admin-modal">
     <div class="admin-header">
@@ -904,7 +844,6 @@
       </div>
       <button class="admin-close" id="adminClose">✕</button>
     </div>
-
     <div id="adminLogin">
       <div class="login-box">
         <div class="login-icon">🔒</div>
@@ -920,21 +859,19 @@
         </p>
       </div>
     </div>
-
     <div id="adminPanel" style="display:none;flex-direction:column;flex:1;overflow:hidden">
       <div class="admin-tabs">
         <button class="admin-tab active" data-tab="general">📋 Genel</button>
         <button class="admin-tab" data-tab="schools">🏫 Okullar</button>
+        <button class="admin-tab" data-tab="importexport">📥 İçe / Dışa Aktar</button>
         <button class="admin-tab" data-tab="slides">📑 Slaytlar</button>
         <button class="admin-tab" data-tab="agenda">🎯 Gündem</button>
         <button class="admin-tab" data-tab="analysis">📊 Analiz Ayarları</button>
         <button class="admin-tab" data-tab="backup">💾 Yedek / Sıfırla</button>
       </div>
-
       <div class="admin-body">
-        <!-- GENEL -->
         <div class="admin-panel active" data-panel="general">
-          <div class="admin-empty-hint">Buradaki değişiklikler tüm raporu (kapak, navbar, PDF) etkiler.</div>
+          <div class="admin-empty-hint">Buradaki değişiklikler tüm raporu etkiler.</div>
           <div class="admin-field"><label>Rapor Başlığı (Uzun)</label><input type="text" id="inpTitleLong"></div>
           <div class="admin-field"><label>Rapor Başlığı (Kısa — PDF)</label><input type="text" id="inpTitleShort"></div>
           <div class="admin-row">
@@ -965,9 +902,8 @@
           <button class="admin-btn admin-btn-primary" id="saveGeneral"><span>💾</span><span>Kaydet</span></button>
         </div>
 
-        <!-- OKULLAR -->
         <div class="admin-panel" data-panel="schools">
-          <div class="admin-empty-hint">Okul listesini düzenleyin. Değişiklikler hemen uygulanır.</div>
+          <div class="admin-empty-hint">Okul listesini düzenleyin.</div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
             <button class="admin-btn admin-btn-primary" id="addSchoolBtn"><span>➕</span><span>Okul Ekle</span></button>
             <button class="admin-btn admin-btn-ghost" id="resetSchoolsBtn"><span>↻</span><span>Varsayılana Dön</span></button>
@@ -975,19 +911,40 @@
           <div class="slide-list" id="schoolList"></div>
         </div>
 
-        <!-- SLAYT LİSTESİ -->
-        <div class="admin-panel" data-panel="slides">
-          <div class="admin-empty-hint">Mevcut 18 slayt yapısı korunur. Yeni ekleyebilir, düzenleyebilir veya silebilirsiniz.</div>
+        <div class="admin-panel" data-panel="importexport">
+          <div class="admin-empty-hint">Her okulun verisini ayrı JSON olarak indirin veya çoklu olarak yükleyin. Yüklemeler birbirini silmez.</div>
+
+          <h4 style="font-size:13px;font-weight:800;color:var(--navy-900);margin-bottom:12px">📤 Dışa Aktar</h4>
+          <div class="admin-field">
+            <label>Dışa Aktarılacak Okul</label>
+            <select id="exportSchoolSelect"></select>
+          </div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px">
+            <button class="admin-btn admin-btn-primary" id="exportSchoolJsonBtn"><span>📤</span><span>Seçili Okulu İndir</span></button>
+            <button class="admin-btn admin-btn-navy" id="exportAllSchoolsBtn"><span>📦</span><span>Tümünü Ayrı Ayrı İndir</span></button>
+          </div>
+
+          <h4 style="font-size:13px;font-weight:800;color:var(--navy-900);margin-bottom:12px">📥 Çoklu Yükle</h4>
+          <div class="admin-empty-hint" style="background:#eff6ff;border-color:#93c5fd">Birden fazla JSON seçebilirsiniz. Her dosya ilgili okulun verisini ekler/günceller, diğerlerini silmez.</div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
-            <button class="admin-btn admin-btn-primary" id="addSlideBtn"><span>➕</span><span>Yeni Slayt Ekle</span></button>
+            <button class="admin-btn admin-btn-primary" id="multiImportBtn"><span>📂</span><span>Çoklu JSON Yükle</span></button>
+            <button class="admin-btn admin-btn-ghost" id="viewLoadedSchoolsBtn"><span>📋</span><span>Yüklü Okulları Gör</span></button>
+          </div>
+
+          <div id="loadedSchoolsList" style="margin-top:16px"></div>
+        </div>
+
+        <div class="admin-panel" data-panel="slides">
+          <div class="admin-empty-hint">Slayt yapısı (18 sayfa).</div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
+            <button class="admin-btn admin-btn-primary" id="addSlideBtn"><span>➕</span><span>Yeni Slayt</span></button>
             <button class="admin-btn admin-btn-ghost" id="resetSlidesBtn"><span>↻</span><span>Varsayılana Dön</span></button>
           </div>
           <div class="slide-list" id="slideList"></div>
         </div>
 
-        <!-- GÜNDEM -->
         <div class="admin-panel" data-panel="agenda">
-          <div class="admin-empty-hint">Rapor Gündemi kartlarını düzenleyin.</div>
+          <div class="admin-empty-hint">Rapor Gündemi kartları.</div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
             <button class="admin-btn admin-btn-primary" id="addAgendaBtn"><span>➕</span><span>Kart Ekle</span></button>
             <button class="admin-btn admin-btn-ghost" id="resetAgendaBtn"><span>↻</span><span>Sıfırla</span></button>
@@ -995,84 +952,48 @@
           <div class="slide-list" id="agendaList"></div>
         </div>
 
-        <!-- ANALİZ AYARLARI -->
         <div class="admin-panel" data-panel="analysis">
-          <div class="admin-empty-hint">Durum etiketleri için eşik değerlerini ve otomatik yorum şablonlarını ayarlayın.</div>
-
-          <h4 style="font-size:13px;font-weight:800;color:var(--navy-900);margin-bottom:12px">Durum Eşikleri (Gerçekleşme %)</h4>
+          <div class="admin-empty-hint">Durum eşikleri ve yorum şablonları.</div>
+          <h4 style="font-size:13px;font-weight:800;color:var(--navy-900);margin-bottom:12px">Durum Eşikleri (%)</h4>
           <div class="admin-row-3">
-            <div class="admin-field">
-              <label>🟢 Hedef doğrultusunda ≥</label>
-              <input type="number" id="thrGreen" min="0" max="200" step="1">
-            </div>
-            <div class="admin-field">
-              <label>🔵 Hedefe yakın ≥</label>
-              <input type="number" id="thrBlue" min="0" max="200" step="1">
-            </div>
-            <div class="admin-field">
-              <label>🟡 Gelişim gerekiyor ≥</label>
-              <input type="number" id="thrYellow" min="0" max="200" step="1">
-            </div>
+            <div class="admin-field"><label>🟢 ≥</label><input type="number" id="thrGreen" min="0" max="200"></div>
+            <div class="admin-field"><label>🔵 ≥</label><input type="number" id="thrBlue" min="0" max="200"></div>
+            <div class="admin-field"><label>🟡 ≥</label><input type="number" id="thrYellow" min="0" max="200"></div>
           </div>
           <div class="admin-row-3">
-            <div class="admin-field">
-              <label>🟠 Yakından izlenmeli ≥</label>
-              <input type="number" id="thrOrange" min="0" max="200" step="1">
-            </div>
-            <div class="admin-field">
-              <label>🔴 Öncelikli takip &lt;</label>
-              <input type="number" id="thrRed" min="0" max="200" step="1">
-            </div>
-            <div class="admin-field">
-              <label>Min. Veri Sayısı (trend için)</label>
-              <input type="number" id="thrMinData" min="1" max="12" step="1">
-            </div>
+            <div class="admin-field"><label>🟠 ≥</label><input type="number" id="thrOrange" min="0" max="200"></div>
+            <div class="admin-field"><label>🔴 &lt;</label><input type="number" id="thrRed" min="0" max="200"></div>
+            <div class="admin-field"><label>Min. Veri</label><input type="number" id="thrMinData" min="1" max="12"></div>
           </div>
-
-          <h4 style="font-size:13px;font-weight:800;color:var(--navy-900);margin:20px 0 12px">Yorum Şablonları</h4>
-          <div class="admin-field">
-            <label>Hedefe Ulaşıldı</label>
-            <textarea id="tmplOnTarget" rows="2"></textarea>
-          </div>
-          <div class="admin-field">
-            <label>Hedefin Altında</label>
-            <textarea id="tmplUnderTarget" rows="2"></textarea>
-          </div>
-          <div class="admin-field">
-            <label>Hedef Aşıldı</label>
-            <textarea id="tmplOverTarget" rows="2"></textarea>
-          </div>
-          <div class="admin-field">
-            <label>Veri Yetersiz</label>
-            <textarea id="tmplNoData" rows="2"></textarea>
-          </div>
-
-          <button class="admin-btn admin-btn-primary" id="saveAnalysis"><span>💾</span><span>Analiz Ayarlarını Kaydet</span></button>
+          <h4 style="font-size:13px;font-weight:800;color:var(--navy-900);margin:20px 0 12px">Şablonlar</h4>
+          <div class="admin-field"><label>Hedefe Ulaşıldı</label><textarea id="tmplOnTarget" rows="2"></textarea></div>
+          <div class="admin-field"><label>Hedefin Altında</label><textarea id="tmplUnderTarget" rows="2"></textarea></div>
+          <div class="admin-field"><label>Hedef Aşıldı</label><textarea id="tmplOverTarget" rows="2"></textarea></div>
+          <div class="admin-field"><label>Veri Yetersiz</label><textarea id="tmplNoData" rows="2"></textarea></div>
+          <button class="admin-btn admin-btn-primary" id="saveAnalysis"><span>💾</span><span>Kaydet</span></button>
         </div>
 
-        <!-- YEDEK -->
         <div class="admin-panel" data-panel="backup">
-          <div class="admin-empty-hint">Tüm veriler + yapılandırma tek dosyada.</div>
+          <div class="admin-empty-hint">Tüm okullar + yapılandırma tek dosyada.</div>
           <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:20px">
-            <button class="admin-btn admin-btn-primary" id="backupBtn"><span>💾</span><span>Tam Yedek (JSON)</span></button>
-            <button class="admin-btn admin-btn-navy" id="restoreBtn"><span>📂</span><span>Geri Yükle</span></button>
+            <button class="admin-btn admin-btn-primary" id="backupBtn"><span>💾</span><span>Tüm Yedek (JSON)</span></button>
+            <button class="admin-btn admin-btn-navy" id="restoreBtn"><span>📂</span><span>Yedekten Yükle</span></button>
           </div>
           <div class="admin-field">
             <label>Fabrika Ayarlarına Dön</label>
             <div style="background:#fff5f5;border:1px solid #fecaca;border-radius:10px;padding:14px;font-size:12.5px;color:#991b1b;font-weight:600;margin-bottom:12px">
-              ⚠️ Tüm özelleştirmeler, girilen veriler ve okul listeleri <b>silinir</b>. Geri alınamaz.
+              ⚠️ Tüm veriler silinir. Geri alınamaz.
             </div>
             <button class="admin-btn admin-btn-danger" id="factoryResetBtn"><span>🗑</span><span>Sıfırla</span></button>
           </div>
           <div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--gray-200)">
-            <div style="font-size:11.5px;font-weight:800;color:var(--gray-600);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px">Depolama Bilgisi</div>
+            <div style="font-size:11.5px;font-weight:800;color:var(--gray-600);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px">Depolama</div>
             <div style="font-size:12.5px;color:var(--gray-500);line-height:1.7">
               <div id="storageStats" style="font-weight:700;color:var(--navy-800)"></div>
             </div>
           </div>
         </div>
       </div>
-
       <div class="admin-footer">
         <div class="admin-footer-info" id="adminFooterInfo">Hazır</div>
         <div class="admin-footer-actions">
@@ -1084,7 +1005,7 @@
   </div>
 </div>
 
-<!-- SLAYT DÜZENLEME -->
+<!-- SLIDE EDIT -->
 <div class="admin-overlay" id="slideEditOverlay">
   <div class="admin-modal" style="width:min(720px,100%)">
     <div class="admin-header">
@@ -1124,47 +1045,46 @@
   </div>
 </div>
 
-<!-- FORMATLAR MODALI -->
+<!-- FORMATLAR MODAL -->
 <div class="dl-overlay" id="dlOverlay">
   <div class="dl-modal">
     <div class="admin-header">
       <div class="admin-header-left">
         <div class="admin-header-icon">📥</div>
-        <div><h2>Dışa Aktarma</h2><p>Excel, JSON, PDF Analiz veya Yazdır</p></div>
+        <div><h2>Rapor Oluştur ve Dışa Aktar</h2><p>Rapor içeriğini ve okulları seçin</p></div>
       </div>
       <button class="admin-close" id="dlClose">✕</button>
     </div>
     <div class="admin-body">
       <div class="admin-field"><label>Dosya Adı</label><input type="text" id="filenameInput"></div>
 
-      <h4 style="font-size:12px;font-weight:800;color:var(--gray-600);letter-spacing:.08em;text-transform:uppercase;margin:14px 0 10px">PDF İçerik Seçenekleri</h4>
-      <div class="pdf-opt-row selected"><label><input type="checkbox" id="pdfOptReport" checked><span>📋 Ana Rapor (18 sayfa)<small>Mevcut rapor yapısı</small></span></label></div>
-      <div class="pdf-opt-row selected"><label><input type="checkbox" id="pdfOptStatus" checked><span>📌 Genel Durum<small>Göstergeler ve özet</small></span></label></div>
-      <div class="pdf-opt-row selected"><label><input type="checkbox" id="pdfOptCharts" checked><span>📊 Grafikler ve Analiz<small>Trendler ve yorumlar</small></span></label></div>
-      <div class="pdf-opt-row selected"><label><input type="checkbox" id="pdfOptEval" checked><span>📝 Otomatik Değerlendirme<small>Güçlü yönler, gelişim alanları</small></span></label></div>
-      <div class="pdf-opt-row"><label><input type="checkbox" id="pdfOptMonthly"><span>📅 Aylık Değerlendirme<small>Seçili ay analizi</small></span></label></div>
-      <div class="pdf-opt-row"><label><input type="checkbox" id="pdfOptSummary"><span>📋 Yönetici Özeti<small>Ay sonu özet raporu</small></span></label></div>
-      <div class="pdf-opt-row"><label><input type="checkbox" id="pdfOptAnnual"><span>📘 Yıllık Değerlendirme<small>Eylül–Haziran geneli</small></span></label></div>
+      <h4 style="font-size:12px;font-weight:800;color:var(--gray-600);letter-spacing:.08em;text-transform:uppercase;margin:14px 0 10px">📚 Rapora Dahil Edilecek Okullar</h4>
+      <div class="school-picker-actions">
+        <button type="button" data-action="all">✓ Tümünü Seç</button>
+        <button type="button" data-action="none">✗ Hiçbirini Seçme</button>
+        <button type="button" data-action="current">🎯 Sadece Seçili Okul</button>
+      </div>
+      <div class="school-picker" id="pdfSchoolPicker"></div>
+
+      <h4 style="font-size:12px;font-weight:800;color:var(--gray-600);letter-spacing:.08em;text-transform:uppercase;margin:14px 0 10px">📄 PDF İçerik</h4>
+      <div class="pdf-opt-row selected"><label><input type="checkbox" id="pdfOptReport" checked><span>📋 Ana Rapor (18 sayfa)</span></label></div>
+      <div class="pdf-opt-row selected"><label><input type="checkbox" id="pdfOptStatus" checked><span>📌 Genel Durum</span></label></div>
+      <div class="pdf-opt-row selected"><label><input type="checkbox" id="pdfOptCharts" checked><span>📊 Grafikler ve Analiz</span></label></div>
+      <div class="pdf-opt-row selected"><label><input type="checkbox" id="pdfOptEval" checked><span>📝 Otomatik Değerlendirme</span></label></div>
+      <div class="pdf-opt-row"><label><input type="checkbox" id="pdfOptMonthly"><span>📅 Aylık Değerlendirme</span></label></div>
+      <div class="pdf-opt-row"><label><input type="checkbox" id="pdfOptSummary"><span>📋 Yönetici Özeti</span></label></div>
+      <div class="pdf-opt-row"><label><input type="checkbox" id="pdfOptAnnual"><span>📘 Yıllık Değerlendirme</span></label></div>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-top:18px">
-        <button class="admin-btn admin-btn-primary" id="dlPdf" style="justify-content:center;padding:14px">
-          <span>📄</span><span>PDF Oluştur</span>
-        </button>
-        <button class="admin-btn admin-btn-navy" id="dlExcel" style="justify-content:center;padding:14px">
-          <span>📊</span><span>Excel (CSV)</span>
-        </button>
-        <button class="admin-btn admin-btn-navy" id="dlJson" style="justify-content:center;padding:14px">
-          <span>🗂️</span><span>JSON Yedek</span>
-        </button>
-        <button class="admin-btn admin-btn-navy" id="dlPrint" style="justify-content:center;padding:14px">
-          <span>🖨️</span><span>Yazdır</span>
-        </button>
+        <button class="admin-btn admin-btn-primary" id="dlPdf" style="justify-content:center;padding:14px"><span>📄</span><span>PDF Oluştur</span></button>
+        <button class="admin-btn admin-btn-navy" id="dlExcel" style="justify-content:center;padding:14px"><span>📊</span><span>Excel (CSV)</span></button>
+        <button class="admin-btn admin-btn-navy" id="dlJson" style="justify-content:center;padding:14px"><span>🗂️</span><span>Tüm Yedek</span></button>
+        <button class="admin-btn admin-btn-navy" id="dlPrint" style="justify-content:center;padding:14px"><span>🖨️</span><span>Yazdır</span></button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- PDF OVERLAY -->
 <div class="dl-overlay" id="pdfOverlay">
   <div class="dl-modal" style="width:min(420px,90vw)">
     <div style="text-align:center;padding:40px 34px 30px">
@@ -1189,7 +1109,7 @@
 
 <script>
 /* =====================================================
-   VARSAYILAN YAPILANDIRMA
+   VARSAYILANLAR
 ===================================================== */
 const DEFAULT_CONFIG = {
   title: "Samsat Okul Gelişimi ve Akademik Başarıyı İzleme, Analiz ve Değerlendirme Sistemi",
@@ -1229,68 +1149,36 @@ const DEFAULT_AGENDA = [
 
 const DEFAULT_SLIDES = [
   { type:"cover" },
-  { type:"agenda",
-    title:"Rapor Gündemi",
-    desc:"Okul gelişimi ve akademik başarının izlenmesinde yedi temel gelişim alanı." },
-  { title:"Koçluk ve İletişim Faaliyetleri",
-    desc:"Aylık koçluk toplantıları, öğrenci ve veli görüşme/ziyaret sayıları.",
-    cat:"🎓 Akademik Gelişim", mode:"HG",
+  { type:"agenda", title:"Rapor Gündemi", desc:"Okul gelişimi ve akademik başarının izlenmesinde yedi temel gelişim alanı." },
+  { title:"Koçluk ve İletişim Faaliyetleri", desc:"Aylık koçluk toplantıları, öğrenci ve veli görüşme/ziyaret sayıları.", cat:"🎓 Akademik Gelişim", mode:"HG",
     rows:["Koçluk Değerlendirme Toplantı Sayısı","Öğrenci Görüşme Sayısı","Veli Görüşme Sayısı","Veli Toplantı Sayısı","Veli Ziyaret Sayısı"] },
-  { title:"Kariyer Rehberliği",
-    desc:"Kariyer rehberliği kapsamında yürütülen faaliyetler ve katılım oranları.",
-    cat:"👤 Öğrenci Profili", mode:"HG",
+  { title:"Kariyer Rehberliği", desc:"Kariyer rehberliği kapsamında yürütülen faaliyetler ve katılım oranları.", cat:"👤 Öğrenci Profili", mode:"HG",
     rows:["Kariyer Rehberliği Faaliyet Sayısı","Faaliyete Katılan Öğrenci Oranı (%)","AÇIKLAMA"] },
-  { title:"Sosyal, Kültürel ve Sanatsal Faaliyetler",
-    desc:"Bilimsel, kültürel, sportif ve sanatsal faaliyetler ile katılım oranları.",
-    cat:"❤️ Değerler Eğitimi", mode:"HG",
+  { title:"Sosyal, Kültürel ve Sanatsal Faaliyetler", desc:"Bilimsel, kültürel, sportif ve sanatsal faaliyetler ile katılım oranları.", cat:"❤️ Değerler Eğitimi", mode:"HG",
     rows:["Bilimsel Faaliyet Sayısı","Bilimsel Faaliyetlere Katılan Öğrenci Oranı (%)","Kültürel Faaliyet Sayısı","Kültürel Faaliyetlere Katılan Öğrenci Oranı (%)","Sporsal Faaliyet Sayısı","Sporsal Faaliyetlere Katılan Öğrenci Oranı (%)","Sanatsal Faaliyet Sayısı","Sanatsal Faaliyetlere Katılan Öğrenci Oranı (%)"] },
-  { title:"Sosyal Sorumluluk Faaliyetleri",
-    desc:"Sosyal sorumluluk kapsamında yapılan faaliyetler ve öğrenci katılımı.",
-    cat:"❤️ Değerler Eğitimi", mode:"HG",
+  { title:"Sosyal Sorumluluk Faaliyetleri", desc:"Sosyal sorumluluk kapsamında yapılan faaliyetler ve öğrenci katılımı.", cat:"❤️ Değerler Eğitimi", mode:"HG",
     rows:["Sosyal Sorumluluk Faaliyet Sayısı","Faaliyete Katılan Öğrenci Oranı (%)"] },
-  { title:"EBA – MEBİ Kullanımı",
-    desc:"Öğrenci ve öğretmenlerin dijital platform kullanım oranları.",
-    cat:"🧠 Beceri Gelişimi", mode:"HG",
+  { title:"EBA – MEBİ Kullanımı", desc:"Öğrenci ve öğretmenlerin dijital platform kullanım oranları.", cat:"🧠 Beceri Gelişimi", mode:"HG",
     rows:["EBA Kullanım Oranı (Öğrenci)","EBA Kullanım Oranı (Öğretmen)","MEBİ Kullanım Oranı (Öğrenci)","MEBİ Kullanım Oranı (Öğretmen)"] },
-  { title:"Devamsızlık Oranı",
-    desc:"Aylık devamsızlık oranı ve devamı sağlanan öğrenci sayısı.",
-    cat:"📊 İzleme-Değerlendirme", mode:"HG",
+  { title:"Devamsızlık Oranı", desc:"Aylık devamsızlık oranı ve devamı sağlanan öğrenci sayısı.", cat:"📊 İzleme-Değerlendirme", mode:"HG",
     rows:["Devamsızlık Oranı (%)","Devamsız Olup Devamı Sağlanan Öğrenci Sayısı","AÇIKLAMA"] },
-  { title:"Dilimizin Zenginlikleri",
-    desc:"Dilimizin Zenginlikleri projesi kapsamında yürütülen çalışmalar.",
-    cat:"❤️ Değerler Eğitimi", mode:"HG",
+  { title:"Dilimizin Zenginlikleri", desc:"Dilimizin Zenginlikleri projesi kapsamında yürütülen çalışmalar.", cat:"❤️ Değerler Eğitimi", mode:"HG",
     rows:["Dilimizin Zenginlikleri Kapsamında Yapılan Etkinlik Sayısı","Etkinliklere Katılan Öğrenci Oranı (%)","AÇIKLAMA"] },
-  { title:"Çevreme Duyarlıyım, Değerlerime Sahip Çıkıyorum (ÇEDES)",
-    desc:"ÇEDES projesi kapsamında öğretmen ve öğrenci katılımı.",
-    cat:"❤️ Değerler Eğitimi", mode:"HG",
+  { title:"Çevreme Duyarlıyım, Değerlerime Sahip Çıkıyorum (ÇEDES)", desc:"ÇEDES projesi kapsamında öğretmen ve öğrenci katılımı.", cat:"❤️ Değerler Eğitimi", mode:"HG",
     rows:["Faaliyete Katılan Öğretmen Sayısı","Faaliyete Katılan Öğrenci Oranı (%)"] },
-  { title:"Kütüphane Kullanımı",
-    desc:"Kütüphane kitap varlığı, yararlanma ve öğrenci kullanım oranı.",
-    cat:"🎓 Akademik Gelişim", mode:"HG",
+  { title:"Kütüphane Kullanımı", desc:"Kütüphane kitap varlığı, yararlanma ve öğrenci kullanım oranı.", cat:"🎓 Akademik Gelişim", mode:"HG",
     rows:["Kütüphanedeki Kitap Sayısı","Kütüphaneden Yararlanılan Kitap Sayısı","Kütüphanede Yararlanan Öğrenci Oranı (%)","AÇIKLAMA"] },
-  { title:"Okuma Etkinlikleri",
-    desc:"Okunan kitap sayıları ve okuma kültürünü artırmaya yönelik etkinlikler.",
-    cat:"🎓 Akademik Gelişim", mode:"HG",
+  { title:"Okuma Etkinlikleri", desc:"Okunan kitap sayıları ve okuma kültürünü artırmaya yönelik etkinlikler.", cat:"🎓 Akademik Gelişim", mode:"HG",
     rows:["Okunan Kitap Sayısı","Öğrenci Başına Okunan Kitap Sayısı","Okuma Kültürünü Arttırmaya Yönelik Etkinliklere Katılan Öğrenci Oranı (%)"] },
-  { title:"Hizmet İçi Eğitim",
-    desc:"Öğretmen ve yöneticilerin hizmet içi eğitim katılım verileri.",
-    cat:"🏫 Okul Gelişimi", mode:"HG",
+  { title:"Hizmet İçi Eğitim", desc:"Öğretmen ve yöneticilerin hizmet içi eğitim katılım verileri.", cat:"🏫 Okul Gelişimi", mode:"HG",
     rows:["Hizmet İçi Eğitim Programlarına Katılan Öğretmen Sayısı","Öğretmen Başına Düşen Yıllık Hizmet İçi Eğitim Süresi (Dakika)","Hizmet İçi Eğitim Programlarına Katılan Yönetici Sayısı"] },
-  { title:"Proje ve Patent",
-    desc:"Yürütülen projeler, patent/faydalı model başvuruları ve katılım.",
-    cat:"🏫 Okul Gelişimi", mode:"HG",
+  { title:"Proje ve Patent", desc:"Yürütülen projeler, patent/faydalı model başvuruları ve katılım.", cat:"🏫 Okul Gelişimi", mode:"HG",
     rows:["Yürütülen Proje Sayısı","Patent / Faydalı Model Başvuru Sayısı","Projelere Katılan Öğrenci Oranı (%)","AÇIKLAMA"] },
-  { title:"Yarışmalar ve Akademik Etkinlikler",
-    desc:"Yarışmalarda derece alan öğrenci sayıları ve çözülen soru sayıları.",
-    cat:"🎓 Akademik Gelişim", mode:"HG",
+  { title:"Yarışmalar ve Akademik Etkinlikler", desc:"Yarışmalarda derece alan öğrenci sayıları ve çözülen soru sayıları.", cat:"🎓 Akademik Gelişim", mode:"HG",
     rows:["Hikâye Yazma Yarışmasında Derece Alan Öğrenci Sayısı","Kompozisyon Yarışmasında Dereceye Giren Öğrenci Sayısı","Anı Yazma Yarışmasında Dereceye Giren Öğrenci Sayısı","7/8 ve 11/12. Sınıflarda Çözülen Soru Sayısı","Şiir Okuma Yarışmasında Dereceye Giren Öğrenci Sayısı"] },
-  { title:"Okul Rehberlik Servisi Çalışmaları",
-    desc:"Akademik başarıyı artırmaya yönelik seminer, toplantı ve bireysel görüşmeler.",
-    cat:"👤 Öğrenci Profili", mode:"HG",
+  { title:"Okul Rehberlik Servisi Çalışmaları", desc:"Akademik başarıyı artırmaya yönelik seminer, toplantı ve bireysel görüşmeler.", cat:"👤 Öğrenci Profili", mode:"HG",
     rows:["Düzenlenen Seminer Sayısı","Yapılan Toplantı Sayısı","Bireysel Görüşme Sayısı","Veli Görüşme Sayısı","AÇIKLAMA"] },
-  { title:"Değerlendirme Sonuçlarına Göre Alınan Önlemler",
-    desc:"Ölçme ve değerlendirme sonuçlarına göre alınan önlemlerin aylık gerçekleşme durumu (E/H).",
-    cat:"📊 İzleme-Değerlendirme", mode:"SINGLE",
+  { title:"Değerlendirme Sonuçlarına Göre Alınan Önlemler", desc:"Ölçme ve değerlendirme sonuçlarına göre alınan önlemler (E/H).", cat:"📊 İzleme-Değerlendirme", mode:"SINGLE",
     rows:[
       "Ders öğretmenleri tarafından öğrencilere ölçme ve değerlendirme sonuçlarına ilişkin geri bildirim sağlandı mı?",
       "Belirlenen öğrenme eksikliklerine yönelik telafi ve destekleyici eğitim çalışmaları yapıldı mı?",
@@ -1298,28 +1186,18 @@ const DEFAULT_SLIDES = [
       "EBA ve MEBİ üzerinden öğrencilerin öğrenme süreçlerini destekleyici çalışmalar/ödevler verildi ve takibi yapıldı mı?",
       "Öğrencilerin akademik gelişimleri sınıf/alan öğretmenleri ve rehberlik servisi iş birliğiyle takip edildi mi?"
     ] },
-  { title:"Projelerin Uygulanması ve Takibi",
-    desc:"Proje ve okuma etkinliklerinin uygulanma durumunun aylık takibi.",
-    cat:"🎯 Eylem Planı", mode:"EH",
+  { title:"Projelerin Uygulanması ve Takibi", desc:"Proje ve okuma etkinliklerinin uygulanma durumunun aylık takibi.", cat:"🎯 Eylem Planı", mode:"EH",
     rows:["“Öncü Şahsiyetler ve Mimari Harikalar” sunumları yapılıyor mu?","İlgili görsel pano, afiş veya duyuru çalışmaları yapılıyor mu?","Okul kütüphanesi veya sınıf kütüphanesi okuma saatleri için etkin kullanılıyor mu?","Okuma saatlerinden sonra kitaplarla ilgili paylaşım/değerlendirme yapılıyor mu?","Veliler, evde okuma etkinliklerini destekliyor mu?"] }
 ];
 
 const DEFAULT_ANALYSIS = {
-  thrGreen: 90,
-  thrBlue: 75,
-  thrYellow: 60,
-  thrOrange: 40,
-  thrRed: 40,
-  thrMinData: 2,
+  thrGreen: 90, thrBlue: 75, thrYellow: 60, thrOrange: 40, thrRed: 40, thrMinData: 2,
   tmplOnTarget: "İlgili dönemde belirlenen hedefe ulaşılmıştır. Faaliyetin mevcut uygulama düzeyinin sürdürülmesi ve sürdürülebilirliğinin sağlanması önerilmektedir.",
   tmplUnderTarget: "İlgili dönemde gerçekleşen değer hedefin altında kalmıştır. Sonuçların nedenlerinin değerlendirilmesi ve sonraki dönem için destekleyici çalışmaların planlanması uygun olacaktır.",
   tmplOverTarget: "İlgili dönemde gerçekleşme değeri belirlenen hedefin üzerine çıkmıştır. Uygulamada etkili olan çalışmaların belirlenerek sürdürülebilir hâle getirilmesi değerlendirilebilir.",
   tmplNoData: "Bu göstergeye ilişkin değerlendirme yapılabilmesi için yeterli veri bulunmamaktadır."
 };
 
-/* =====================================================
-   STORAGE
-===================================================== */
 const CONFIG_KEY = "rapor-config";
 const SCHOOLS_KEY = "rapor-schools";
 const AGENDA_KEY = "rapor-agenda";
@@ -1336,9 +1214,7 @@ function loadJSON(key, fallback){
     const raw = localStorage.getItem(key);
     if (!raw) return JSON.parse(JSON.stringify(fallback));
     return JSON.parse(raw);
-  }catch(e){
-    return JSON.parse(JSON.stringify(fallback));
-  }
+  }catch(e){ return JSON.parse(JSON.stringify(fallback)); }
 }
 function saveJSON(key, val){ localStorage.setItem(key, JSON.stringify(val)); }
 
@@ -1372,9 +1248,6 @@ function escapeHTML(s){
   return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 }
 
-/* =====================================================
-   TOAST
-===================================================== */
 function toast(message, type = "info", icon){
   const stack = document.getElementById("toastStack");
   const el = document.createElement("div");
@@ -1386,33 +1259,16 @@ function toast(message, type = "info", icon){
 }
 
 /* =====================================================
-   VERİ OKUMA YARDIMCILARI
+   VERİ OKUMA
 ===================================================== */
 function getCurrentSchool(){
   return SCHOOLS.find(s => s.id === currentSchoolId) || SCHOOLS[0];
 }
 
-// Slayt için satır verilerini getir (hangi slayt hangi index)
-function getSlideDataByIndex(slideIdx){
-  // slideIdx = page numarası (1'den başlar, kapak hariç)
-  // SLIDES içindeki (type!=cover,type!=agenda) sırasıyla eşleşir
-  let dataPageNo = 0;
-  for (let i = 0; i < SLIDES.length; i++){
-    const s = SLIDES[i];
-    if (s.type === "cover") continue;
-    dataPageNo++;
-    if (dataPageNo === slideIdx && s.type !== "agenda"){
-      return { slide: s, index: slideIdx };
-    }
-  }
-  return null;
-}
-
-// Tüm slaytlar için tablo verilerini topla
 function getAllTableData(schoolId){
   const result = [];
   let dataPageNo = 0;
-  SLIDES.forEach((s, i) => {
+  SLIDES.forEach((s) => {
     if (s.type === "cover") return;
     if (s.type === "agenda"){ dataPageNo++; return; }
     dataPageNo++;
@@ -1420,29 +1276,17 @@ function getAllTableData(schoolId){
     const rows = s.rows || [];
     const mode = s.mode;
     const isSingle = mode === "SINGLE";
-    const subs = mode === "EH" ? ["E","H"] : ["H","G"];
     const colCount = isSingle ? MONTHS.length : MONTHS.length * 2;
     const rowData = rows.map((label, r) => {
       const values = [];
-      for (let c = 0; c < colCount; c++){
-        values.push(getCell(schoolId, pageIdx, r, c));
-      }
+      for (let c = 0; c < colCount; c++) values.push(getCell(schoolId, pageIdx, r, c));
       return { label, values };
     });
-    result.push({
-      pageIdx,
-      slide: s,
-      title: s.title,
-      cat: s.cat,
-      mode: s.mode,
-      rows: rowData,
-      isSingle
-    });
+    result.push({ pageIdx, slide: s, title: s.title, cat: s.cat, mode: s.mode, rows: rowData, isSingle });
   });
   return result;
 }
 
-// Sayısal değer okuma (Türkçe ondalık destekli)
 function parseNum(v){
   if (v == null) return null;
   if (typeof v === "number") return isFinite(v) ? v : null;
@@ -1454,14 +1298,10 @@ function parseNum(v){
   return isFinite(n) ? n : null;
 }
 
-// Tablo verisini ay-bazlı HG çiftlerine çevir
 function getMonthlyHG(tableData){
-  // Aylık { hedef, gerc } çiftleri
   const months = MONTHS.map(m => ({ month: m, hedef: null, gerc: null }));
   if (!tableData || !tableData.rows) return months;
   tableData.rows.forEach(row => {
-    // Hedef satırı mı gerçekleşen mi? Label'dan anlaşılamaz, değerleri oku
-    // HG modunda her ay 2 hücre: H (hedef), G (gerçekleşen)
     for (let mi = 0; mi < MONTHS.length; mi++){
       const hVal = parseNum(row.values[mi * 2]);
       const gVal = parseNum(row.values[mi * 2 + 1]);
@@ -1469,24 +1309,9 @@ function getMonthlyHG(tableData){
       if (gVal != null) months[mi].gerc = (months[mi].gerc || 0) + gVal;
     }
   });
-  // null kalan değerleri null yap
-  months.forEach(m => {
-    if (m.hedef === 0 && !hasAnyValue(tableData, MONTHS.indexOf(m.month), 0)) m.hedef = null;
-    if (m.gerc === 0 && !hasAnyValue(tableData, MONTHS.indexOf(m.month), 1)) m.gerc = null;
-  });
   return months;
 }
 
-function hasAnyValue(tableData, monthIdx, colOffset){
-  if (!tableData || !tableData.rows) return false;
-  for (const row of tableData.rows){
-    const v = parseNum(row.values[monthIdx * 2 + colOffset]);
-    if (v != null) return true;
-  }
-  return false;
-}
-
-// Tek bir sayı kolonu (E/H için) — ay başına bir değer
 function getMonthlySingle(tableData){
   const months = MONTHS.map(m => ({ month: m, value: null }));
   if (!tableData || !tableData.rows) return months;
@@ -1499,22 +1324,18 @@ function getMonthlySingle(tableData){
   return months;
 }
 
-// Genel durum için toplamlar
 function computeTotals(schoolId){
   const tables = getAllTableData(schoolId);
   let totalHedef = 0, totalGerc = 0, hedefCount = 0, gercCount = 0;
   let filledCells = 0, totalCells = 0;
-  let monthlyHGByTable = [];
-  let monthlySingleByTable = [];
+  const monthlyHGByTable = [];
+  const monthlySingleByTable = [];
 
   tables.forEach(td => {
     if (td.isSingle){
       const m = getMonthlySingle(td);
       monthlySingleByTable.push({ table: td, months: m });
-      m.forEach(mm => {
-        if (mm.value != null){ gercCount++; totalGerc += mm.value; }
-      });
-      td.rows.forEach(r => r.values.forEach(v => { totalCells++; if (v.trim() !== "") filledCells++; }));
+      m.forEach(mm => { if (mm.value != null){ gercCount++; totalGerc += mm.value; } });
     } else {
       const m = getMonthlyHG(td);
       monthlyHGByTable.push({ table: td, months: m });
@@ -1522,36 +1343,27 @@ function computeTotals(schoolId){
         if (mm.hedef != null){ hedefCount++; totalHedef += mm.hedef; }
         if (mm.gerc != null){ gercCount++; totalGerc += mm.gerc; }
       });
-      td.rows.forEach(r => r.values.forEach(v => { totalCells++; if (v.trim() !== "") filledCells++; }));
     }
+    td.rows.forEach(r => r.values.forEach(v => { totalCells++; if (v.trim() !== "") filledCells++; }));
   });
 
   return {
-    tables,
-    monthlyHGByTable,
-    monthlySingleByTable,
-    totalHedef,
-    totalGerc,
-    hedefCount,
-    gercCount,
-    filledCells,
-    totalCells,
+    tables, monthlyHGByTable, monthlySingleByTable,
+    totalHedef, totalGerc, hedefCount, gercCount, filledCells, totalCells,
     overallRate: (totalHedef > 0) ? (totalGerc / totalHedef) * 100 : null
   };
 }
 
-// Aylık veri girişi durumu
 function getMonthlyDataStatus(schoolId){
   const tables = getAllTableData(schoolId);
   const status = MONTHS.map(m => ({ month: m, filled: 0, total: 0 }));
   tables.forEach(td => {
-    const isSingle = td.isSingle;
-    const colCount = isSingle ? 1 : 2;
+    const colCount = td.isSingle ? 1 : 2;
     td.rows.forEach(row => {
       for (let mi = 0; mi < MONTHS.length; mi++){
         for (let c = 0; c < colCount; c++){
           status[mi].total++;
-          const idx = isSingle ? mi : (mi * 2 + c);
+          const idx = td.isSingle ? mi : (mi * 2 + c);
           const v = (row.values[idx] || "").trim();
           if (v !== "") status[mi].filled++;
         }
@@ -1565,9 +1377,6 @@ function getMonthlyDataStatus(schoolId){
   return status;
 }
 
-/* =====================================================
-   DURUM ETİKETİ
-===================================================== */
 function getStatusBadge(rate){
   if (rate == null || !isFinite(rate)) return { cls:"sb-gray", label:"⚪ Yeterli veri yok" };
   if (rate >= ANALYSIS.thrGreen) return { cls:"sb-green", label:"🟢 Hedef doğrultusunda" };
@@ -1577,57 +1386,37 @@ function getStatusBadge(rate){
   return { cls:"sb-red", label:"🔴 Öncelikli takip" };
 }
 
-/* =====================================================
-   TREND ANALİZİ
-===================================================== */
 function analyzeTrend(values){
-  // values: number|null dizisi (kronolojik)
   const clean = values.filter(v => v != null && isFinite(v));
-  if (clean.length < ANALYSIS.thrMinData){
-    return { type:"none", label:"⚪ Veri yetersiz", desc:"Yeterli veri bulunmamaktadır." };
-  }
-  const first = clean[0];
-  const last = clean[clean.length - 1];
+  if (clean.length < ANALYSIS.thrMinData) return { type:"none", label:"⚪ Veri yetersiz", desc:"Yeterli veri bulunmamaktadır." };
+  const first = clean[0], last = clean[clean.length - 1];
   const diff = last - first;
   const threshold = Math.abs(first) * 0.05 || 0.5;
-
-  if (Math.abs(diff) < threshold){
-    return { type:"stable", label:"Sabit", desc:"Belirgin bir değişim gözlenmemiştir." };
-  }
-  if (diff > 0){
-    return { type:"up", label:"Artış", desc:"Artış eğilimi görülmektedir." };
-  }
+  if (Math.abs(diff) < threshold) return { type:"stable", label:"Sabit", desc:"Belirgin bir değişim gözlenmemiştir." };
+  if (diff > 0) return { type:"up", label:"Artış", desc:"Artış eğilimi görülmektedir." };
   return { type:"down", label:"Azalış", desc:"Azalış eğilimi görülmektedir." };
 }
 
 function analyzeLast3(values){
   const clean = values.filter(v => v != null && isFinite(v));
-  if (clean.length < 3){
-    return { type:"none", label:"⚪ Son 3 ay için veri yetersiz", desc:"Son üç ay için yeterli veri bulunmamaktadır." };
-  }
+  if (clean.length < 3) return { type:"none", label:"⚪ Veri yetersiz", desc:"Son üç ay için yeterli veri bulunmamaktadır." };
   const last3 = clean.slice(-3);
   const d1 = last3[1] - last3[0];
   const d2 = last3[2] - last3[1];
-  if (Math.abs(d1) < 0.01 && Math.abs(d2) < 0.01) return { type:"stable", label:"Sabit", desc:"Son üç ayda belirgin bir değişim gözlenmemiştir." };
-  if (d1 > 0 && d2 > 0) return { type:"up", label:"Artış", desc:"Son üç aylık veriler incelendiğinde artış eğilimi görülmektedir." };
-  if (d1 < 0 && d2 < 0) return { type:"down", label:"Azalış", desc:"Son üç aylık veriler incelendiğinde azalış eğilimi görülmektedir." };
+  if (Math.abs(d1) < 0.01 && Math.abs(d2) < 0.01) return { type:"stable", label:"Sabit", desc:"Son üç ayda belirgin değişim yok." };
+  if (d1 > 0 && d2 > 0) return { type:"up", label:"Artış", desc:"Son üç ayda artış eğilimi görülmektedir." };
+  if (d1 < 0 && d2 < 0) return { type:"down", label:"Azalış", desc:"Son üç ayda azalış eğilimi görülmektedir." };
   return { type:"fluct", label:"Dalgalanma", desc:"Son üç ayda dalgalanma görülmektedir." };
 }
 
 /* =====================================================
-   RENDER — ANA RAPOR
+   RENDER
 ===================================================== */
 function legend(mode){
   if (mode === "EH" || mode === "SINGLE"){
-    return `<div class="legend">
-      <span class="chip"><i class="e"></i>E · Evet</span>
-      <span class="chip"><i class="n"></i>H · Hayır</span>
-    </div>`;
+    return `<div class="legend"><span class="chip"><i class="e"></i>E · Evet</span><span class="chip"><i class="n"></i>H · Hayır</span></div>`;
   }
-  return `<div class="legend">
-    <span class="chip"><i class="h"></i>H · Hedef</span>
-    <span class="chip"><i class="g"></i>G · Gerçekleşen</span>
-  </div>`;
+  return `<div class="legend"><span class="chip"><i class="h"></i>H · Hedef</span><span class="chip"><i class="g"></i>G · Gerçekleşen</span></div>`;
 }
 
 function buildTable(rows, mode, slideIdx, schoolId){
@@ -1792,16 +1581,14 @@ function updateCounters(){
   filledCount.textContent = filled;
   totalCount.textContent = all.length;
 }
-
 function updateTimestamp(){
   const now = new Date();
   lastUpdate.textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}`;
 }
-
-function saveMeta(){
-  localStorage.setItem(META_KEY, JSON.stringify({ lastUpdate: new Date().toISOString() }));
+function saveMeta(extra){
+  const payload = Object.assign({ lastUpdate: new Date().toISOString() }, extra || {});
+  localStorage.setItem(META_KEY, JSON.stringify(payload));
 }
-
 function loadMeta(){
   try{
     const meta = JSON.parse(localStorage.getItem(META_KEY) || "{}");
@@ -1826,7 +1613,6 @@ document.addEventListener("input", e => {
       saveStatusText.textContent = "Aktif";
       document.querySelector("#saveStatus .status-dot").classList.add("live");
       updateTimestamp(); saveMeta(); updateCounters();
-      // Aktif görünümü yenile
       refreshActiveView();
     }, 550);
   }
@@ -1852,14 +1638,65 @@ document.addEventListener("keydown", e => {
 });
 
 /* =====================================================
+   ✅ KAYDET — SADECE KAYIT YAPAR, PDF İNDİRMEZ
+===================================================== */
+document.getElementById("saveBtn").addEventListener("click", async () => {
+  try {
+    // 1) Tüm okul verilerini topla
+    const cells = {};
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith(CELL_PREFIX_BASE)) cells[k] = localStorage.getItem(k);
+    });
+
+    // 2) Meta bilgisini güncelle
+    const now = new Date();
+    saveMeta({
+      savedAt: now.toLocaleString("tr-TR"),
+      schools: SCHOOLS.length,
+      cells: Object.keys(cells).length
+    });
+
+    // 3) Arayüzü güncelle
+    lastUpdate.textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}`;
+    saveStatusText.textContent = "Kaydedildi ✓";
+    document.querySelector("#saveStatus .status-dot").classList.add("live");
+
+    // 4) Görsel geri bildirim — buton yeşile döner
+    const btn = document.getElementById("saveBtn");
+    const originalHTML = btn.innerHTML;
+    const originalStyle = btn.getAttribute("style") || "";
+    btn.innerHTML = "✅";
+    btn.style.background = "linear-gradient(135deg, #16a34a, #15803d)";
+    btn.style.color = "#fff";
+    btn.style.borderColor = "#15803d";
+    setTimeout(() => {
+      btn.innerHTML = originalHTML;
+      btn.setAttribute("style", originalStyle);
+    }, 1400);
+
+    // 5) Toast
+    const school = getCurrentSchool();
+    const totalCells = Object.keys(cells).length;
+    toast(`${school ? school.name : "Veriler"} kaydedildi · ${totalCells} hücre`, "success", "💾");
+
+    // 6) 2 saniye sonra durum metnini normale döndür
+    setTimeout(() => {
+      if (saveStatusText.textContent === "Kaydedildi ✓") saveStatusText.textContent = "Aktif";
+    }, 2400);
+
+  } catch (err) {
+    console.error(err);
+    toast("Kayıt hatası: " + err.message, "error", "⚠️");
+  }
+});
+
+/* =====================================================
    OKUL SEÇİCİ
 ===================================================== */
 function renderSchoolSelect(){
   const sel = document.getElementById("schoolSelect");
   sel.innerHTML = SCHOOLS.map(s => `<option value="${escapeHTML(s.id)}">${escapeHTML(s.name)}</option>`).join("");
-  if (!SCHOOLS.find(s => s.id === currentSchoolId) && SCHOOLS[0]){
-    currentSchoolId = SCHOOLS[0].id;
-  }
+  if (!SCHOOLS.find(s => s.id === currentSchoolId) && SCHOOLS[0]) currentSchoolId = SCHOOLS[0].id;
   sel.value = currentSchoolId;
 }
 
@@ -1915,12 +1752,9 @@ function renderGenelDurum(){
   const school = getCurrentSchool();
   const totals = computeTotals(currentSchoolId);
   const monthStatus = getMonthlyDataStatus(currentSchoolId);
-
-  // Özet göstergeler
   const overallRate = totals.overallRate;
   const badge = getStatusBadge(overallRate);
 
-  // Aylık faaliyet toplamları
   const monthlyTotals = MONTHS.map((m, mi) => {
     let gerc = 0, hedef = 0, anyG = false, anyH = false;
     totals.monthlyHGByTable.forEach(({ months }) => {
@@ -1931,7 +1765,6 @@ function renderGenelDurum(){
     return { month: m, hedef: anyH ? hedef : null, gerc: anyG ? gerc : null };
   });
 
-  // Giriş yapılmış hücre sayısı
   const dataLevel = totals.filledCells === 0 ? "empty" : (totals.filledCells / totals.totalCells >= 0.5 ? "good" : "partial");
   const dataLevelLabel = dataLevel === "empty" ? "⚪ Veri yok" : (dataLevel === "good" ? "🟢 Yeterli veri" : "🔵 Kısmi veri");
 
@@ -1947,59 +1780,33 @@ function renderGenelDurum(){
 
       <div class="gs-grid">
         <div class="gs-card">
-          <div class="gs-card-header">
-            <div class="gs-card-icon">🏫</div>
-            <div class="gs-card-title">Seçili Okul</div>
-          </div>
+          <div class="gs-card-header"><div class="gs-card-icon">🏫</div><div class="gs-card-title">Seçili Okul</div></div>
           <div class="gs-card-value" style="font-size:16px;line-height:1.3">${escapeHTML(school ? school.name : "—")}</div>
           <div class="gs-card-desc">${escapeHTML(school && school.type ? school.type : "")}</div>
         </div>
-
         <div class="gs-card">
-          <div class="gs-card-header">
-            <div class="gs-card-icon">📊</div>
-            <div class="gs-card-title">Hedef Gerçekleşme</div>
-          </div>
+          <div class="gs-card-header"><div class="gs-card-icon">📊</div><div class="gs-card-title">Hedef Gerçekleşme</div></div>
           <div class="gs-card-value">${overallRate != null ? Math.round(overallRate) + "<small>%</small>" : "—"}</div>
           <div class="gs-card-desc">${totals.hedefCount > 0 ? `${totals.gercCount} gerçekleşen / ${totals.hedefCount} hedef` : "Yeterli veri yok"}</div>
-          <div class="gs-card-footer">
-            <span class="sb ${badge.cls}"><span class="sb-dot"></span>${badge.label}</span>
-          </div>
+          <div class="gs-card-footer"><span class="sb ${badge.cls}"><span class="sb-dot"></span>${badge.label}</span></div>
         </div>
-
         <div class="gs-card">
-          <div class="gs-card-header">
-            <div class="gs-card-icon">📝</div>
-            <div class="gs-card-title">Veri Giriş Durumu</div>
-          </div>
+          <div class="gs-card-header"><div class="gs-card-icon">📝</div><div class="gs-card-title">Veri Giriş Durumu</div></div>
           <div class="gs-card-value">${totals.filledCells}<small>/ ${totals.totalCells}</small></div>
           <div class="gs-card-desc">Doldurulmuş hücre sayısı</div>
-          <div class="gs-card-footer">
-            <span class="sb ${dataLevel === "empty" ? "sb-gray" : (dataLevel === "good" ? "sb-green" : "sb-blue")}"><span class="sb-dot"></span>${dataLevelLabel}</span>
-          </div>
+          <div class="gs-card-footer"><span class="sb ${dataLevel === "empty" ? "sb-gray" : (dataLevel === "good" ? "sb-green" : "sb-blue")}"><span class="sb-dot"></span>${dataLevelLabel}</span></div>
         </div>
-
         <div class="gs-card">
-          <div class="gs-card-header">
-            <div class="gs-card-icon">📅</div>
-            <div class="gs-card-title">Aylık Takip</div>
-          </div>
+          <div class="gs-card-header"><div class="gs-card-icon">📅</div><div class="gs-card-title">Aylık Takip</div></div>
           <div class="gs-card-value">${monthStatus.filter(s => s.level === "full").length}<small>/ 10 ay</small></div>
           <div class="gs-card-desc">Tamamlanan ay sayısı</div>
         </div>
       </div>
 
-      <div style="font-size:13px;font-weight:800;color:var(--navy-900);letter-spacing:.04em;text-transform:uppercase;margin:24px 0 12px;display:flex;align-items:center;gap:8px">
-        📅 Aylık Veri Giriş Durumu
-      </div>
+      <div style="font-size:13px;font-weight:800;color:var(--navy-900);letter-spacing:.04em;text-transform:uppercase;margin:24px 0 12px">📅 Aylık Veri Giriş Durumu</div>
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr>
-              <th style="text-align:left;padding-left:16px">AY</th>
-              ${monthStatus.map(s => `<th>${s.month}</th>`).join("")}
-            </tr>
-          </thead>
+          <thead><tr><th style="text-align:left;padding-left:16px">AY</th>${monthStatus.map(s => `<th>${s.month}</th>`).join("")}</tr></thead>
           <tbody>
             <tr>
               <td class="row-label">Doluluk</td>
@@ -2016,42 +1823,26 @@ function renderGenelDurum(){
         </table>
       </div>
 
-      <div style="font-size:13px;font-weight:800;color:var(--navy-900);letter-spacing:.04em;text-transform:uppercase;margin:24px 0 12px;display:flex;align-items:center;gap:8px">
-        📈 Aylık Toplam Hedef / Gerçekleşen
-      </div>
+      <div style="font-size:13px;font-weight:800;color:var(--navy-900);letter-spacing:.04em;text-transform:uppercase;margin:24px 0 12px">📈 Aylık Toplam Hedef / Gerçekleşen</div>
       ${monthlyTotals.some(m => m.hedef != null || m.gerc != null) ? `
         <div class="table-wrap">
           <table>
-            <thead>
-              <tr>
-                <th style="text-align:left;padding-left:16px">GÖSTERGE</th>
-                ${MONTHS.map(m => `<th>${m}</th>`).join("")}
-              </tr>
-            </thead>
+            <thead><tr><th style="text-align:left;padding-left:16px">GÖSTERGE</th>${MONTHS.map(m => `<th>${m}</th>`).join("")}</tr></thead>
             <tbody>
-              <tr>
-                <td class="row-label">Hedef</td>
-                ${monthlyTotals.map(m => `<td style="font-weight:700;color:var(--orange-600)">${m.hedef != null ? m.hedef : "—"}</td>`).join("")}
-              </tr>
-              <tr>
-                <td class="row-label">Gerçekleşen</td>
-                ${monthlyTotals.map(m => `<td style="font-weight:700;color:var(--navy-700)">${m.gerc != null ? m.gerc : "—"}</td>`).join("")}
-              </tr>
-              <tr>
-                <td class="row-label">Oran %</td>
+              <tr><td class="row-label">Hedef</td>${monthlyTotals.map(m => `<td style="font-weight:700;color:var(--orange-600)">${m.hedef != null ? m.hedef : "—"}</td>`).join("")}</tr>
+              <tr><td class="row-label">Gerçekleşen</td>${monthlyTotals.map(m => `<td style="font-weight:700;color:var(--navy-700)">${m.gerc != null ? m.gerc : "—"}</td>`).join("")}</tr>
+              <tr><td class="row-label">Oran %</td>
                 ${monthlyTotals.map(m => {
                   if (m.hedef == null || m.gerc == null || m.hedef === 0) return `<td>—</td>`;
                   const r = (m.gerc / m.hedef) * 100;
                   const b = getStatusBadge(r);
-                  return `<td style="font-weight:800"><span class="sb ${b.cls}" style="padding:2px 6px;font-size:10px"><span class="sb-dot"></span>${Math.round(r)}%</span></td>`;
+                  return `<td><span class="sb ${b.cls}" style="padding:2px 6px;font-size:10px"><span class="sb-dot"></span>${Math.round(r)}%</span></td>`;
                 }).join("")}
               </tr>
             </tbody>
           </table>
         </div>
-      ` : `
-        <div class="no-data-box">Henüz aylık hedef/gerçekleşen verisi girilmemiştir.</div>
-      `}
+      ` : `<div class="no-data-box">Henüz aylık hedef/gerçekleşen verisi girilmemiştir.</div>`}
 
       <div class="slide-foot">
         <span>${escapeHTML(school ? school.name : CONFIG.author)}</span>
@@ -2066,7 +1857,6 @@ function renderGenelDurum(){
    GRAFİKLER
 ===================================================== */
 const chartInstances = {};
-
 function destroyChart(id){
   if (chartInstances[id]){
     try { chartInstances[id].destroy(); } catch(e){}
@@ -2078,7 +1868,6 @@ function renderCharts(){
   const school = getCurrentSchool();
   const totals = computeTotals(currentSchoolId);
 
-  // Yardımcı: Belirli bir slayt başlığına göre tablo bul
   function findTable(keywords){
     return totals.tables.find(t => keywords.some(k => (t.title || "").toLowerCase().includes(k.toLowerCase())));
   }
@@ -2100,10 +1889,8 @@ function renderCharts(){
     </div>`;
 
   document.getElementById("chartsContent").innerHTML = html;
-
   const grid = document.getElementById("chartsGrid");
 
-  // A) Hedef / Gerçekleşen
   const hedefGercData = MONTHS.map((_, mi) => {
     let h = 0, g = 0, anyH = false, anyG = false;
     totals.monthlyHGByTable.forEach(({ months }) => {
@@ -2113,41 +1900,28 @@ function renderCharts(){
     });
     return { hedef: anyH ? h : null, gerc: anyG ? g : null };
   });
-  addChart(grid, "hg-chart", "🎯 Hedef / Gerçekleşen", "Aylık toplam hedef ve gerçekleşen değerler", "bar",
-    [{
-      label: "Hedef",
-      data: hedefGercData.map(x => x.hedef),
-      backgroundColor: "rgba(255,107,44,.7)",
-      borderColor: "#e8571a", borderWidth: 2, borderRadius: 6
-    },
-    {
-      label: "Gerçekleşen",
-      data: hedefGercData.map(x => x.gerc),
-      backgroundColor: "rgba(19,58,114,.75)",
-      borderColor: "#0b2350", borderWidth: 2, borderRadius: 6
-    }],
-    true,
-    generateHGComment(hedefGercData)
-  );
 
-  // B) Devamsızlık Trendi
+  addChart(grid, "hg-chart", "🎯 Hedef / Gerçekleşen", "Aylık toplam hedef ve gerçekleşen değerler", "bar",
+    [
+      { label: "Hedef", data: hedefGercData.map(x => x.hedef), backgroundColor: "rgba(255,107,44,.7)", borderColor: "#e8571a", borderWidth: 2, borderRadius: 6 },
+      { label: "Gerçekleşen", data: hedefGercData.map(x => x.gerc), backgroundColor: "rgba(19,58,114,.75)", borderColor: "#0b2350", borderWidth: 2, borderRadius: 6 }
+    ], true, generateHGComment(hedefGercData));
+
   const devamsizlikTable = findTable(["devamsızlık"]);
   if (devamsizlikTable){
     const m = getMonthlyHG(devamsizlikTable);
-    const values = m.map(x => x.gerc);
-    addLineChart(grid, "dev-chart", "📉 Devamsızlık Trendi", "Aylık devamsızlık oranı değişimi", values, "#dc2626", true, trendComment(values, "Devamsızlık"));
+    addLineChart(grid, "dev-chart", "📉 Devamsızlık Trendi", "Aylık devamsızlık oranı", m.map(x => x.gerc), "#dc2626", true, trendComment(m.map(x => x.gerc), "Devamsızlık"));
   }
 
-  // C) EBA Kullanım
   const ebaTable = findTable(["eba"]);
   if (ebaTable){
     const rows = ebaTable.rows;
-    const ogrenciRow = rows.find(r => (r.label||"").toLowerCase().includes("öğrenci"));
-    const ogretmenRow = rows.find(r => (r.label||"").toLowerCase().includes("öğretmen"));
-    const oData = MONTHS.map((_, mi) => ogrenciRow ? parseNum(ogrenciRow.values[mi*2+1]) : null);
-    const tData = MONTHS.map((_, mi) => ogretmenRow ? parseNum(ogretmenRow.values[mi*2+1]) : null);
+    const oRow = rows.find(r => (r.label||"").toLowerCase().includes("öğrenci"));
+    const tRow = rows.find(r => (r.label||"").toLowerCase().includes("öğretmen"));
+    const oData = MONTHS.map((_, mi) => oRow ? parseNum(oRow.values[mi*2+1]) : null);
+    const tData = MONTHS.map((_, mi) => tRow ? parseNum(tRow.values[mi*2+1]) : null);
     if (oData.some(v => v != null) || tData.some(v => v != null)){
-      addChart(grid, "eba-chart", "💻 EBA Kullanım Trendi", "Öğrenci ve öğretmen kullanım oranları (%)", "line",
+      addChart(grid, "eba-chart", "💻 EBA Kullanım Trendi", "Öğrenci ve öğretmen (%)", "line",
         [
           { label: "Öğrenci", data: oData, borderColor: "#1c4a8e", backgroundColor: "rgba(28,74,142,.15)", tension: .35, fill: true, borderWidth: 3, pointRadius: 4 },
           { label: "Öğretmen", data: tData, borderColor: "#ff6b2c", backgroundColor: "rgba(255,107,44,.15)", tension: .35, fill: true, borderWidth: 3, pointRadius: 4 }
@@ -2155,16 +1929,15 @@ function renderCharts(){
     }
   }
 
-  // D) MEBİ Kullanım
   const mebiTable = findTable(["mebi"]);
   if (mebiTable){
     const rows = mebiTable.rows;
-    const ogrenciRow = rows.find(r => (r.label||"").toLowerCase().includes("öğrenci"));
-    const ogretmenRow = rows.find(r => (r.label||"").toLowerCase().includes("öğretmen"));
-    const oData = MONTHS.map((_, mi) => ogrenciRow ? parseNum(ogrenciRow.values[mi*2+1]) : null);
-    const tData = MONTHS.map((_, mi) => ogretmenRow ? parseNum(ogretmenRow.values[mi*2+1]) : null);
+    const oRow = rows.find(r => (r.label||"").toLowerCase().includes("öğrenci"));
+    const tRow = rows.find(r => (r.label||"").toLowerCase().includes("öğretmen"));
+    const oData = MONTHS.map((_, mi) => oRow ? parseNum(oRow.values[mi*2+1]) : null);
+    const tData = MONTHS.map((_, mi) => tRow ? parseNum(tRow.values[mi*2+1]) : null);
     if (oData.some(v => v != null) || tData.some(v => v != null)){
-      addChart(grid, "mebi-chart", "📱 MEBİ Kullanım Trendi", "Öğrenci ve öğretmen kullanım oranları (%)", "line",
+      addChart(grid, "mebi-chart", "📱 MEBİ Kullanım Trendi", "Öğrenci ve öğretmen (%)", "line",
         [
           { label: "Öğrenci", data: oData, borderColor: "#0891b2", backgroundColor: "rgba(8,145,178,.15)", tension: .35, fill: true, borderWidth: 3, pointRadius: 4 },
           { label: "Öğretmen", data: tData, borderColor: "#16a34a", backgroundColor: "rgba(22,163,74,.15)", tension: .35, fill: true, borderWidth: 3, pointRadius: 4 }
@@ -2172,16 +1945,15 @@ function renderCharts(){
     }
   }
 
-  // E) Okuma Trendi
   const okumaTable = findTable(["okuma"]);
   if (okumaTable){
     const rows = okumaTable.rows;
-    const kitapRow = rows.find(r => (r.label||"").toLowerCase().includes("okunan kitap"));
-    const ogrRow = rows.find(r => (r.label||"").toLowerCase().includes("öğrenci başına"));
-    const kData = MONTHS.map((_, mi) => kitapRow ? parseNum(kitapRow.values[mi*2+1]) : null);
-    const oData = MONTHS.map((_, mi) => ogrRow ? parseNum(ogrRow.values[mi*2+1]) : null);
+    const kRow = rows.find(r => (r.label||"").toLowerCase().includes("okunan kitap"));
+    const oRow = rows.find(r => (r.label||"").toLowerCase().includes("öğrenci başına"));
+    const kData = MONTHS.map((_, mi) => kRow ? parseNum(kRow.values[mi*2+1]) : null);
+    const oData = MONTHS.map((_, mi) => oRow ? parseNum(oRow.values[mi*2+1]) : null);
     if (kData.some(v => v != null) || oData.some(v => v != null)){
-      addChart(grid, "okuma-chart", "📚 Okuma Trendi", "Okunan kitap ve öğrenci başına okunan kitap", "line",
+      addChart(grid, "okuma-chart", "📚 Okuma Trendi", "Okunan kitap sayıları", "line",
         [
           { label: "Okunan Kitap", data: kData, borderColor: "#1c4a8e", backgroundColor: "rgba(28,74,142,.15)", tension: .35, fill: true, borderWidth: 3, pointRadius: 4 },
           { label: "Öğrenci Başına", data: oData, borderColor: "#ff6b2c", backgroundColor: "rgba(255,107,44,.15)", tension: .35, fill: true, borderWidth: 3, pointRadius: 4 }
@@ -2189,7 +1961,6 @@ function renderCharts(){
     }
   }
 
-  // F) Faaliyet Trendi (Tüm tabloların gerçekleşen toplamı)
   const faaliyetData = MONTHS.map((_, mi) => {
     let total = 0, any = false;
     totals.monthlyHGByTable.forEach(({ months }) => {
@@ -2199,17 +1970,16 @@ function renderCharts(){
     return any ? total : null;
   });
   if (faaliyetData.some(v => v != null)){
-    addLineChart(grid, "faaliyet-chart", "📈 Faaliyet Trendi", "Aylık toplam gerçekleşen faaliyet sayısı", faaliyetData, "#16a34a", true, trendComment(faaliyetData, "Aylık faaliyet"));
+    addLineChart(grid, "faaliyet-chart", "📈 Faaliyet Trendi", "Aylık toplam gerçekleşen faaliyet", faaliyetData, "#16a34a", true, trendComment(faaliyetData, "Aylık faaliyet"));
   }
 
-  // G) Faaliyet Türleri (Bilimsel, Kültürel, Sporsal, Sanatsal)
   const sosTable = findTable(["sosyal, kültürel"]);
   if (sosTable){
     const rows = sosTable.rows;
     const categories = ["Bilimsel", "Kültürel", "Sporsal", "Sanatsal"];
     const data = categories.map(cat => {
       const row = rows.find(r => (r.label||"").toLowerCase().includes(cat.toLowerCase()));
-      if (!row) return 0;
+      if (!row) return null;
       let sum = 0, any = false;
       for (let mi = 0; mi < MONTHS.length; mi++){
         const v = parseNum(row.values[mi*2+1]);
@@ -2219,19 +1989,11 @@ function renderCharts(){
     });
     if (data.some(v => v != null && v > 0)){
       addChart(grid, "tur-chart", "🎨 Faaliyet Türleri", "Yıllık toplam faaliyet sayıları", "doughnut",
-        [{
-          data: data.map(v => v || 0),
-          backgroundColor: ["#1c4a8e","#ff6b2c","#16a34a","#eab308"],
-          borderColor: "#fff", borderWidth: 3
-        }],
-        true,
-        data.some(v => v != null) ? "Faaliyet türleri arasında en yüksek değer " + categories[data.indexOf(Math.max(...data.map(v => v||0)))] + " kategorisinde görülmektedir." : null,
-        { labels: categories, noLegend: false }
-      );
+        [{ data: data.map(v => v || 0), backgroundColor: ["#1c4a8e","#ff6b2c","#16a34a","#eab308"], borderColor: "#fff", borderWidth: 3 }],
+        true, null, { labels: categories, noLegend: false });
     }
   }
 
-  // H) Katılım Grafikleri (Öğrenci / Öğretmen)
   const katilimTable = findTable(["çedes"]);
   if (katilimTable){
     const rows = katilimTable.rows;
@@ -2248,18 +2010,17 @@ function renderCharts(){
     }
   }
 
-  // I) Proje Grafiği
   const projeTable = findTable(["proje"]);
   if (projeTable){
     const rows = projeTable.rows;
-    const projeRow = rows.find(r => (r.label||"").toLowerCase().includes("yürütülen proje"));
-    const patentRow = rows.find(r => (r.label||"").toLowerCase().includes("patent"));
-    const katilimRow = rows.find(r => (r.label||"").toLowerCase().includes("katılan"));
-    const pData = projeRow ? MONTHS.map((_, mi) => parseNum(projeRow.values[mi*2+1])) : [];
-    const ptData = patentRow ? MONTHS.map((_, mi) => parseNum(patentRow.values[mi*2+1])) : [];
-    const kData = katilimRow ? MONTHS.map((_, mi) => parseNum(katilimRow.values[mi*2+1])) : [];
+    const pRow = rows.find(r => (r.label||"").toLowerCase().includes("yürütülen proje"));
+    const ptRow = rows.find(r => (r.label||"").toLowerCase().includes("patent"));
+    const kRow = rows.find(r => (r.label||"").toLowerCase().includes("katılan"));
+    const pData = pRow ? MONTHS.map((_, mi) => parseNum(pRow.values[mi*2+1])) : [];
+    const ptData = ptRow ? MONTHS.map((_, mi) => parseNum(ptRow.values[mi*2+1])) : [];
+    const kData = kRow ? MONTHS.map((_, mi) => parseNum(kRow.values[mi*2+1])) : [];
     if (pData.some(v => v != null) || ptData.some(v => v != null) || kData.some(v => v != null)){
-      addChart(grid, "proje-chart", "🚀 Proje ve Patent", "Yürütülen projeler, patent başvuruları ve öğrenci katılımı", "line",
+      addChart(grid, "proje-chart", "🚀 Proje ve Patent", "Projeler, patent ve öğrenci katılımı", "line",
         [
           { label: "Proje", data: pData, borderColor: "#1c4a8e", backgroundColor: "rgba(28,74,142,.15)", tension: .35, fill: true, borderWidth: 3, pointRadius: 4 },
           { label: "Patent", data: ptData, borderColor: "#eab308", backgroundColor: "rgba(234,179,8,.15)", tension: .35, fill: true, borderWidth: 3, pointRadius: 4 },
@@ -2268,16 +2029,16 @@ function renderCharts(){
     }
   }
 
-  // J) Rehberlik Grafiği
   const rehberTable = findTable(["rehberlik"]);
   if (rehberTable){
     const rows = rehberTable.rows;
-    const seminerRow = rows.find(r => (r.label||"").toLowerCase().includes("seminer"));
-    const toplantiRow = rows.find(r => (r.label||"").toLowerCase().includes("toplantı"));
-    const gorusmeRow = rows.find(r => (r.label||"").toLowerCase().includes("bireysel"));
-    const veliRow = rows.find(r => (r.label||"").toLowerCase().includes("veli görüşme"));
-    const categories = ["Seminer","Toplantı","Bireysel Görüşme","Veli Görüşme"];
-    const rowsArr = [seminerRow, toplantiRow, gorusmeRow, veliRow];
+    const categories = ["Seminer","Toplantı","Bireysel","Veli Görüşme"];
+    const rowsArr = [
+      rows.find(r => (r.label||"").toLowerCase().includes("seminer")),
+      rows.find(r => (r.label||"").toLowerCase().includes("toplantı")),
+      rows.find(r => (r.label||"").toLowerCase().includes("bireysel")),
+      rows.find(r => (r.label||"").toLowerCase().includes("veli görüşme"))
+    ];
     const data = rowsArr.map(r => {
       if (!r) return null;
       let sum = 0, any = false;
@@ -2289,17 +2050,8 @@ function renderCharts(){
     });
     if (data.some(v => v != null)){
       addChart(grid, "rehber-chart", "🧭 Rehberlik Çalışmaları", "Yıllık toplam faaliyet sayıları", "bar",
-        [{
-          label: "Toplam",
-          data: data,
-          backgroundColor: ["#1c4a8e","#ff6b2c","#16a34a","#eab308"],
-          borderRadius: 8,
-          borderWidth: 0
-        }],
-        false,
-        null,
-        { labels: categories, noLegend: true }
-      );
+        [{ label: "Toplam", data: data, backgroundColor: ["#1c4a8e","#ff6b2c","#16a34a","#eab308"], borderRadius: 8, borderWidth: 0 }],
+        false, null, { labels: categories, noLegend: true });
     }
   }
 
@@ -2321,11 +2073,9 @@ function addChart(container, id, title, sub, type, datasets, withLegend, comment
       </div>
     </div>
     <div class="chart-box"><canvas id="${id}"></canvas></div>
-    ${comment ? `<div class="chart-comment"><div class="chart-comment-title">📊 Grafik Yorumu</div>${escapeHTML(comment)}</div>` : ""}
-  `;
+    ${comment ? `<div class="chart-comment"><div class="chart-comment-title">📊 Grafik Yorumu</div>${escapeHTML(comment)}</div>` : ""}`;
   container.appendChild(card);
 
-  // Veri kontrolü — hepsi null ise no-data göster
   const hasData = datasets.some(ds => (ds.data || []).some(v => v != null && isFinite(v)));
   if (!hasData){
     card.querySelector(".chart-box").outerHTML = `<div class="no-data-box">Grafik oluşturmak için yeterli veri bulunmamaktadır.</div>`;
@@ -2340,15 +2090,11 @@ function addChart(container, id, title, sub, type, datasets, withLegend, comment
       type: type,
       data: { labels: labels, datasets: datasets },
       options: {
-        responsive: true,
-        maintainAspectRatio: false,
+        responsive: true, maintainAspectRatio: false,
         plugins: {
           legend: { display: withLegend !== false && !opts.noLegend, position: "bottom",
             labels: { font: { size: 11, weight: "600" }, boxWidth: 12, padding: 12 } },
-          tooltip: {
-            backgroundColor: "#061631", titleFont: { size: 12, weight: "700" },
-            bodyFont: { size: 12 }, padding: 10, cornerRadius: 8
-          }
+          tooltip: { backgroundColor: "#061631", titleFont: { size: 12, weight: "700" }, bodyFont: { size: 12 }, padding: 10, cornerRadius: 8 }
         },
         scales: (type === "doughnut" || type === "pie") ? {} : {
           y: { beginAtZero: true, grid: { color: "#e2e8f0" }, ticks: { font: { size: 10 }, color: "#64748b" } },
@@ -2362,23 +2108,14 @@ function addChart(container, id, title, sub, type, datasets, withLegend, comment
 
 function addLineChart(container, id, title, sub, values, color, fill, comment){
   addChart(container, id, title, sub, "line",
-    [{
-      label: title.replace(/^[^\w]+/,"").trim(),
-      data: values,
-      borderColor: color,
-      backgroundColor: color + "22",
-      tension: .35, fill: fill !== false, borderWidth: 3, pointRadius: 4, pointBackgroundColor: color
-    }],
-    false,
-    comment
-  );
+    [{ label: title.replace(/^[^\w]+/,"").trim(), data: values, borderColor: color,
+      backgroundColor: color + "22", tension: .35, fill: fill !== false, borderWidth: 3, pointRadius: 4, pointBackgroundColor: color }],
+    false, comment);
 }
 
 function trendComment(values, name){
   const clean = values.filter(v => v != null && isFinite(v));
-  if (clean.length < ANALYSIS.thrMinData){
-    return "Bu gösterge için güvenilir değerlendirme yapılabilmesi amacıyla yeterli veri bulunmamaktadır.";
-  }
+  if (clean.length < ANALYSIS.thrMinData) return "Bu gösterge için güvenilir değerlendirme yapılabilmesi amacıyla yeterli veri bulunmamaktadır.";
   const t = analyzeTrend(values);
   const t3 = analyzeLast3(values);
   return `${name} göstergesinde ${t.desc.toLowerCase()} ${t3.type !== "none" ? t3.desc : ""}`;
@@ -2406,23 +2143,21 @@ function renderEvaluation(){
   const oncelikli = [];
   const eylemler = [];
 
-  // 1) Genel Hedef/Gerçekleşen
   if (totals.overallRate != null){
     if (totals.overallRate >= ANALYSIS.thrGreen){
-      guculu.push({ title:"Genel Hedef Gerçekleşmesi", text:`Okul genelinde hedef gerçekleşme oranı %${Math.round(totals.overallRate)} düzeyindedir. Bu oran, belirlenen hedeflerin büyük ölçüde karşılandığını göstermektedir.` });
+      guculu.push({ title:"Genel Hedef Gerçekleşmesi", text:`Okul genelinde hedef gerçekleşme oranı %${Math.round(totals.overallRate)} düzeyindedir. Belirlenen hedeflerin büyük ölçüde karşılandığı görülmektedir.` });
     } else if (totals.overallRate >= ANALYSIS.thrYellow){
-      guculu.push({ title:"Genel Hedef Gerçekleşmesi", text:`Okul genelinde hedef gerçekleşme oranı %${Math.round(totals.overallRate)} düzeyindedir. Göstergelerin büyük bölümünde hedeflere yaklaşılmıştır.` });
+      guculu.push({ title:"Genel Hedef Gerçekleşmesi", text:`Okul genelinde hedef gerçekleşme oranı %${Math.round(totals.overallRate)} düzeyindedir. Göstergelerin çoğunda hedeflere yaklaşılmıştır.` });
     } else if (totals.overallRate >= ANALYSIS.thrOrange){
-      gelisim.push({ title:"Genel Hedef Gerçekleşmesi", text:`Hedef gerçekleşme oranı %${Math.round(totals.overallRate)} düzeyindedir. Bazı göstergelerde hedeflerin altında kalınmıştır; iyileştirme alanları incelenmelidir.` });
+      gelisim.push({ title:"Genel Hedef Gerçekleşmesi", text:`Hedef gerçekleşme oranı %${Math.round(totals.overallRate)} düzeyindedir. Bazı göstergelerde hedeflerin altında kalınmıştır.` });
     } else {
-      oncelikli.push({ title:"Genel Hedef Gerçekleşmesi", text:`Hedef gerçekleşme oranı %${Math.round(totals.overallRate)} düzeyindedir. Göstergelerin önemli bölümünde hedeflerin altında kalınmıştır; öncelikli destek çalışmaları planlanmalıdır.` });
+      oncelikli.push({ title:"Genel Hedef Gerçekleşmesi", text:`Hedef gerçekleşme oranı %${Math.round(totals.overallRate)} düzeyindedir. Öncelikli destek çalışmaları planlanmalıdır.` });
       eylemler.push({ title:"Genel İyileştirme", text:"Hedeflerin altında kalan göstergelerin nedenleri incelenerek dönemsel destekleyici çalışmalar planlanması değerlendirilebilir." });
     }
   } else {
     gelisim.push({ title:"Veri Eksikliği", text:"Genel hedef/gerçekleşme oranı hesaplanamadı. Yeterli veri girişi bulunmamaktadır." });
   }
 
-  // 2) Her tablo için
   totals.monthlyHGByTable.forEach(({ table, months }) => {
     const hedef = months.reduce((a,x) => a + (x.hedef || 0), 0);
     const gerc = months.reduce((a,x) => a + (x.gerc || 0), 0);
@@ -2430,30 +2165,28 @@ function renderEvaluation(){
     const rate = (gerc / hedef) * 100;
     const title = table.title;
     if (rate >= ANALYSIS.thrBlue){
-      guculu.push({ title, text:`${title} göstergesinde hedef gerçekleşme oranı %${Math.round(rate)} seviyesindedir. Uygulama düzeyi hedef doğrultusundadır.` });
+      guculu.push({ title, text:`${title} göstergesinde hedef gerçekleşme oranı %${Math.round(rate)} seviyesindedir.` });
     } else if (rate < ANALYSIS.thrOrange){
-      oncelikli.push({ title, text:`${title} göstergesinde gerçekleşme oranı %${Math.round(rate)} olarak hesaplanmıştır. Hedefin belirgin şekilde altında kalınmıştır.` });
-      eylemler.push({ title, text:`${title} göstergesinde sonuçların nedenlerinin incelenmesi ve sonraki döneme yönelik destekleyici çalışmaların planlanması önerilmektedir.` });
+      oncelikli.push({ title, text:`${title} göstergesinde gerçekleşme oranı %${Math.round(rate)} olarak hesaplanmıştır.` });
+      eylemler.push({ title, text:`${title} göstergesinde sonuçların nedenlerinin incelenmesi ve destekleyici çalışmaların planlanması önerilmektedir.` });
     } else {
-      gelisim.push({ title, text:`${title} göstergesinde gerçekleşme oranı %${Math.round(rate)} olarak hesaplanmıştır. Gelişim alanı olarak değerlendirilebilir.` });
+      gelisim.push({ title, text:`${title} göstergesinde gerçekleşme oranı %${Math.round(rate)} olarak hesaplanmıştır.` });
     }
   });
 
-  // 3) Trend analizi — olumsuz trendleri tespit et
   totals.monthlyHGByTable.forEach(({ table, months }) => {
     const values = months.map(x => x.gerc);
     const clean = values.filter(v => v != null);
     if (clean.length >= ANALYSIS.thrMinData){
       const t = analyzeTrend(values);
       if (t.type === "down"){
-        gelisim.push({ title:`${table.title} (Trend)`, text:`${table.title} göstergesinde ${t.desc.toLowerCase()} Bu durum izlenmesi gereken bir alan olarak değerlendirilebilir.` });
+        gelisim.push({ title:`${table.title} (Trend)`, text:`${table.title} göstergesinde ${t.desc.toLowerCase()} İzlenmesi gereken bir alan olarak değerlendirilebilir.` });
       } else if (t.type === "up"){
         guculu.push({ title:`${table.title} (Trend)`, text:`${table.title} göstergesinde ${t.desc.toLowerCase()} Olumlu gelişme kaydedilmiştir.` });
       }
     }
   });
 
-  // 4) Özel göstergeler
   const devTable = totals.tables.find(t => (t.title||"").toLowerCase().includes("devamsızlık"));
   if (devTable){
     const m = getMonthlyHG(devTable);
@@ -2461,8 +2194,8 @@ function renderEvaluation(){
     if (oran.length){
       const avg = oran.reduce((a,b) => a+b,0) / oran.length;
       if (avg > 10){
-        oncelikli.push({ title:"Devamsızlık", text:`Ortalama devamsızlık oranı %${avg.toFixed(1)} düzeyindedir. Devamsızlık oranındaki değişimin nedenlerinin incelenmesi ve risk grubundaki öğrencilerin belirlenmesi önerilmektedir.` });
-        eylemler.push({ title:"Devamsızlık Azaltma", text:"Devamsızlık oranındaki değişimin nedenlerinin incelenmesi, risk grubundaki öğrencilerin belirlenmesi ve gerekli rehberlik çalışmalarının planlanması değerlendirilebilir." });
+        oncelikli.push({ title:"Devamsızlık", text:`Ortalama devamsızlık oranı %${avg.toFixed(1)} düzeyindedir. Devamsızlık oranındaki değişimin nedenleri incelenmelidir.` });
+        eylemler.push({ title:"Devamsızlık Azaltma", text:"Devamsızlık nedenlerinin incelenmesi, risk grubundaki öğrencilerin belirlenmesi ve rehberlik çalışmalarının planlanması değerlendirilebilir." });
       }
     }
   }
@@ -2472,8 +2205,8 @@ function renderEvaluation(){
     const m = getMonthlyHG(okumaTable);
     const sum = m.reduce((a,x) => a + (x.gerc || 0), 0);
     if (sum > 0 && sum < 50){
-      gelisim.push({ title:"Okuma Etkinlikleri", text:"Okuma etkinliklerine katılım hedeflenen düzeyin altında görülmektedir. Katılımı artırmaya yönelik çalışmalar planlanabilir." });
-      eylemler.push({ title:"Okuma Kültürü", text:"Okuma etkinliklerine öğrenci katılımını artırmaya yönelik sınıf içi ve okul geneli çalışmaların planlanması önerilmektedir." });
+      gelisim.push({ title:"Okuma Etkinlikleri", text:"Okuma etkinliklerine katılım hedeflenen düzeyin altında görülmektedir." });
+      eylemler.push({ title:"Okuma Kültürü", text:"Okuma etkinliklerine öğrenci katılımını artırmaya yönelik çalışmaların planlanması önerilmektedir." });
     }
   }
 
@@ -2482,12 +2215,11 @@ function renderEvaluation(){
     const m = getMonthlyHG(ebaTable);
     const sum = m.reduce((a,x) => a + (x.gerc || 0), 0);
     if (sum > 0 && sum < 100){
-      gelisim.push({ title:"EBA / MEBİ Kullanımı", text:"Dijital platform kullanımı gösterge bazında gelişim alanı olarak değerlendirilebilir." });
-      eylemler.push({ title:"Dijital Kullanım", text:"Dijital platform kullanımının artırılması amacıyla öğrenci ve öğretmenlere yönelik bilgilendirme ve uygulamalı kullanım çalışmalarının planlanması değerlendirilebilir." });
+      gelisim.push({ title:"EBA / MEBİ Kullanımı", text:"Dijital platform kullanımı gelişim alanı olarak değerlendirilebilir." });
+      eylemler.push({ title:"Dijital Kullanım", text:"Dijital platform kullanımının artırılması amacıyla bilgilendirme ve uygulamalı çalışmaların planlanması değerlendirilebilir." });
     }
   }
 
-  // 5) Veri eksikliği
   if (totals.filledCells === 0){
     gelisim.length = 0; guculu.length = 0; oncelikli.length = 0; eylemler.length = 0;
     gelisim.push({ title:"Veri Bekleniyor", text:"Değerlendirme yapılabilmesi için yeterli veri girişi bulunmamaktadır. Lütfen Ana Rapor bölümünden aylık verileri giriniz." });
@@ -2498,18 +2230,14 @@ function renderEvaluation(){
       <div class="eval-section">
         <div class="eval-section-head">
           <div class="eval-section-icon ${cls}">${icon}</div>
-          <div>
-            <h3>${title}</h3>
-            <p class="sub">${sub}</p>
-          </div>
+          <div><h3>${title}</h3><p class="sub">${sub}</p></div>
         </div>
         ${items.length ? `<div class="eval-list">
           ${items.map(it => `
             <div class="eval-item ${cls}">
               <span class="eval-item-icon">${cls === "strengths" ? "✓" : cls === "dev" ? "▲" : cls === "priority" ? "!" : "→"}</span>
               <div><b>${escapeHTML(it.title)}:</b> ${escapeHTML(it.text)}</div>
-            </div>
-          `).join("")}
+            </div>`).join("")}
         </div>` : `<div class="empty-eval">${emptyMsg}</div>`}
       </div>`;
   }
@@ -2523,15 +2251,10 @@ function renderEvaluation(){
           <p>${escapeHTML(school ? school.name : "")} · Gerçek verilere dayalı değerlendirme</p>
         </div>
       </div>
-
       ${block("⭐", "strengths", "Güçlü Yönler", "Yüksek performans ve olumlu gelişmeler", guculu, "Belirgin güçlü yön tespit edilememiştir.")}
-
       ${block("🔎", "dev", "Gelişim Gerektiren Alanlar", "İyileştirmeye açık göstergeler", gelisim, "Belirgin gelişim alanı tespit edilememiştir.")}
-
       ${block("⚠️", "priority", "Öncelikli Takip Alanları", "Öncelikli müdahale gerektiren göstergeler", oncelikli, "Öncelikli takip gerektiren alan bulunmamaktadır.")}
-
       ${block("🎯", "action", "Önerilen Eylemler", "Veriye dayalı öneriler", eylemler, "Veri yetersizliğinden dolayı öneri üretilememiştir.")}
-
       <div class="slide-foot">
         <span>${escapeHTML(school ? school.name : CONFIG.author)}</span>
         <span>Otomatik Değerlendirme · ${escapeHTML(CONFIG.date)}</span>
@@ -2571,15 +2294,13 @@ function renderMonthly(){
           <p>${escapeHTML(school ? school.name : "")} · Seçili ay için otomatik analiz</p>
         </div>
       </div>
-
       <div class="month-selector">
         ${MONTHS.map(m => {
           const st = monthStatus[MONTHS.indexOf(m)];
           const cls = st.level === "full" ? "has-data" : (st.level === "partial" ? "partial" : "");
           return `<button class="month-btn ${cls} ${m === selectedMonth ? "active" : ""}" data-month="${m}">${m}<span class="m-dot"></span></button>`;
         }).join("")}
-      </div>
-  `;
+      </div>`;
 
   if (tableData.length === 0){
     html += `<div class="no-data-box">${selectedMonth} ayı için veri girişi bulunmamaktadır.</div>`;
@@ -2587,39 +2308,25 @@ function renderMonthly(){
     html += `
       <div class="table-wrap" style="margin-bottom:20px">
         <table class="priority-table">
-          <thead>
-            <tr>
-              <th>Gösterge</th>
-              <th>Hedef</th>
-              <th>Gerçekleşen</th>
-              <th>Oran %</th>
-              <th>Durum</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Gösterge</th><th>Hedef</th><th>Gerçekleşen</th><th>Oran %</th><th>Durum</th></tr></thead>
           <tbody>
             ${tableData.map(row => {
               const b = getStatusBadge(row.rate);
-              return `
-                <tr>
-                  <td><b>${escapeHTML(row.title)}</b></td>
-                  <td>${row.hedef != null ? row.hedef : "—"}</td>
-                  <td>${row.gerc != null ? row.gerc : "—"}</td>
-                  <td><b>${row.rate != null ? Math.round(row.rate) + "%" : "—"}</b></td>
-                  <td><span class="sb ${b.cls}"><span class="sb-dot"></span>${b.label}</span></td>
-                </tr>
-              `;
+              return `<tr>
+                <td><b>${escapeHTML(row.title)}</b></td>
+                <td>${row.hedef != null ? row.hedef : "—"}</td>
+                <td>${row.gerc != null ? row.gerc : "—"}</td>
+                <td><b>${row.rate != null ? Math.round(row.rate) + "%" : "—"}</b></td>
+                <td><span class="sb ${b.cls}"><span class="sb-dot"></span>${b.label}</span></td>
+              </tr>`;
             }).join("")}
           </tbody>
         </table>
       </div>
-
       <div class="exec-block">
         <div class="exec-block-title">📝 ${selectedMonth} Ayı Değerlendirmesi</div>
-        <div class="exec-block-content">
-          ${generateMonthEval(tableData, selectedMonth)}
-        </div>
-      </div>
-    `;
+        <div class="exec-block-content">${generateMonthEval(tableData, selectedMonth)}</div>
+      </div>`;
   }
 
   html += `
@@ -2631,7 +2338,6 @@ function renderMonthly(){
 
   document.getElementById("monthlyContent").innerHTML = html;
 
-  // Ay butonları
   document.querySelectorAll("#monthlyContent .month-btn").forEach(btn => {
     btn.addEventListener("click", () => {
       selectedMonth = btn.dataset.month;
@@ -2655,7 +2361,7 @@ function generateMonthEval(tableData, month){
   const overCount = tableData.filter(r => r.rate != null && r.rate >= 100).length;
   const underCount = tableData.filter(r => r.rate != null && r.rate < ANALYSIS.thrOrange).length;
   if (overCount > 0) parts.push(`${overCount} göstergede hedef aşılmıştır.`);
-  if (underCount > 0) parts.push(`${underCount} göstergede hedefin altında kalınmıştır; sonraki dönem için destekleyici çalışmalar planlanabilir.`);
+  if (underCount > 0) parts.push(`${underCount} göstergede hedefin altında kalınmıştır; destekleyici çalışmalar planlanabilir.`);
   if (parts.length === 0) return "Bu ay için güvenilir değerlendirme yapılabilmesi amacıyla yeterli veri bulunmamaktadır.";
   return parts.join(" ");
 }
@@ -2670,9 +2376,7 @@ function renderSummary(){
   const tableData = totals.monthlyHGByTable.map(({ table, months }) => {
     const mm = months[mi];
     return {
-      title: table.title,
-      hedef: mm.hedef,
-      gerc: mm.gerc,
+      title: table.title, hedef: mm.hedef, gerc: mm.gerc,
       rate: (mm.hedef != null && mm.hedef > 0 && mm.gerc != null) ? (mm.gerc / mm.hedef) * 100 : null
     };
   }).filter(x => x.hedef != null || x.gerc != null);
@@ -2690,11 +2394,9 @@ function renderSummary(){
           <p>${escapeHTML(school ? school.name : "")} · ${selectedMonth} ayı için özet rapor</p>
         </div>
       </div>
-
       <div class="month-selector" style="margin-bottom:20px">
         ${MONTHS.map(m => `<button class="month-btn ${m === selectedMonth ? "active" : ""}" data-month="${m}">${m}</button>`).join("")}
       </div>
-
       <div class="exec-summary">
         <div class="exec-summary-head">
           <div class="slide-num">📋</div>
@@ -2703,12 +2405,10 @@ function renderSummary(){
             <div class="exec-summary-month">${escapeHTML(school ? school.name : "")}</div>
           </div>
         </div>
-
         <div class="exec-block">
           <div class="exec-block-title">📌 Genel Durum</div>
           <div class="exec-block-content">${generateMonthEval(tableData, selectedMonth)}</div>
         </div>
-
         ${oneCikan.length ? `
           <div class="exec-block">
             <div class="exec-block-title">⭐ Öne Çıkan Göstergeler</div>
@@ -2717,9 +2417,7 @@ function renderSummary(){
                 ${oneCikan.slice(0, 5).map(r => `<li><b>${escapeHTML(r.title)}</b> — %${Math.round(r.rate)} gerçekleşme</li>`).join("")}
               </ul>
             </div>
-          </div>
-        ` : ""}
-
+          </div>` : ""}
         ${dikkat.length ? `
           <div class="exec-block">
             <div class="exec-block-title">⚠️ Dikkat Gerektiren Alanlar</div>
@@ -2728,25 +2426,18 @@ function renderSummary(){
                 ${dikkat.slice(0, 5).map(r => `<li><b>${escapeHTML(r.title)}</b> — %${Math.round(r.rate)} gerçekleşme</li>`).join("")}
               </ul>
             </div>
-          </div>
-        ` : ""}
-
+          </div>` : ""}
         <div class="exec-block">
           <div class="exec-block-title">📊 Veri Durumu</div>
-          <div class="exec-block-content">
-            Bu ay için veri doldurma oranı <b>%${Math.round(eksik.ratio * 100)}</b> düzeyindedir.
-            ${eksik.ratio < 0.5 ? "Değerlendirme kalitesinin artırılması için veri girişinin tamamlanması önerilmektedir." : "Veri girişi değerlendirme için yeterli düzeydedir."}
-          </div>
+          <div class="exec-block-content">Bu ay için veri doldurma oranı <b>%${Math.round(eksik.ratio * 100)}</b> düzeyindedir.</div>
         </div>
-
         <div class="exec-block">
           <div class="exec-block-title">🎯 Önerilen İzleme</div>
           <div class="exec-block-content">
-            ${dikkat.length ? `İzleyen dönemde <b>${dikkat.slice(0, 3).map(r => r.title).join(", ")}</b> göstergelerinin yakından izlenmesi ve destekleyici çalışmalar planlanması önerilmektedir.` : "İzleyen dönemde tüm göstergelerin mevcut düzeyde sürdürülmesi değerlendirilebilir."}
+            ${dikkat.length ? `İzleyen dönemde <b>${dikkat.slice(0, 3).map(r => r.title).join(", ")}</b> göstergelerinin yakından izlenmesi önerilmektedir.` : "İzleyen dönemde tüm göstergelerin mevcut düzeyde sürdürülmesi değerlendirilebilir."}
           </div>
         </div>
       </div>
-
       <div class="slide-foot">
         <span>${escapeHTML(school ? school.name : CONFIG.author)}</span>
         <span>Yönetici Özeti · ${selectedMonth}</span>
@@ -2774,8 +2465,7 @@ function renderAnnual(){
     const hedef = months.reduce((a,x) => a + (x.hedef || 0), 0);
     const gerc = months.reduce((a,x) => a + (x.gerc || 0), 0);
     const rate = hedef > 0 ? (gerc / hedef) * 100 : null;
-    const values = months.map(x => x.gerc);
-    const trend = analyzeTrend(values);
+    const trend = analyzeTrend(months.map(x => x.gerc));
     return { title: table.title, hedef, gerc, rate, trend };
   }).filter(x => x.hedef > 0 || x.gerc > 0);
 
@@ -2787,8 +2477,7 @@ function renderAnnual(){
           <h2>2026–2027 Yıllık Genel Değerlendirme</h2>
           <p>${escapeHTML(school ? school.name : "")} · Eylül – Haziran dönemi</p>
         </div>
-      </div>
-  `;
+      </div>`;
 
   if (yearly.length === 0){
     html += `<div class="no-data-box">Yıllık değerlendirme için yeterli veri bulunmamaktadır.</div>`;
@@ -2813,47 +2502,33 @@ function renderAnnual(){
           <div class="gs-card-footer">${overall != null ? `<span class="sb ${getStatusBadge(overall).cls}"><span class="sb-dot"></span>${getStatusBadge(overall).label}</span>` : ""}</div>
         </div>
       </div>
-
       <div class="table-wrap">
         <table class="priority-table">
-          <thead>
-            <tr>
-              <th>Gösterge</th>
-              <th>Yıllık Hedef</th>
-              <th>Yıllık Gerçekleşen</th>
-              <th>Oran %</th>
-              <th>Trend</th>
-              <th>Durum</th>
-            </tr>
-          </thead>
+          <thead><tr><th>Gösterge</th><th>Yıllık Hedef</th><th>Yıllık Gerçekleşen</th><th>Oran %</th><th>Trend</th><th>Durum</th></tr></thead>
           <tbody>
             ${yearly.map(row => {
               const b = getStatusBadge(row.rate);
               const trendLbl = row.trend.type === "up" ? "📈 Artış" : row.trend.type === "down" ? "📉 Azalış" : row.trend.type === "stable" ? "➖ Sabit" : "⚪ Yetersiz";
-              return `
-                <tr>
-                  <td><b>${escapeHTML(row.title)}</b></td>
-                  <td>${row.hedef}</td>
-                  <td>${row.gerc}</td>
-                  <td><b>${row.rate != null ? Math.round(row.rate) + "%" : "—"}</b></td>
-                  <td>${trendLbl}</td>
-                  <td><span class="sb ${b.cls}"><span class="sb-dot"></span>${b.label}</span></td>
-                </tr>
-              `;
+              return `<tr>
+                <td><b>${escapeHTML(row.title)}</b></td>
+                <td>${row.hedef}</td>
+                <td>${row.gerc}</td>
+                <td><b>${row.rate != null ? Math.round(row.rate) + "%" : "—"}</b></td>
+                <td>${trendLbl}</td>
+                <td><span class="sb ${b.cls}"><span class="sb-dot"></span>${b.label}</span></td>
+              </tr>`;
             }).join("")}
           </tbody>
         </table>
       </div>
-
       <div class="exec-block" style="margin-top:20px">
         <div class="exec-block-title">📝 Yıllık Değerlendirme</div>
         <div class="exec-block-content">
           ${overall != null
-            ? `2026–2027 eğitim öğretim yılı boyunca hedef gerçekleşme oranı %${Math.round(overall)} düzeyinde gerçekleşmiştir. ${overall >= ANALYSIS.thrGreen ? "Göstergelerin çoğunda hedeflere ulaşılmıştır." : overall >= ANALYSIS.thrYellow ? "Bazı göstergelerde gelişim alanları bulunmaktadır." : "Göstergelerin önemli bölümünde hedeflerin altında kalınmıştır; sonraki yıl için destekleyici planlamalar önerilmektedir."}`
+            ? `2026–2027 eğitim öğretim yılı boyunca hedef gerçekleşme oranı %${Math.round(overall)} düzeyinde gerçekleşmiştir. ${overall >= ANALYSIS.thrGreen ? "Göstergelerin çoğunda hedeflere ulaşılmıştır." : overall >= ANALYSIS.thrYellow ? "Bazı göstergelerde gelişim alanları bulunmaktadır." : "Göstergelerin önemli bölümünde hedeflerin altında kalınmıştır."}`
             : "Yıllık değerlendirme için yeterli veri bulunmamaktadır."}
         </div>
-      </div>
-    `;
+      </div>`;
   }
 
   html += `
@@ -2872,10 +2547,7 @@ function renderAnnual(){
 let compareSelection = [];
 
 function renderCompare(){
-  // Varsayılan olarak tüm okullar seçili değil, ilk ikisi
-  if (compareSelection.length === 0){
-    compareSelection = SCHOOLS.slice(0, 2).map(s => s.id);
-  }
+  if (compareSelection.length === 0) compareSelection = SCHOOLS.slice(0, 2).map(s => s.id);
 
   let html = `
     <div class="slide">
@@ -2886,7 +2558,6 @@ function renderCompare(){
           <p>Nesnel veri tablosu · Okul sıralaması yapılmaz</p>
         </div>
       </div>
-
       <div class="compare-selector" id="compareSelector">
         ${SCHOOLS.map(s => `
           <label class="compare-check ${compareSelection.includes(s.id) ? "selected" : ""}" data-id="${escapeHTML(s.id)}">
@@ -2895,9 +2566,7 @@ function renderCompare(){
           </label>
         `).join("")}
       </div>
-
       <div id="compareResult"></div>
-
       <div class="slide-foot">
         <span>Karşılaştırma · ${escapeHTML(CONFIG.date)}</span>
       </div>
@@ -2922,32 +2591,15 @@ function renderCompare(){
     return;
   }
 
-  // Veri topla
   const rows = SCHOOLS.filter(s => compareSelection.includes(s.id)).map(s => {
     const t = computeTotals(s.id);
-    const ms = getMonthlyDataStatus(s.id);
-    return {
-      school: s,
-      totals: t,
-      monthStatus: ms
-    };
+    return { school: s, totals: t };
   });
 
-  if (rows.length === 0){
-    result.innerHTML = `<div class="no-data-box">Karşılaştırma için en az bir okul seçiniz.</div>`;
-    return;
-  }
-
-  // Karşılaştırma tablosu
   result.innerHTML = `
     <div class="table-wrap">
       <table class="priority-table">
-        <thead>
-          <tr>
-            <th>Gösterge</th>
-            ${rows.map(r => `<th>${escapeHTML(r.school.name)}</th>`).join("")}
-          </tr>
-        </thead>
+        <thead><tr><th>Gösterge</th>${rows.map(r => `<th>${escapeHTML(r.school.name)}</th>`).join("")}</tr></thead>
         <tbody>
           <tr>
             <td><b>Veri Giriş Oranı</b></td>
@@ -2976,20 +2628,17 @@ function renderCompare(){
         </tbody>
       </table>
     </div>
-
     <div class="chart-card" style="margin-top:20px">
       <div class="chart-card-title">📊 Karşılaştırmalı Veri Giriş Oranı</div>
       <div class="chart-card-sub">Okul bazında doldurulmuş hücre yüzdesi</div>
       <div class="chart-box chart-box-sm"><canvas id="compareChart"></canvas></div>
     </div>
-
     <div class="exec-block" style="margin-top:20px;background:#fff8f2;border-left-color:var(--orange-500)">
       <div class="exec-block-title">ℹ️ Bilgilendirme</div>
       <div class="exec-block-content" style="font-size:12.5px;color:var(--gray-600)">
         Bu sayfa yalnızca nesnel veri karşılaştırması sunar. Okullar arasında sıralama, derecelendirme veya "en iyi/en kötü" değerlendirmesi <b>yapılmaz</b>.
       </div>
-    </div>
-  `;
+    </div>`;
 
   setTimeout(() => {
     const ctx = document.getElementById("compareChart");
@@ -3002,17 +2651,13 @@ function renderCompare(){
         datasets: [{
           label: "Veri Girişi (%)",
           data: rows.map(r => r.totals.totalCells > 0 ? Math.round((r.totals.filledCells / r.totals.totalCells) * 100) : 0),
-          backgroundColor: "rgba(255,107,44,.75)",
-          borderColor: "#e8571a", borderWidth: 2, borderRadius: 8
+          backgroundColor: "rgba(255,107,44,.75)", borderColor: "#e8571a", borderWidth: 2, borderRadius: 8
         }]
       },
       options: {
         responsive: true, maintainAspectRatio: false,
         plugins: { legend: { display: false } },
-        scales: {
-          y: { beginAtZero: true, max: 100, ticks: { callback: v => v + "%" } },
-          x: { grid: { display: false } }
-        }
+        scales: { y: { beginAtZero: true, max: 100, ticks: { callback: v => v + "%" } }, x: { grid: { display: false } } }
       }
     });
   }, 60);
@@ -3021,9 +2666,9 @@ function renderCompare(){
 /* =====================================================
    PDF
 ===================================================== */
-function buildPDFPage(slide, pageNum, totalPages){
+function buildPDFPage(slide, pageNum, totalPages, schoolId){
   const isCover = slide.classList.contains("cover");
-  const school = getCurrentSchool();
+  const school = SCHOOLS.find(s => s.id === schoolId) || getCurrentSchool();
   if (isCover){
     return `
       <div class="pdf-page pdf-cover">
@@ -3064,8 +2709,7 @@ function buildPDFPage(slide, pageNum, totalPages){
                 <tr>
                   <td class="row-label" style="width:30%">${escapeHTML(a.icon)} ${escapeHTML(a.title)}</td>
                   <td style="text-align:left; padding-left:12px; color:#475569">${escapeHTML(a.desc)}</td>
-                </tr>
-              `).join("")}
+                </tr>`).join("")}
             </tbody>
           </table>
         </div>
@@ -3095,7 +2739,7 @@ function buildPDFPage(slide, pageNum, totalPages){
   rows.forEach((label, r) => {
     bodyRows += `<tr><td class="row-label">${escapeHTML(label)}</td>`;
     for (let c = 0; c < colCount; c++){
-      const val = getCell(currentSchoolId, slideIdx, r, c);
+      const val = getCell(schoolId, slideIdx, r, c);
       bodyRows += `<td>${val ? escapeHTML(val) : "&nbsp;"}</td>`;
     }
     bodyRows += "</tr>";
@@ -3129,13 +2773,11 @@ function buildPDFPage(slide, pageNum, totalPages){
     </div>`;
 }
 
-// Ek PDF sayfaları (analiz içerikleri)
-function buildAnalysisPDFPages(){
-  const school = getCurrentSchool();
+function buildAnalysisPDFPages(schoolId){
+  const school = SCHOOLS.find(s => s.id === schoolId) || getCurrentSchool();
+  const totals = computeTotals(schoolId);
   const pages = [];
-  const totals = computeTotals(currentSchoolId);
 
-  // Genel Durum PDF
   pages.push(`
     <div class="pdf-page">
       <div class="pdf-page-header">
@@ -3168,7 +2810,6 @@ function buildAnalysisPDFPages(){
       </div>
     </div>`);
 
-  // Otomatik Değerlendirme PDF
   pages.push(`
     <div class="pdf-page">
       <div class="pdf-page-header">
@@ -3187,7 +2828,7 @@ function buildAnalysisPDFPages(){
         <div class="pdf-slide-desc">Verilere dayalı otomatik değerlendirme</div>
         <p style="font-size:11px;color:#334155;line-height:1.7;padding:8px 12px;background:#f8fafc;border-radius:8px;border-left:3px solid #ff6b2c">
           ${totals.overallRate != null
-            ? `Genel hedef gerçekleşme oranı %${Math.round(totals.overallRate)} düzeyindedir. ${totals.overallRate >= ANALYSIS.thrGreen ? "Göstergelerin çoğunda hedeflere ulaşılmıştır." : totals.overallRate >= ANALYSIS.thrYellow ? "Bazı göstergelerde gelişim alanları bulunmaktadır." : "Göstergelerin önemli bölümünde hedeflerin altında kalınmıştır."}`
+            ? `Genel hedef gerçekleşme oranı %${Math.round(totals.overallRate)} düzeyindedir.`
             : "Bu değerlendirme için yeterli veri bulunmamaktadır."}
         </p>
       </div>
@@ -3258,26 +2899,26 @@ async function renderPageToCanvas(html, scale){
 
 async function generatePDF(setProgressFn, filename, options){
   options = options || { report: true, status: false, charts: false, eval: false, monthly: false, summary: false, annual: false };
+  const schoolIds = options.schoolIds && options.schoolIds.length ? options.schoolIds : [currentSchoolId];
 
   const scale = 2;
   const jpegQuality = 0.95;
-
   const pages = [];
 
-  // Rapor sayfaları
-  if (options.report){
-    const slides = Array.from(document.querySelectorAll("#slides .slide"));
-    const total = slides.length;
-    slides.forEach((sl, i) => {
-      pages.push(buildPDFPage(sl, i + 1, total));
-    });
-  }
-
-  // Analiz sayfaları
-  if (options.status || options.charts || options.eval){
-    const extra = buildAnalysisPDFPages();
-    extra.forEach(p => pages.push(p));
-  }
+  // Her okul için
+  schoolIds.forEach(sid => {
+    if (options.report){
+      const slides = Array.from(document.querySelectorAll("#slides .slide"));
+      const total = slides.length;
+      slides.forEach((sl, i) => {
+        pages.push(buildPDFPage(sl, i + 1, total, sid));
+      });
+    }
+    if (options.status || options.charts || options.eval){
+      const extra = buildAnalysisPDFPages(sid);
+      extra.forEach(p => pages.push(p));
+    }
+  });
 
   if (!window.jspdf || !window.jspdf.jsPDF) throw new Error("jsPDF yüklenemedi");
   const { jsPDF } = window.jspdf;
@@ -3302,9 +2943,6 @@ async function generatePDF(setProgressFn, filename, options){
   return pages.length;
 }
 
-/* =====================================================
-   PDF ORKESTRASYON
-===================================================== */
 const pdfOverlay = document.getElementById("pdfOverlay");
 const pdfProgressFill = document.getElementById("pdfProgressFill");
 const pdfPercent = document.getElementById("pdfPercent");
@@ -3340,100 +2978,177 @@ async function runPDFGeneration(options, filename){
   }
 }
 
+/* PDF İndir butonu — doğrudan PDF indirir */
 document.getElementById("pdfDirectBtn").addEventListener("click", () => {
   runPDFGeneration({
     report: true, status: true, charts: true, eval: true,
-    monthly: false, summary: false, annual: false
-  });
+    monthly: false, summary: false, annual: false,
+    schoolIds: [currentSchoolId]
+  }, CONFIG.filename + "-" + (getCurrentSchool() ? getCurrentSchool().id : ""));
 });
-document.getElementById("saveBtn").addEventListener("click", () => {
-  toast("PDF olarak kaydediliyor…", "info", "💾");
-  runPDFGeneration({
-    report: true, status: true, charts: true, eval: true,
-    monthly: false, summary: false, annual: false
-  });
-});
+
+/* Print */
 document.getElementById("printBtn").addEventListener("click", () => {
   toast("Yazdırma penceresi açılıyor…", "info", "🖨️");
   setTimeout(() => window.print(), 220);
 });
 
+/* Export current school as JSON */
+document.getElementById("exportSchoolBtn").addEventListener("click", () => {
+  exportSchoolAsJSON(currentSchoolId);
+});
+
 /* =====================================================
-   FORMATLAR MODALI
+   OKUL JSON DIŞA AKTAR
 ===================================================== */
-const dlOverlay = document.getElementById("dlOverlay");
-document.getElementById("downloadBtn").addEventListener("click", () => {
-  document.getElementById("filenameInput").value = CONFIG.filename;
-  dlOverlay.classList.add("active");
-});
-function closeDL(){ dlOverlay.classList.remove("active"); }
-document.getElementById("dlClose").addEventListener("click", closeDL);
-dlOverlay.addEventListener("click", e => { if (e.target === dlOverlay) closeDL(); });
+function exportSchoolAsJSON(schoolId){
+  const school = SCHOOLS.find(s => s.id === schoolId);
+  if (!school){ toast("Okul bulunamadı", "error", "⚠️"); return; }
 
-// PDF seçenek checkbox'ları
-["pdfOptReport","pdfOptStatus","pdfOptCharts","pdfOptEval","pdfOptMonthly","pdfOptSummary","pdfOptAnnual"].forEach(id => {
-  const cb = document.getElementById(id);
-  if (!cb) return;
-  const row = cb.closest(".pdf-opt-row");
-  cb.addEventListener("change", () => {
-    row.classList.toggle("selected", cb.checked);
+  // Sadece bu okulun hücrelerini topla
+  const cells = {};
+  Object.keys(localStorage).forEach(k => {
+    if (k.startsWith(`${CELL_PREFIX_BASE}${schoolId}-`)) {
+      cells[k] = localStorage.getItem(k);
+    }
   });
-});
 
-document.getElementById("dlPdf").addEventListener("click", () => {
-  const opts = {
-    report:  document.getElementById("pdfOptReport").checked,
-    status:  document.getElementById("pdfOptStatus").checked,
-    charts:  document.getElementById("pdfOptCharts").checked,
-    eval:    document.getElementById("pdfOptEval").checked,
-    monthly: document.getElementById("pdfOptMonthly").checked,
-    summary: document.getElementById("pdfOptSummary").checked,
-    annual:  document.getElementById("pdfOptAnnual").checked
+  const payload = {
+    format: "samsat-okul-raporu-single",
+    version: "1.0",
+    savedAt: new Date().toISOString(),
+    school: school,
+    config: {
+      title: CONFIG.title,
+      titleShort: CONFIG.titleShort,
+      author: CONFIG.author,
+      year: CONFIG.year,
+      date: CONFIG.date,
+      pageFooter: CONFIG.pageFooter
+    },
+    slides: SLIDES,
+    cells: cells
   };
-  const fname = (document.getElementById("filenameInput").value.trim() || CONFIG.filename);
-  closeDL();
-  runPDFGeneration(opts, fname);
-});
 
-document.getElementById("dlExcel").addEventListener("click", () => {
-  closeDL();
-  const esc = v => `"${String(v).replace(/"/g,'""')}"`;
-  const lines = [];
-  const school = getCurrentSchool();
-  lines.push(esc(CONFIG.author.toUpperCase()));
-  lines.push(esc(CONFIG.title));
-  lines.push(esc("Okul: " + (school ? school.name : "")));
-  lines.push(esc("Rapor Tarihi: " + CONFIG.date));
-  lines.push("");
-  document.querySelectorAll("#slides .slide").forEach((slide) => {
-    const table = slide.querySelector("table");
-    if (!table) return;
-    const title = slide.querySelector(".head-text h2");
-    lines.push("");
-    lines.push(esc("═══ " + (title ? title.textContent.trim() : "Tablo") + " ═══"));
-    lines.push("");
-    table.querySelectorAll("tr").forEach(tr => {
-      const cells = [];
-      tr.querySelectorAll("th, td").forEach(cell => cells.push(esc(cell.textContent.trim())));
-      if (cells.length) lines.push(cells.join(";"));
-    });
-  });
-  const csv = "\uFEFF" + lines.join("\n");
-  const blob = new Blob([csv], { type:"text/csv;charset=utf-8;" });
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type:"application/json" });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
+  const safeName = school.name.replace(/[^a-zA-Z0-9ÇĞİÖŞÜçğıöşü]+/g, "-");
   a.href = url;
-  a.download = CONFIG.filename + "-" + (school ? school.id : "") + ".csv";
+  a.download = `Okul-Raporu-${safeName}-${new Date().toISOString().slice(0,10)}.json`;
   document.body.appendChild(a); a.click(); document.body.removeChild(a);
   URL.revokeObjectURL(url);
-  toast("Excel/CSV indirildi", "success", "📊");
-});
 
-document.getElementById("dlJson").addEventListener("click", () => { closeDL(); downloadFullBackup(); });
-document.getElementById("dlPrint").addEventListener("click", () => { closeDL(); setTimeout(() => window.print(), 220); });
+  toast(`${school.name} dışa aktarıldı`, "success", "📤");
+}
 
 /* =====================================================
-   YEDEK (JSON)
+   ÇOKLU JSON YÜKLEME
+===================================================== */
+const fileInput = document.getElementById("fileInput");
+
+document.getElementById("loadBtn").addEventListener("click", () => {
+  fileInput.setAttribute("multiple", "multiple");
+  fileInput.click();
+});
+
+document.getElementById("multiImportBtn").addEventListener("click", () => {
+  fileInput.setAttribute("multiple", "multiple");
+  fileInput.click();
+});
+
+fileInput.addEventListener("change", async (e) => {
+  const files = Array.from(e.target.files || []);
+  if (!files.length) return;
+
+  let imported = 0;
+  let updated = 0;
+  let errorCount = 0;
+  const errors = [];
+
+  for (const file of files){
+    try {
+      const text = await file.text();
+      const payload = JSON.parse(text);
+      const result = importSchoolPayload(payload);
+      if (result.action === "imported") imported++;
+      else if (result.action === "updated") updated++;
+    } catch (err){
+      console.error("Dosya hatası:", file.name, err);
+      errors.push(`${file.name}: ${err.message}`);
+      errorCount++;
+    }
+  }
+
+  fileInput.value = "";
+
+  // Sonuç
+  if (imported + updated > 0){
+    renderSchoolSelect();
+    renderReport();
+    refreshActiveView();
+    renderSchoolList();
+    if (document.getElementById("exportSchoolSelect")) updateExportSchoolSelect();
+    toast(`${imported + updated} okul yüklendi (${imported} yeni, ${updated} güncellendi)`, "success", "📂");
+  }
+  if (errorCount > 0){
+    toast(`${errorCount} dosya okunamadı`, "error", "⚠️");
+    console.error("Yükleme hataları:", errors);
+  }
+});
+
+function importSchoolPayload(payload){
+  // Tek okul formatı
+  if (payload.format === "samsat-okul-raporu-single" && payload.school && payload.cells){
+    const school = payload.school;
+
+    // Aynı id veya aynı isimde okul var mı?
+    let existing = SCHOOLS.find(s => s.id === school.id);
+    if (!existing) existing = SCHOOLS.find(s => s.name === school.name);
+
+    let action = "imported";
+    if (existing){
+      // Okul zaten var — sadece hücreleri güncelle (diğerleri silinmez)
+      // Ama ID'yi aynı tut ki hücre anahtarları eşleşsin
+      action = "updated";
+      // İsim güncelle
+      existing.name = school.name || existing.name;
+      existing.type = school.type || existing.type;
+    } else {
+      // Yeni okul — listeye ekle
+      SCHOOLS.push({
+        id: school.id,
+        name: school.name,
+        type: school.type || "Ortaokul"
+      });
+    }
+
+    // Hücreleri ekle/güncelle (eskileri silme — sadece gelen anahtarları yaz)
+    Object.entries(payload.cells).forEach(([k, v]) => {
+      if (v === null || v === "") localStorage.removeItem(k);
+      else localStorage.setItem(k, v);
+    });
+
+    saveSchools();
+    return { action };
+  }
+
+  // Eski format (okul bilgisi olmadan) — geriye dönük uyumluluk
+  if (payload.format === "okul-gelisimi-raporu-full" || payload.data){
+    // Bu "tüm sistem" yedeği — sadece mevcut okula ekle
+    const cells = payload.cells || payload.data || {};
+    Object.entries(cells).forEach(([k, v]) => {
+      if (v === null || v === "") localStorage.removeItem(k);
+      else localStorage.setItem(k, v);
+    });
+    return { action: "updated" };
+  }
+
+  throw new Error("Tanınmayan JSON formatı");
+}
+
+/* =====================================================
+   TÜM YEDEK
 ===================================================== */
 function downloadFullBackup(){
   const cells = {};
@@ -3442,7 +3157,7 @@ function downloadFullBackup(){
   });
   const payload = {
     format: "samsat-okul-gelisimi-full",
-    version: "3.0",
+    version: "4.0",
     savedAt: new Date().toISOString(),
     config: CONFIG,
     schools: SCHOOLS,
@@ -3462,39 +3177,158 @@ function downloadFullBackup(){
   toast("Tam yedek indirildi", "success", "💾");
 }
 
-const fileInput = document.getElementById("fileInput");
-document.getElementById("loadBtn").addEventListener("click", () => fileInput.click());
-fileInput.addEventListener("change", e => {
-  const file = e.target.files && e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    try{
-      const payload = JSON.parse(ev.target.result);
-      if (payload.config) { CONFIG = payload.config; saveConfig(); }
-      if (payload.schools) { SCHOOLS = payload.schools; saveSchools(); }
-      if (payload.agenda) { AGENDA = payload.agenda; saveAgenda(); }
-      if (payload.slides) { SLIDES = payload.slides; saveSlides(); }
-      if (payload.analysis) { ANALYSIS = payload.analysis; saveAnalysis(); }
-      if (payload.currentSchoolId) { currentSchoolId = payload.currentSchoolId; localStorage.setItem(CURRENT_SCHOOL_KEY, currentSchoolId); }
-      if (payload.cells){
-        Object.keys(localStorage).forEach(k => { if (k.startsWith(CELL_PREFIX_BASE)) localStorage.removeItem(k); });
-        Object.entries(payload.cells).forEach(([k, v]) => localStorage.setItem(k, v));
-      }
-      renderSchoolSelect();
-      renderReport();
-      refreshActiveView();
-      toast("Yedek geri yüklendi", "success", "📂");
-    }catch(err){
-      console.error(err);
-      toast("Dosya okunamadı: " + err.message, "error", "⚠️");
-    }finally{ fileInput.value = ""; }
-  };
-  reader.readAsText(file);
+/* Tüm yedekten yükle — bu SADECE tüm sistemi sıfırdan yükler */
+fileInput.addEventListener("change", async (e) => {
+  // Yukarıdaki listener çoklu yükleme için, burada ek bir dinleyici yok.
+  // (Aynı listener ikisini de işliyor)
+});
+
+/* Restore butonu (admin içinden) — tam yedek yüklemek için */
+document.getElementById("restoreBtn").addEventListener("click", () => {
+  fileInput.setAttribute("multiple", "multiple");
+  fileInput.click();
 });
 
 /* =====================================================
-   ADMIN PANELİ
+   FORMATLAR MODALI
+===================================================== */
+const dlOverlay = document.getElementById("dlOverlay");
+
+function updateExportSchoolSelect(){
+  const sel = document.getElementById("exportSchoolSelect");
+  if (!sel) return;
+  sel.innerHTML = SCHOOLS.map(s => `<option value="${escapeHTML(s.id)}" ${s.id === currentSchoolId ? "selected" : ""}>${escapeHTML(s.name)}</option>`).join("");
+}
+
+document.getElementById("downloadBtn").addEventListener("click", () => {
+  document.getElementById("filenameInput").value = CONFIG.filename;
+  renderPDFSchoolPicker();
+  updateExportSchoolSelect();
+  dlOverlay.classList.add("active");
+});
+function closeDL(){ dlOverlay.classList.remove("active"); }
+document.getElementById("dlClose").addEventListener("click", closeDL);
+dlOverlay.addEventListener("click", e => { if (e.target === dlOverlay) closeDL(); });
+
+/* Okul seçici (PDF için) */
+let pdfSelectedSchools = [currentSchoolId];
+
+function renderPDFSchoolPicker(){
+  const picker = document.getElementById("pdfSchoolPicker");
+  if (!pdfSelectedSchools.length) pdfSelectedSchools = [currentSchoolId];
+  picker.innerHTML = SCHOOLS.map(s => `
+    <label class="school-picker-item ${pdfSelectedSchools.includes(s.id) ? "selected" : ""}" data-id="${escapeHTML(s.id)}">
+      <input type="checkbox" ${pdfSelectedSchools.includes(s.id) ? "checked" : ""}>
+      <span class="spi-name">${escapeHTML(s.name)}</span>
+    </label>
+  `).join("");
+
+  picker.querySelectorAll(".school-picker-item").forEach(el => {
+    el.addEventListener("click", e => {
+      e.preventDefault();
+      const id = el.dataset.id;
+      const idx = pdfSelectedSchools.indexOf(id);
+      if (idx >= 0){
+        if (pdfSelectedSchools.length === 1) return; // en az bir tane
+        pdfSelectedSchools.splice(idx, 1);
+      } else {
+        pdfSelectedSchools.push(id);
+      }
+      renderPDFSchoolPicker();
+    });
+  });
+}
+
+document.querySelectorAll(".school-picker-actions button").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const action = btn.dataset.action;
+    if (action === "all") pdfSelectedSchools = SCHOOLS.map(s => s.id);
+    else if (action === "none") pdfSelectedSchools = [currentSchoolId];
+    else if (action === "current") pdfSelectedSchools = [currentSchoolId];
+    renderPDFSchoolPicker();
+  });
+});
+
+["pdfOptReport","pdfOptStatus","pdfOptCharts","pdfOptEval","pdfOptMonthly","pdfOptSummary","pdfOptAnnual"].forEach(id => {
+  const cb = document.getElementById(id);
+  if (!cb) return;
+  const row = cb.closest(".pdf-opt-row");
+  cb.addEventListener("change", () => row.classList.toggle("selected", cb.checked));
+});
+
+document.getElementById("dlPdf").addEventListener("click", () => {
+  const opts = {
+    report:  document.getElementById("pdfOptReport").checked,
+    status:  document.getElementById("pdfOptStatus").checked,
+    charts:  document.getElementById("pdfOptCharts").checked,
+    eval:    document.getElementById("pdfOptEval").checked,
+    monthly: document.getElementById("pdfOptMonthly").checked,
+    summary: document.getElementById("pdfOptSummary").checked,
+    annual:  document.getElementById("pdfOptAnnual").checked,
+    schoolIds: pdfSelectedSchools.slice()
+  };
+  if (!opts.schoolIds.length) opts.schoolIds = [currentSchoolId];
+  const fname = (document.getElementById("filenameInput").value.trim() || CONFIG.filename);
+  closeDL();
+  runPDFGeneration(opts, fname);
+});
+
+document.getElementById("dlExcel").addEventListener("click", () => {
+  closeDL();
+  const esc = v => `"${String(v).replace(/"/g,'""')}"`;
+  const lines = [];
+  pdfSelectedSchools.forEach(sid => {
+    const school = SCHOOLS.find(s => s.id === sid);
+    if (!school) return;
+    lines.push(esc("═══ " + school.name + " ═══"));
+    lines.push(esc(CONFIG.author.toUpperCase()));
+    lines.push(esc(CONFIG.title));
+    lines.push("");
+    const tables = getAllTableData(sid);
+    tables.forEach(td => {
+      lines.push("");
+      lines.push(esc("── " + td.title + " ──"));
+      const isSingle = td.isSingle;
+      const colCount = isSingle ? MONTHS.length : MONTHS.length * 2;
+      // Başlık
+      const header = ["FAALİYET"];
+      MONTHS.forEach(m => {
+        if (isSingle) header.push(m);
+        else { header.push(m + " H"); header.push(m + " G"); }
+      });
+      lines.push(header.map(esc).join(";"));
+      // Satırlar
+      td.rows.forEach(r => {
+        const row = [r.label];
+        for (let c = 0; c < colCount; c++) row.push(r.values[c] || "");
+        lines.push(row.map(esc).join(";"));
+      });
+    });
+    lines.push("");
+  });
+  const csv = "\uFEFF" + lines.join("\n");
+  const blob = new Blob([csv], { type:"text/csv;charset=utf-8;" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = CONFIG.filename + ".csv";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  toast("Excel/CSV indirildi", "success", "📊");
+});
+
+document.getElementById("dlJson").addEventListener("click", () => { closeDL(); downloadFullBackup(); });
+document.getElementById("dlPrint").addEventListener("click", () => { closeDL(); setTimeout(() => window.print(), 220); });
+
+/* =====================================================
+   EXPORT BUTONU
+===================================================== */
+document.getElementById("exportSchoolBtn").addEventListener("click", () => {
+  exportSchoolAsJSON(currentSchoolId);
+});
+
+/* =====================================================
+   ADMIN
 ===================================================== */
 const adminOverlay = document.getElementById("adminOverlay");
 const adminLogin = document.getElementById("adminLogin");
@@ -3516,6 +3350,7 @@ function openAdmin(){
     renderSlideList();
     renderAgendaList();
     renderSchoolList();
+    updateExportSchoolSelect();
     updateStorageStats();
   } else {
     adminLogin.style.display = "block";
@@ -3542,6 +3377,7 @@ loginBtn.addEventListener("click", () => {
     renderSlideList();
     renderAgendaList();
     renderSchoolList();
+    updateExportSchoolSelect();
     updateStorageStats();
     toast("Admin girişi başarılı", "success", "🔓");
   } else {
@@ -3562,10 +3398,13 @@ document.querySelectorAll(".admin-tab").forEach(tab => {
     tab.classList.add("active");
     const panel = document.querySelector(`.admin-panel[data-panel="${tab.dataset.tab}"]`);
     if (panel) panel.classList.add("active");
+    if (tab.dataset.tab === "importexport") {
+      updateExportSchoolSelect();
+      renderLoadedSchoolsList();
+    }
   });
 });
 
-/* GENEL */
 function fillGeneralInputs(){
   document.getElementById("inpTitleLong").value = CONFIG.title;
   document.getElementById("inpTitleShort").value = CONFIG.titleShort;
@@ -3609,9 +3448,9 @@ function renderSchoolList(){
     const div = document.createElement("div");
     div.className = "row-editor";
     div.innerHTML = `
-      <input type="text" class="row-editor-input" style="max-width:120px" value="${escapeHTML(s.id)}" data-field="id" data-idx="${i}" placeholder="ID">
+      <input type="text" class="row-editor-input" style="max-width:130px" value="${escapeHTML(s.id)}" data-field="id" data-idx="${i}" placeholder="ID">
       <input type="text" class="row-editor-input" value="${escapeHTML(s.name)}" data-field="name" data-idx="${i}" placeholder="Okul Adı">
-      <input type="text" class="row-editor-input" style="max-width:120px" value="${escapeHTML(s.type||"")}" data-field="type" data-idx="${i}" placeholder="Tür">
+      <input type="text" class="row-editor-input" style="max-width:130px" value="${escapeHTML(s.type||"")}" data-field="type" data-idx="${i}" placeholder="Tür">
       <div class="row-editor-actions"><button class="del" data-act="del" data-idx="${i}">🗑</button></div>`;
     list.appendChild(div);
   });
@@ -3631,19 +3470,66 @@ document.getElementById("schoolList").addEventListener("click", e => {
   if (!confirm(`"${SCHOOLS[i].name}" silinecek. Emin misiniz?`)) return;
   SCHOOLS.splice(i, 1);
   saveSchools(); renderSchoolList(); renderSchoolSelect();
+  updateExportSchoolSelect();
   toast("Okul silindi", "info", "🗑");
 });
 document.getElementById("addSchoolBtn").addEventListener("click", () => {
   const id = "okul-" + Date.now().toString().slice(-5);
   SCHOOLS.push({ id, name: "Yeni Okul", type: "Ortaokul" });
   saveSchools(); renderSchoolList(); renderSchoolSelect();
+  updateExportSchoolSelect();
 });
 document.getElementById("resetSchoolsBtn").addEventListener("click", () => {
   if (!confirm("Okul listesi varsayılana dönecek. Emin misiniz?")) return;
   SCHOOLS = JSON.parse(JSON.stringify(DEFAULT_SCHOOLS));
   saveSchools(); renderSchoolList(); renderSchoolSelect();
+  updateExportSchoolSelect();
   toast("Okul listesi sıfırlandı", "info", "↻");
 });
+
+/* EXPORT/IMPORT */
+document.getElementById("exportSchoolJsonBtn").addEventListener("click", () => {
+  const sid = document.getElementById("exportSchoolSelect").value;
+  exportSchoolAsJSON(sid);
+});
+document.getElementById("exportAllSchoolsBtn").addEventListener("click", async () => {
+  if (!confirm(`${SCHOOLS.length} okul ayrı ayrı indirilecek. Devam?`)) return;
+  for (let i = 0; i < SCHOOLS.length; i++){
+    exportSchoolAsJSON(SCHOOLS[i].id);
+    await new Promise(r => setTimeout(r, 400));
+  }
+  toast(`${SCHOOLS.length} okul indirildi`, "success", "📦");
+});
+
+function renderLoadedSchoolsList(){
+  const list = document.getElementById("loadedSchoolsList");
+  if (!list) return;
+  const items = SCHOOLS.map(s => {
+    // Kaç hücre verisi var?
+    let cellCount = 0;
+    Object.keys(localStorage).forEach(k => {
+      if (k.startsWith(`${CELL_PREFIX_BASE}${s.id}-`)) cellCount++;
+    });
+    return `
+      <div class="slide-list-item">
+        <div class="slide-list-num">🏫</div>
+        <div class="slide-list-info">
+          <strong>${escapeHTML(s.name)}</strong>
+          <span>${cellCount} hücre kayıtlı · ID: ${escapeHTML(s.id)}</span>
+        </div>
+        <div class="slide-list-actions">
+          <button class="admin-btn admin-btn-ghost admin-btn-sm" data-action="export-one" data-id="${escapeHTML(s.id)}">📤 İndir</button>
+        </div>
+      </div>`;
+  }).join("");
+  list.innerHTML = `<div class="slide-list">${items}</div>`;
+
+  list.querySelectorAll("button[data-action='export-one']").forEach(btn => {
+    btn.addEventListener("click", () => exportSchoolAsJSON(btn.dataset.id));
+  });
+}
+
+document.getElementById("viewLoadedSchoolsBtn").addEventListener("click", renderLoadedSchoolsList);
 
 /* SLAYT LİSTESİ */
 function renderSlideList(){
@@ -3658,10 +3544,7 @@ function renderSlideList(){
     const sub = isCover ? "Giriş slaytı" : (isAgenda ? "Gündem" : (s.rows ? s.rows.length + " satır" : ""));
     item.innerHTML = `
       <div class="slide-list-num">${isCover ? "🏠" : (isAgenda ? "🎯" : pad(idx))}</div>
-      <div class="slide-list-info">
-        <strong>${escapeHTML(title)}</strong>
-        <span>${escapeHTML(sub)}</span>
-      </div>
+      <div class="slide-list-info"><strong>${escapeHTML(title)}</strong><span>${escapeHTML(sub)}</span></div>
       <div class="slide-list-actions">
         <button class="admin-btn admin-btn-ghost admin-btn-sm" data-action="edit" data-idx="${idx}">✏️</button>
         ${!isCover ? `<button class="admin-btn admin-btn-ghost admin-btn-sm" data-action="del" data-idx="${idx}" style="color:#dc2626">🗑</button>` : ""}
@@ -3696,7 +3579,7 @@ document.getElementById("resetSlidesBtn").addEventListener("click", () => {
   toast("Slaytlar sıfırlandı", "info", "↻");
 });
 
-/* SLAYT DÜZENLEME */
+/* SLIDE EDITOR */
 const slideEditOverlay = document.getElementById("slideEditOverlay");
 let editingSlideIdx = -1;
 let editingRows = [];
@@ -3807,7 +3690,7 @@ document.getElementById("resetAgendaBtn").addEventListener("click", () => {
   saveAgenda(); renderAgendaList(); renderReport();
 });
 
-/* ANALİZ AYARLARI */
+/* ANALİZ */
 function fillAnalysisInputs(){
   document.getElementById("thrGreen").value  = ANALYSIS.thrGreen;
   document.getElementById("thrBlue").value   = ANALYSIS.thrBlue;
@@ -3838,7 +3721,6 @@ document.getElementById("saveAnalysis").addEventListener("click", () => {
 
 /* YEDEK */
 document.getElementById("backupBtn").addEventListener("click", downloadFullBackup);
-document.getElementById("restoreBtn").addEventListener("click", () => fileInput.click());
 document.getElementById("factoryResetBtn").addEventListener("click", () => {
   if (!confirm("TÜM VERİLER SİLİNECEK. Emin misiniz?")) return;
   if (!confirm("Geri alınamaz. Son kez onaylıyor musunuz?")) return;
@@ -3853,7 +3735,7 @@ document.getElementById("factoryResetBtn").addEventListener("click", () => {
   localStorage.setItem(CURRENT_SCHOOL_KEY, currentSchoolId);
   renderSchoolSelect(); renderReport(); refreshActiveView();
   fillGeneralInputs(); fillAnalysisInputs();
-  renderSlideList(); renderAgendaList(); renderSchoolList();
+  renderSlideList(); renderAgendaList(); renderSchoolList(); updateExportSchoolSelect();
   updateStorageStats();
   toast("Fabrika ayarlarına dönüldü", "success", "↻");
 });
@@ -3867,7 +3749,7 @@ function updateStorageStats(){
     }
   });
   const kb = (total / 1024).toFixed(2);
-  document.getElementById("storageStats").textContent = `📦 ${kb} KB · ${cellCount} hücre kaydı`;
+  document.getElementById("storageStats").textContent = `📦 ${kb} KB · ${cellCount} hücre kaydı · ${SCHOOLS.length} okul`;
 }
 
 /* =====================================================
@@ -3882,7 +3764,16 @@ document.addEventListener("keydown", e => {
     return;
   }
   if (!mod) return;
-  if (e.key.toLowerCase() === "s" && !e.shiftKey){ e.preventDefault(); document.getElementById("pdfDirectBtn").click(); }
+  // Ctrl+S → KAYDET (PDF değil)
+  if (e.key.toLowerCase() === "s" && !e.shiftKey){
+    e.preventDefault();
+    document.getElementById("saveBtn").click();
+  }
+  // Ctrl+Shift+S → PDF İndir
+  if (e.key.toLowerCase() === "s" && e.shiftKey){
+    e.preventDefault();
+    document.getElementById("pdfDirectBtn").click();
+  }
   if (e.key.toLowerCase() === "o"){ e.preventDefault(); fileInput.click(); }
   if (e.key.toLowerCase() === "p"){ e.preventDefault(); window.print(); }
   if (e.key.toLowerCase() === "e"){ e.preventDefault(); editBtn.click(); }
@@ -3896,6 +3787,7 @@ renderSchoolSelect();
 renderReport();
 loadMeta();
 updateSchoolStatus();
+updateExportSchoolSelect();
 </script>
 </body>
 </html>
