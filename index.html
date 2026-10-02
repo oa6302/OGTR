@@ -711,6 +711,30 @@
     .slide:last-child{break-after:auto; page-break-after:auto;}
     .slide::before{display:none;}
   }
+
+  /* =====================================================
+     GELİŞTİRİLMİŞ VERİ GÜVENLİĞİ / OTOMATİK KAYIT
+     Mevcut tasarım korunur.
+  ===================================================== */
+  .data-tools{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+  .data-badge{display:inline-flex;align-items:center;gap:6px;padding:7px 10px;border-radius:9px;
+    background:var(--gray-50);border:1px solid var(--gray-200);font-size:10.5px;font-weight:700;color:var(--gray-600)}
+  .data-badge.live{color:#166534;background:#f0fdf4;border-color:#86efac}
+  .data-badge.warn{color:#9a3412;background:var(--orange-100);border-color:var(--orange-300)}
+  .trash-list{display:flex;flex-direction:column;gap:8px}
+  .trash-item{display:flex;align-items:center;gap:10px;padding:11px 12px;background:var(--gray-50);
+    border:1px solid var(--gray-200);border-radius:10px}
+  .trash-item-info{flex:1;min-width:0}
+  .trash-item-info strong{display:block;font-size:12px;color:var(--navy-900)}
+  .trash-item-info span{display:block;font-size:10.5px;color:var(--gray-500);margin-top:2px}
+  .data-history{max-height:220px;overflow:auto;display:flex;flex-direction:column;gap:6px}
+  .history-item{padding:8px 10px;background:#fff;border:1px solid var(--gray-200);border-radius:8px;font-size:10.5px;color:var(--gray-600)}
+  @media(max-width:720px){
+    .data-badge{font-size:9.5px;padding:6px 8px}
+    .trash-item{align-items:flex-start;flex-wrap:wrap}
+    .trash-item .admin-btn{margin-left:auto}
+  }
+
 </style>
 </head>
 <body>
@@ -3189,3 +3213,37 @@ updateExportSchoolSelect();
 </script>
 </body>
 </html>
+
+<script>document.addEventListener('DOMContentLoaded',()=>{renderDataTools();});
+/* =====================================================
+   OTOMATİK KAYIT KORUMASI
+===================================================== */
+window.addEventListener("beforeunload",()=>{ try{writeDataMeta(true);}catch(e){} });
+document.addEventListener("keydown",(e)=>{
+  if((e.ctrlKey||e.metaKey) && e.key.toLowerCase()==="s"){
+    e.preventDefault(); writeDataMeta(true); toast("Veriler kaydedildi","success","💾");
+  }
+});
+
+</script>
+
+<script>
+(function(){
+  function hook(id,label){
+    const el=document.getElementById(id);
+    if(el && !el.dataset.historyHook){
+      el.dataset.historyHook="1";
+      el.addEventListener("click",()=>{try{snapshotData(label);updateDataBadge("saving");}catch(e){}},true);
+    }
+  }
+  document.addEventListener("DOMContentLoaded",()=>{
+    hook("saveGeneral","Genel ayarlar değiştirildi");
+    hook("addSchoolBtn","Okul ekleme işlemi");
+    hook("resetSchoolsBtn","Okul listesi sıfırlama");
+    hook("saveSlide","Bölüm değişikliği");
+    hook("addSlideBtn","Bölüm ekleme");
+    hook("saveRows","Gösterge değişikliği");
+    renderDataTools();
+  });
+})();
+</script>
