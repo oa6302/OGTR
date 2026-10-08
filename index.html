@@ -27,55 +27,6 @@ body{font-family:"Inter","Segoe UI",-apple-system,BlinkMacSystemFont,Roboto,Aria
   color:var(--n8);line-height:1.5;-webkit-font-smoothing:antialiased;min-height:100vh}
 button{font-family:inherit;cursor:pointer}
 
-/* AUTH */
-.auth-ov{position:fixed;inset:0;z-index:99999;background:
-  radial-gradient(700px 500px at 85% 8%,rgba(255,140,66,.22),transparent 62%),
-  radial-gradient(600px 500px at 5% 100%,rgba(28,74,142,.55),transparent 60%),
-  linear-gradient(140deg,var(--n8) 0%,var(--n7) 48%,var(--n9) 100%);
-  display:flex;align-items:center;justify-content:center;padding:20px;transition:opacity .4s}
-.auth-ov.hidden{opacity:0;pointer-events:none;display:none}
-.auth-box{background:#fff;border-radius:24px;width:min(440px,100%);max-height:94vh;
-  overflow-y:auto;box-shadow:0 40px 90px -20px rgba(4,16,42,.7)}
-.auth-head{background:linear-gradient(135deg,var(--n8),var(--n6));color:#fff;
-  padding:32px 32px 28px;text-align:center;border-radius:24px 24px 0 0;position:relative;overflow:hidden}
-.auth-head::before{content:"";position:absolute;width:280px;height:280px;border-radius:50%;
-  right:-100px;top:-140px;background:radial-gradient(circle,rgba(255,107,44,.4),transparent 65%);filter:blur(40px)}
-.auth-logo{width:64px;height:64px;margin:0 auto 14px;border-radius:18px;
-  background:linear-gradient(135deg,var(--o5),var(--o6));display:grid;place-items:center;
-  font-size:30px;font-weight:800;color:#fff;box-shadow:0 16px 36px -10px rgba(255,107,44,.7);
-  position:relative;z-index:2}
-.auth-head h1{font-size:19px;font-weight:800;margin-bottom:4px;position:relative;z-index:2}
-.auth-head p{font-size:12px;color:rgba(255,255,255,.72);position:relative;z-index:2}
-.auth-body{padding:28px 32px 30px}
-.auth-tabs{display:flex;gap:4px;background:var(--g1);padding:5px;border-radius:12px;margin-bottom:22px}
-.auth-tab{flex:1;padding:10px;font-size:12.5px;font-weight:800;color:var(--g6);
-  background:transparent;border:0;border-radius:9px;transition:all .18s}
-.auth-tab.active{background:#fff;color:var(--o6);box-shadow:0 2px 6px rgba(6,22,49,.08)}
-.af{margin-bottom:14px}
-.af label{display:block;font-size:11px;font-weight:800;color:var(--g7);letter-spacing:.06em;
-  text-transform:uppercase;margin-bottom:6px}
-.af input,.af select{width:100%;padding:12px 16px;border-radius:11px;border:1.5px solid var(--g3);
-  background:#fff;font-size:13.5px;font-weight:600;outline:none;transition:all .18s}
-.af input:focus,.af select:focus{border-color:var(--o5);box-shadow:0 0 0 3px rgba(255,107,44,.15)}
-.aerr{color:var(--re);font-size:12px;font-weight:700;margin:8px 0;min-height:18px}
-.abtn{width:100%;padding:13px;border-radius:11px;font-size:13.5px;font-weight:800;
-  border:0;transition:all .18s;display:flex;align-items:center;justify-content:center;gap:8px}
-.abtn-p{background:linear-gradient(135deg,var(--o5),var(--o6));color:#fff;box-shadow:var(--sho)}
-.abtn-p:hover{transform:translateY(-1px)}
-.adiv{text-align:center;margin:20px 0 16px;color:var(--g4);font-size:11px;font-weight:700;
-  letter-spacing:.1em;text-transform:uppercase;position:relative}
-.adiv::before{content:"";position:absolute;top:50%;left:0;right:0;height:1px;background:var(--g2)}
-.adiv span{background:#fff;padding:0 12px;position:relative;z-index:2}
-.demos{display:flex;flex-direction:column;gap:8px}
-.demo{padding:10px 12px;border:1.5px solid var(--g2);border-radius:10px;background:var(--g5);
-  transition:all .18s;display:flex;align-items:center;gap:10px}
-.demo:hover{border-color:var(--o4);background:var(--o1)}
-.demo-ic{width:32px;height:32px;border-radius:9px;flex-shrink:0;display:grid;place-items:center;
-  font-size:16px;background:linear-gradient(135deg,var(--n6),var(--n8));color:#fff}
-.demo-info{flex:1;min-width:0}
-.demo-info strong{display:block;font-size:12px;color:var(--n8);font-weight:800}
-.demo-info span{display:block;font-size:10.5px;color:var(--g6);margin-top:1px}
-
 /* NAV */
 .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);
   backdrop-filter:blur(18px);border-bottom:1px solid var(--g2)}
@@ -169,8 +120,7 @@ button{font-family:inherit;cursor:pointer}
   display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
 .tbbtn:hover{color:var(--n7)}
 .tbbtn.active{color:var(--o6);border-bottom-color:var(--o5)}
-.tbbtn[data-admin]{display:none}
-body.is-admin .tbbtn[data-admin]{display:inline-flex}
+.tbbtn[data-admin]{display:inline-flex}
 
 /* TOAST */
 .tstk{position:fixed;top:150px;right:22px;z-index:1100;display:flex;flex-direction:column;
@@ -479,11 +429,6 @@ body.locked tbody td.blank{cursor:default}
 .rbi{width:42px;height:42px;border-radius:11px;background:linear-gradient(135deg,#f59e0b,#d97706);
   color:#fff;display:grid;place-items:center;font-size:20px}
 
-/* RECOVERY INDICATOR */
-.ri{display:inline-flex;align-items:center;gap:6px;padding:6px 11px;border-radius:9px;
-  font-size:11px;font-weight:800;background:var(--grb);color:#166534;border:1px solid #86efac}
-
-/* LOADING SPINNER */
 .spin{display:inline-block;width:16px;height:16px;border:2px solid var(--g2);
   border-top-color:var(--o5);border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -497,7 +442,7 @@ body.locked tbody td.blank{cursor:default}
   .cg{grid-template-columns:1fr}
   .bt strong{max-width:180px;font-size:11.5px}
   .ut{display:none}
-  .tabs-bar{position:relative;top:auto}
+  .tb{position:relative;top:auto}
 }
 @media(max-width:720px){
   .bt span{display:none}
@@ -515,50 +460,13 @@ body.locked tbody td.blank{cursor:default}
 }
 @media print{
   body{background:#fff!important}
-  .nav,.sb,.tb,.mov,.tstk,.sbar,.auth-ov,.rb{display:none!important}
+  .nav,.sb,.tb,.mov,.tstk,.sbar,.rb{display:none!important}
   main{max-width:none;padding:0;margin:0}
   .slide{break-after:page;box-shadow:none!important;border-radius:0!important;margin:0!important;border:0!important}
 }
 </style>
 </head>
 <body>
-
-<!-- AUTH -->
-<div class="auth-ov" id="authOv">
-  <div class="auth-box">
-    <div class="auth-head">
-      <div class="auth-logo">S</div>
-      <h1>Okul Gelişimi Sistemi</h1>
-      <p>Samsat İlçe Milli Eğitim Müdürlüğü · 2026–2027</p>
-    </div>
-    <div class="auth-body">
-      <div class="auth-tabs">
-        <button class="auth-tab active" id="tabLogin">🔐 Giriş Yap</button>
-        <button class="auth-tab" id="tabRegister">👤 Kayıt Ol</button>
-      </div>
-      <div id="loginForm">
-        <div class="af"><label>Kullanıcı Adı</label>
-          <input type="text" id="loginUser" placeholder="admin" autocomplete="username"></div>
-        <div class="af"><label>Şifre</label>
-          <input type="password" id="loginPass" placeholder="••••••••" autocomplete="current-password"></div>
-        <div class="aerr" id="loginError"></div>
-        <button class="abtn abtn-p" id="btnLogin">🔓 Giriş Yap</button>
-        <div class="adiv"><span>Hızlı Demo Giriş</span></div>
-        <div class="demos" id="demos"></div>
-      </div>
-      <div id="registerForm" style="display:none">
-        <div class="af"><label>Ad Soyad</label><input type="text" id="regName"></div>
-        <div class="af"><label>Kullanıcı Adı</label><input type="text" id="regUser"></div>
-        <div class="af"><label>Şifre (min 4)</label><input type="password" id="regPass"></div>
-        <div class="af"><label>Rol</label>
-          <select id="regRole"><option value="teacher">👨‍🏫 Öğretmen</option><option value="admin">🔐 Yönetici</option></select></div>
-        <div class="af"><label>Yetkili Okullar</label><div class="schk" id="regSchoolChecks"></div></div>
-        <div class="aerr" id="regError"></div>
-        <button class="abtn abtn-p" id="btnRegister">✨ Hesap Oluştur</button>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- NAV -->
 <header class="nav">
@@ -581,20 +489,7 @@ body.locked tbody td.blank{cursor:default}
       <button class="ib" id="printBtn" data-tip="Yazdır">🖨️</button>
       <span class="dv"></span>
       <button class="bp" id="pdfBtn"><span>📄</span><span class="lbl">PDF</span></button>
-      <div class="um" id="userMenu">
-        <div class="ua" id="userAvatar">A</div>
-        <div class="ut">
-          <strong id="userName">Admin</strong>
-          <span id="userRole">Yönetici</span>
-        </div>
-        <div class="ud">
-          <button class="udi" id="menuProfile"><span>👤</span><span>Profilim</span></button>
-          <button class="udi" id="menuBackups"><span>💾</span><span>Yedekleri Gör</span></button>
-          <button class="udi" id="menuAdmin"><span>⚙️</span><span>Admin Paneli</span></button>
-          <button class="udi" id="menuPass"><span>🔑</span><span>Şifre Değiştir</span></button>
-          <button class="udi dngr" id="menuLogout"><span>🚪</span><span>Çıkış</span></button>
-        </div>
-      </div>
+      <button class="ib" id="adminBtn" data-tip="Admin Paneli">⚙️</button>
     </div>
   </div>
 </header>
@@ -616,8 +511,8 @@ body.locked tbody td.blank{cursor:default}
     <button class="tbbtn" data-view="monthly">📅 Aylık</button>
     <button class="tbbtn" data-view="summary">📋 Yönetici Özeti</button>
     <button class="tbbtn" data-view="annual">📘 Yıllık</button>
-    <button class="tbbtn" data-view="compare" data-admin>🏫 Karşılaştırma</button>
-    <button class="tbbtn" data-view="central" data-admin>📈 Merkezi Rapor</button>
+    <button class="tbbtn" data-view="compare">🏫 Karşılaştırma</button>
+    <button class="tbbtn" data-view="central">📈 Merkezi Rapor</button>
   </div>
 </div>
 
@@ -690,7 +585,7 @@ body.locked tbody td.blank{cursor:default}
         <button class="mbtn2 mbtn2-p" id="saveGeneral">💾 Kaydet</button>
       </div>
       <div class="mpn" data-panel="users">
-        <div class="mhint">Kullanıcı hesapları ve yetkilendirme</div>
+        <div class="mhint">Kullanıcı hesapları (bilgi amaçlı)</div>
         <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">
           <button class="mbtn2 mbtn2-p" id="addUserBtn">➕ Yeni Kullanıcı</button>
         </div>
@@ -870,14 +765,13 @@ body.locked tbody td.blank{cursor:default}
 
 <script>
 /* =====================================================
-   PERSISTENCE
+   PERSISTENCE (Aynı)
 ===================================================== */
-const Persistence = (function(){
-  const IDB='okul_raporu_db', IV=1, SS='state', BS='backups', MS='meta';
-  const MAXB=7, BMIN=60000, DB=300, FM=30000, LP='rapor-';
-  let db=null, init=false, st=null, ft=null, lb=0, pk=new Set(), sip=false, sq=new Set();
+const Persistence=(function(){
+  const IDB='okul_raporu_db',IV=1,SS='state',BS='backups',MS='meta';
+  const MAXB=7,BMIN=60000,DB=300,FM=30000,LP='rapor-';
+  let db=null,init=false,st=null,ft=null,lb=0,pk=new Set(),sip=false,sq=new Set();
   const ls={onSave:[],onRestore:[],onError:[],onReady:[]};
-
   const odb=()=>new Promise((res,rej)=>{
     if(!window.indexedDB){rej(new Error('IDB yok'));return}
     const r=indexedDB.open(IDB,IV);
@@ -897,13 +791,11 @@ const Persistence = (function(){
     const r=db.transaction(s,'readonly').objectStore(s).getAll(); r.onsuccess=()=>res(r.result||[]); r.onerror=()=>rej(r.error)});
   const icl=s=>new Promise((res,rej)=>{if(!db){res();return}
     const r=db.transaction(s,'readwrite').objectStore(s).clear(); r.onsuccess=()=>res(); r.onerror=()=>rej(r.error)});
-
   async function snap(){
     const s={savedAt:new Date().toISOString(),savedAtTr:new Date().toLocaleString('tr-TR')};
     const k={}, c={};
     for(let i=0;i<localStorage.length;i++){
-      const kk=localStorage.key(i);
-      if(!kk||!kk.startsWith(LP))continue;
+      const kk=localStorage.key(i); if(!kk||!kk.startsWith(LP))continue;
       const v=localStorage.getItem(kk);
       if(kk.startsWith('rapor-cell-'))c[kk]=v;
       else{try{k[kk]=JSON.parse(v)}catch{k[kk]=v}}
@@ -914,7 +806,6 @@ const Persistence = (function(){
     if(typeof AGENDA!=='undefined')s.AGENDA=AGENDA;
     if(typeof SLIDES!=='undefined')s.SLIDES=SLIDES;
     if(typeof ANALYSIS!=='undefined')s.ANALYSIS=ANALYSIS;
-    if(typeof USERS!=='undefined')s.USERS=USERS;
     if(typeof currentSchoolId!=='undefined')s.currentSchoolId=currentSchoolId;
     return s;
   }
@@ -930,7 +821,6 @@ const Persistence = (function(){
     if(s.AGENDA&&typeof AGENDA!=='undefined'){AGENDA.length=0;AGENDA.push(...s.AGENDA)}
     if(s.SLIDES&&typeof SLIDES!=='undefined'){SLIDES.length=0;SLIDES.push(...s.SLIDES)}
     if(s.ANALYSIS&&typeof ANALYSIS!=='undefined')Object.assign(ANALYSIS,s.ANALYSIS);
-    if(s.USERS&&typeof USERS!=='undefined'){USERS.length=0;USERS.push(...s.USERS)}
     if(s.currentSchoolId&&typeof currentSchoolId!=='undefined')currentSchoolId=s.currentSchoolId;
     await ip(SS,s,'latest');
   }
@@ -939,13 +829,13 @@ const Persistence = (function(){
     try{
       const s=await snap(); const sz=JSON.stringify(s).length;
       const m={timestamp:n,date:new Date(n).toLocaleString('tr-TR'),reason:r||'auto',size:sz,
-        schools:(s.SCHOOLS||[]).length,cells:Object.keys(s.cells||{}).length,users:(s.USERS||[]).length};
+        schools:(s.SCHOOLS||[]).length,cells:Object.keys(s.cells||{}).length};
       await ip(BS,{...m,snapshot:s});
       const all=await ial(BS);
       if(all.length>MAXB){all.sort((a,b)=>a.timestamp-b.timestamp);
         for(const b of all.slice(0,all.length-MAXB))await idl(BS,b.id)}
       em('onSave',{type:'backup',meta:m});
-    }catch(e){console.error('Yedek hata:',e); em('onError',e)}
+    }catch(e){console.error('Yedek:',e); em('onError',e)}
   }
   async function listBk(){const a=await ial(BS);return a.sort((a,b)=>b.timestamp-a.timestamp)}
   async function restoreBk(id){try{const b=await ig(BS,id); if(!b||!b.snapshot)throw new Error('Yedek yok');
@@ -1012,7 +902,6 @@ const DC={title:"Samsat Okul Gelişimi ve Akademik Başarıyı İzleme, Analiz v
   year:"2026 – 2027 Eğitim Öğretim Yılı",filename:"Samsat-Okul-Gelisimi-Raporu",date:"21.09.2026",
   pageFooter:"Samsat İlçe MEM · Okul Gelişimi Sistemi · 2026–2027",
   stats:[{value:"7",label:"Okul"},{value:"19",label:"Tablo"},{value:"10",label:"Ay"}]};
-
 const DS=[{id:"orentas",name:"Örentaş Ortaokulu",type:"Ortaokul"},
   {id:"ihl-orta",name:"Samsat İmam Hatip Ortaokulu",type:"Ortaokul"},
   {id:"taskuyu",name:"Taşkuyu Ortaokulu",type:"Ortaokul"},
@@ -1020,7 +909,6 @@ const DS=[{id:"orentas",name:"Örentaş Ortaokulu",type:"Ortaokul"},
   {id:"yarimbag",name:"Yarımbağ Ortaokulu",type:"Ortaokul"},
   {id:"safvan",name:"Samsat Safvan Bin Muattal Anadolu İmam Hatip Lisesi",type:"Lise"},
   {id:"cpl",name:"Samsat Çok Programlı Anadolu Lisesi",type:"Lise"}];
-
 const DA=[{icon:"🎓",title:"Akademik Gelişim",desc:"Öğrenci öğrenme düzeyleri ve akademik gelişim"},
   {icon:"🧠",title:"Beceri Gelişimi",desc:"Öğrenme çıktıları ve beceri gelişimi"},
   {icon:"❤️",title:"Değerler Eğitimi",desc:"Değerlerin eğitim süreçlerine yansıtılması"},
@@ -1028,7 +916,6 @@ const DA=[{icon:"🎓",title:"Akademik Gelişim",desc:"Öğrenci öğrenme düze
   {icon:"🏫",title:"Okul Gelişimi",desc:"Okulun gelişim alanları ve ihtiyaçları"},
   {icon:"📊",title:"İzleme-Değerlendirme",desc:"Verilerin analizi ve gelişim göstergeleri"},
   {icon:"🎯",title:"Eylem Planı",desc:"Tespit edilen ihtiyaçlara yönelik çalışmalar"}];
-
 const DSL=[
   {type:"cover"},
   {type:"agenda",title:"Rapor Gündemi",desc:"Okul gelişimi ve akademik başarının izlenmesinde yedi temel gelişim alanı."},
@@ -1067,18 +954,9 @@ const DSL=[
   {title:"Projelerin Uygulanması ve Takibi",desc:"Proje ve okuma etkinliklerinin uygulanma durumunun aylık takibi.",cat:"🎯 Eylem Planı",mode:"EH",
     rows:["Öncü Şahsiyetler ve Mimari Harikalar sunumları yapılıyor mu?","İlgili görsel pano, afiş veya duyuru çalışmaları yapılıyor mu?","Okul kütüphanesi veya sınıf kitaplığı okuma saatleri için etkin kullanılıyor mu?","Okuma saatlerinden sonra kitaplarla ilgili paylaşım/değerlendirme yapılıyor mu?","Veliler evde okuma etkinliklerini destekliyor mu?"]}
 ];
-
 const DAN={thrGreen:90,thrBlue:75,thrYellow:60,thrOrange:40,thrRed:40,thrMinData:2};
-
-const DU=[
-  {id:"u-admin",username:"admin",password:"admin2026",displayName:"Sistem Yöneticisi",role:"admin",schoolIds:[]},
-  {id:"u-ogretmen1",username:"ogretmen",password:"123456",displayName:"Demo Öğretmen",role:"teacher",schoolIds:["orentas"]},
-  {id:"u-ogretmen2",username:"ogretmen2",password:"123456",displayName:"Ahmet Yılmaz",role:"teacher",schoolIds:["taskuyu","uzuntepe"]}
-];
-
 const K={CONFIG:"rapor-config",SCHOOLS:"rapor-schools",AGENDA:"rapor-agenda",SLIDES:"rapor-slides",
-  ANALYSIS:"rapor-analysis",USERS:"rapor-users",SESSION:"rapor-session",CURRENT:"rapor-current-school",
-  CELL:"rapor-cell-"};
+  ANALYSIS:"rapor-analysis",CURRENT:"rapor-current-school",CELL:"rapor-cell-"};
 const M=["EYLÜL","EKİM","KASIM","ARALIK","OCAK","ŞUBAT","MART","NİSAN","MAYIS","HAZİRAN"];
 const pad=n=>String(n).padStart(2,"0");
 const esc=s=>String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
@@ -1086,15 +964,13 @@ const lj=(k,f)=>{try{const r=localStorage.getItem(k); return r?JSON.parse(r):JSO
 const sj=(k,v)=>{localStorage.setItem(k,JSON.stringify(v)); Persistence.touch(k)};
 
 let CONFIG=lj(K.CONFIG,DC), SCHOOLS=lj(K.SCHOOLS,DS), AGENDA=lj(K.AGENDA,DA),
-    SLIDES=lj(K.SLIDES,DSL), ANALYSIS=lj(K.ANALYSIS,DAN), USERS=lj(K.USERS,DU);
-let currentUser=null;
+    SLIDES=lj(K.SLIDES,DSL), ANALYSIS=lj(K.ANALYSIS,DAN);
 let currentSchoolId=localStorage.getItem(K.CURRENT)||(SCHOOLS[0]&&SCHOOLS[0].id)||"";
 
 const sc=()=>sj(K.CONFIG,CONFIG), ss=()=>sj(K.SCHOOLS,SCHOOLS),
       sa=()=>sj(K.AGENDA,AGENDA), sl=()=>sj(K.SLIDES,SLIDES),
-      sn=()=>sj(K.ANALYSIS,ANALYSIS), su=()=>sj(K.USERS,USERS);
+      sn=()=>sj(K.ANALYSIS,ANALYSIS);
 
-/* TOAST */
 function toast(m,t="info",i){
   const st=document.getElementById("toastStack"); if(!st)return;
   const el=document.createElement("div"); el.className="tst "+t;
@@ -1104,26 +980,7 @@ function toast(m,t="info",i){
   setTimeout(()=>{el.classList.add("out"); setTimeout(()=>el.remove(),320)},2600);
 }
 
-/* AUTH */
-const findU=u=>USERS.find(x=>x.username.toLowerCase()===String(u||"").trim().toLowerCase());
-const isAd=()=>currentUser&&currentUser.role==="admin";
-function login(u,p){
-  const user=findU(u); if(!user)return{ok:false,error:"Kullanıcı bulunamadı"};
-  if(user.password!==p)return{ok:false,error:"Şifre hatalı"};
-  currentUser=user;
-  sessionStorage.setItem(K.SESSION,JSON.stringify({id:user.id,loginAt:new Date().toISOString()}));
-  return{ok:true};
-}
-function restoreS(){try{const r=sessionStorage.getItem(K.SESSION); if(!r)return false;
-  const s=JSON.parse(r); const u=USERS.find(x=>x.id===s.id); if(!u)return false;
-  currentUser=u; return true}catch{return false}}
-function logout(){Persistence.save('logout'); currentUser=null; sessionStorage.removeItem(K.SESSION); location.reload()}
-const visSch=()=>{if(!currentUser)return SCHOOLS; if(isAd())return SCHOOLS;
-  return SCHOOLS.filter(s=>(currentUser.schoolIds||[]).includes(s.id))};
-const canAcc=sid=>{if(!currentUser)return false; if(isAd())return true;
-  return(currentUser.schoolIds||[]).includes(sid)};
-
-/* DATA HELPERS */
+/* DATA */
 const curSch=()=>SCHOOLS.find(s=>s.id===currentSchoolId)||SCHOOLS[0];
 const ck=(s,r,c,sid)=>`${K.CELL}${sid||currentSchoolId}-s${s}-r${r}-c${c}`;
 const gc=(sid,s,r,c)=>localStorage.getItem(ck(s,r,c,sid||currentSchoolId))||"";
@@ -1190,11 +1047,11 @@ function bdg(r){
 }
 function trend(vals){
   const c=vals.filter(v=>v!=null&&isFinite(v));
-  if(c.length<2)return{type:"none",label:"Veri yetersiz",desc:"Yeterli veri yok."};
+  if(c.length<2)return{type:"none",label:"Veri yetersiz"};
   const f=c[0], l=c[c.length-1], d=l-f, t=Math.abs(f)*0.05||0.5;
-  if(Math.abs(d)<t)return{type:"stable",label:"Sabit",desc:"Belirgin değişim yok."};
-  if(d>0)return{type:"up",label:"Artış",desc:"Artış eğilimi var."};
-  return{type:"down",label:"Azalış",desc:"Azalış eğilimi var."};
+  if(Math.abs(d)<t)return{type:"stable",label:"➖ Sabit"};
+  if(d>0)return{type:"up",label:"📈 Artış"};
+  return{type:"down",label:"📉 Azalış"};
 }
 
 /* RENDER */
@@ -1268,8 +1125,6 @@ function render(){
     }
     p++;
     const sec=document.createElement("section"); sec.className="slide";
-    sec.dataset.si=p; sec.dataset.st=s.title; sec.dataset.sd=s.desc;
-    sec.dataset.sc=s.cat||CONFIG.author; sec.dataset.sm=s.mode;
     sec.innerHTML=`<div class="sh">
       <div class="sn">${pad(p)}</div>
       <div class="ht"><h2>${esc(s.title)}</h2><p>${esc(s.desc)}</p></div>
@@ -1302,11 +1157,9 @@ function updCnt(){
 }
 function renderSchSel(){
   const sel=document.getElementById("schoolSelect"); if(!sel)return;
-  const v=visSch();
-  if(!v.length){sel.innerHTML=`<option>Yetkili okul yok</option>`; sel.disabled=true; return}
   sel.disabled=false;
-  sel.innerHTML=v.map(s=>`<option value="${esc(s.id)}">${esc(s.name)}</option>`).join("");
-  if(!v.find(s=>s.id===currentSchoolId))currentSchoolId=v[0].id;
+  sel.innerHTML=SCHOOLS.map(s=>`<option value="${esc(s.id)}">${esc(s.name)}</option>`).join("");
+  if(!SCHOOLS.find(s=>s.id===currentSchoolId))currentSchoolId=SCHOOLS[0].id;
   sel.value=currentSchoolId;
 }
 function updSchSt(){
@@ -1323,7 +1176,7 @@ function updPI(st,txt){
     else if(st==="error"){d.style.background="var(--re)"; s.textContent="Hata"}}
 }
 
-/* INPUT HANDLER */
+/* INPUT */
 document.addEventListener("input",e=>{
   if(e.target.classList&&e.target.classList.contains("blank")){
     const k=e.target.dataset.key, v=e.target.textContent.trim();
@@ -1371,8 +1224,8 @@ function refreshV(){
   if(activeView==="monthly")renderMonthly();
   if(activeView==="summary")renderSummary();
   if(activeView==="annual")renderAnnual();
-  if(activeView==="compare"&&isAd())renderCompare();
-  if(activeView==="central"&&isAd())renderCentral();
+  if(activeView==="compare")renderCompare();
+  if(activeView==="central")renderCentral();
 }
 
 /* GENEL DURUM */
@@ -1387,22 +1240,19 @@ function renderStatus(){
       if(mm.gerc!=null){g+=mm.gerc;anyG=true}});
     return{month:m,hedef:anyH?h:null,gerc:anyG?g:null};
   });
-  // Aylık veri doluluk
   const md=M.map((m,mi)=>{let f=0,tot=0;
     t.tables.forEach(td=>{
       const cc=td.isSingle?1:2;
       td.rows.forEach(r=>{
-        for(let c=0;c<cc;c++){
-          tot++;
+        for(let c=0;c<cc;c++){tot++;
           const idx=td.isSingle?mi:(mi*2+c);
-          if((r.values[idx]||"").trim()!=="")f++;
-        }
+          if((r.values[idx]||"").trim()!=="")f++}
       });
     });
     return{month:m,filled:f,total:tot,ratio:tot>0?f/tot:0};
   });
   const fullMd=md.filter(x=>x.ratio>=0.7).length;
-  const dataStatus=dr===0?"⚪ Veri yok":dr>=50?"🟢 Yeterli":"🔵 Kısmi";
+  const ds=dr===0?"⚪ Veri yok":dr>=50?"🟢 Yeterli":"🔵 Kısmi";
   document.getElementById("view-status").innerHTML=`
     <div class="slide">
       <div class="sh"><div class="sn">📌</div>
@@ -1424,7 +1274,7 @@ function renderStatus(){
           <div class="gch"><div class="gci">📝</div><div class="gct">Veri Girişi</div></div>
           <div class="gcv">${t.filledCells}<small>/ ${t.totalCells}</small></div>
           <div class="gcd">${dr.toFixed(1)}% dolduruldu</div>
-          <div class="gcf"><span class="bdg ${dr===0?"bdg-gy":(dr>=50?"bdg-gr":"bdg-bl")}"><span class="bdg-d"></span>${dataStatus}</span></div>
+          <div class="gcf"><span class="bdg ${dr===0?"bdg-gy":(dr>=50?"bdg-gr":"bdg-bl")}"><span class="bdg-d"></span>${ds}</span></div>
         </div>
         <div class="gc">
           <div class="gch"><div class="gci">📅</div><div class="gct">Aylık Tamamlanan</div></div>
@@ -1475,8 +1325,6 @@ function renderCharts(){
   </div>`;
   document.getElementById("view-charts").innerHTML=html;
   const grid=document.getElementById("chartGrid");
-
-  // 1. HG
   const hg=M.map((_,i)=>{let h=0,g=0,anyH=false,anyG=false;
     t.monthlyHGByTable.forEach(({months})=>{const mm=months[i];
       if(mm.hedef!=null){h+=mm.hedef;anyH=true}
@@ -1486,14 +1334,10 @@ function renderCharts(){
     {label:"Hedef",data:hg.map(x=>x.hedef),backgroundColor:"rgba(255,107,44,.7)",borderRadius:6},
     {label:"Gerçekleşen",data:hg.map(x=>x.gerc),backgroundColor:"rgba(19,58,114,.75)",borderRadius:6}
   ],true);
-
-  // 2. Trend (toplam gerçekleşen)
   const tr=M.map((_,i)=>{let tot=0,any=false;
     t.monthlyHGByTable.forEach(({months})=>{if(months[i].gerc!=null){tot+=months[i].gerc;any=true}});
     return any?tot:null});
   if(tr.some(v=>v!=null))addLineCh(grid,"trend","📈 Faaliyet Trendi","Aylık toplam gerçekleşen",tr,"#16a34a");
-
-  // 3. EBA
   const ebaT=t.tables.find(x=>(x.title||"").toLowerCase().includes("eba"));
   if(ebaT){
     const oR=ebaT.rows.find(r=>(r.label||"").toLowerCase().includes("öğrenci"));
@@ -1506,25 +1350,20 @@ function renderCharts(){
         {label:"Öğretmen",data:tD,borderColor:"#ff6b2c",backgroundColor:"rgba(255,107,44,.15)",tension:.35,fill:true,borderWidth:3,pointRadius:4}
       ],true);
   }
-
-  // 4. Devamsızlık
   const dvT=t.tables.find(x=>(x.title||"").toLowerCase().includes("devamsız"));
   if(dvT){
     const r=dvT.rows.find(x=>(x.label||"").toLowerCase().includes("oran"));
     const d=M.map((_,i)=>r?pn(r.values[i*2+1]):null);
     if(d.some(v=>v!=null))addLineCh(grid,"dev","📉 Devamsızlık Trendi","Aylık devamsızlık oranı (%)",d,"#dc2626");
   }
-
-  // 5. Okuma
   const okT=t.tables.find(x=>(x.title||"").toLowerCase().includes("okuma"));
   if(okT){
     const r=okT.rows.find(x=>(x.label||"").toLowerCase().includes("okunan kitap"));
     const d=M.map((_,i)=>r?pn(r.values[i*2+1]):null);
     if(d.some(v=>v!=null))addLineCh(grid,"okuma","📚 Okuma Trendi","Okunan kitap sayısı",d,"#1c4a8e");
   }
-
   if(!grid.children.length)
-    grid.innerHTML='<div class="ndb" style="grid-column:1/-1">Grafik için yeterli veri yok. Ana Rapor\'dan veri giriniz.</div>';
+    grid.innerHTML='<div class="ndb" style="grid-column:1/-1">Grafik için yeterli veri yok.</div>';
 }
 function addCh(g,id,title,sub,type,ds,wl){
   const card=document.createElement("div"); card.className="cc";
@@ -1574,8 +1413,8 @@ function renderEval(){
 
   t.monthlyHGByTable.forEach(({table,months})=>{
     const v=months.map(x=>x.gerc), tr=trend(v);
-    if(tr.type==="down")gel.push({title:`${table.title} (Trend)`,text:`${tr.desc} İzlenmesi gereken alan olarak değerlendirilebilir.`});
-    else if(tr.type==="up")guc.push({title:`${table.title} (Trend)`,text:`${tr.desc} Olumlu gelişme kaydedilmiştir.`});
+    if(tr.type==="down")gel.push({title:`${table.title} (Trend)`,text:`${tr.label.replace(/^[^\w]+/,"")} eğilimi gösteriyor. İzlenmesi gereken alan olarak değerlendirilebilir.`});
+    else if(tr.type==="up")guc.push({title:`${table.title} (Trend)`,text:`${tr.label.replace(/^[^\w]+/,"")} eğilimi gösteriyor. Olumlu gelişme kaydedilmiştir.`});
   });
 
   const dvT=t.tables.find(x=>(x.title||"").toLowerCase().includes("devamsız"));
@@ -1637,33 +1476,25 @@ function renderMonthly(){
       rate:(mm.hedef!=null&&mm.hedef>0&&mm.gerc!=null)?(mm.gerc/mm.hedef)*100:null,
       tr:trend(months.map(x=>x.gerc))};
   }).filter(x=>x.hedef!=null||x.gerc!=null);
-
   const th=mt.reduce((a,r)=>a+(r.hedef||0),0);
   const tg=mt.reduce((a,r)=>a+(r.gerc||0),0);
   const tr2=th>0?(tg/th)*100:null;
   const tb=bdg(tr2);
-
-  // Ay doluluğu
   let filled=0, tot=0;
   t.tables.forEach(td=>{const cc=td.isSingle?1:2;
     td.rows.forEach(r=>{for(let c=0;c<cc;c++){tot++;
       const i=td.isSingle?mi:(mi*2+c);
       if((r.values[i]||"").trim()!=="")filled++}})});
   const fr=tot>0?filled/tot:0;
-
-  // Önceki ay
   let prevCmp=null;
   if(mi>0){
-    const pm=M[mi-1]; let ph=0,pg=0,anyH=false,anyG=false;
+    let ph=0,pg=0,anyH=false,anyG=false;
     t.monthlyHGByTable.forEach(({months})=>{const mm=months[mi-1];
       if(mm.hedef!=null){ph+=mm.hedef;anyH=true}
       if(mm.gerc!=null){pg+=mm.gerc;anyG=true}});
-    if(anyH&&anyG&&ph>0){
-      const pr=(pg/ph)*100;
-      prevCmp={prevMonth:pm,prevRate:pr,diff:tr2!=null?tr2-pr:0};
-    }
+    if(anyH&&anyG&&ph>0){const pr=(pg/ph)*100;
+      prevCmp={prevMonth:M[mi-1],prevRate:pr,diff:tr2!=null?tr2-pr:0}}
   }
-
   const topM=[...mt].filter(x=>x.rate!=null).sort((a,b)=>b.rate-a.rate).slice(0,5);
   const weakM=[...mt].filter(x=>x.rate!=null).sort((a,b)=>a.rate-b.rate).slice(0,5);
 
@@ -1683,7 +1514,6 @@ function renderMonthly(){
           return`<button class="mbtn ${m===selMonth?"active":""}" data-m="${m}" style="position:relative">${m}${rat>0?`<span style="position:absolute;top:3px;right:3px;width:6px;height:6px;border-radius:50%;background:${dot}"></span>`:""}</button>`;
         }).join("")}
       </div>
-
       <div class="gg">
         <div class="gc">
           <div class="gch"><div class="gci">🎯</div><div class="gct">${selMonth} Hedef</div></div>
@@ -1712,7 +1542,6 @@ function renderMonthly(){
           `:`<div class="gcd">Önceki ay verisi yok.</div>`}
         </div>
       </div>
-
       ${mt.length>0?`
         <div style="font-size:13px;font-weight:800;color:var(--n8);text-transform:uppercase;margin:22px 0 12px">📋 ${selMonth} Ayı Gösterge Detayları</div>
         <div class="tw" style="margin-bottom:22px">
@@ -1738,7 +1567,6 @@ function renderMonthly(){
           </table>
         </div>
       `:`<div class="ndb" style="margin-bottom:22px">${selMonth} ayı için veri girişi yapılmamıştır.</div>`}
-
       ${topM.length>0?`
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-bottom:22px">
           <div class="es" style="margin-bottom:0">
@@ -1765,7 +1593,6 @@ function renderMonthly(){
           </div>
         </div>
       `:""}
-
       <div class="exs">
         <div class="exsh"><div class="sn">📝</div>
           <div><h2>${selMonth} Ayı Değerlendirmesi</h2>
@@ -1784,23 +1611,17 @@ function renderMonthly(){
         ${topM.length>0?`
           <div class="exb">
             <div class="exbt">⭐ Öne Çıkan Göstergeler</div>
-            <div class="exbc">
-              <ul style="margin-left:18px;line-height:1.9">
-                ${topM.slice(0,3).map(t2=>`<li><b>${esc(t2.title)}</b> — %${Math.round(t2.rate)} (${t2.gerc}/${t2.hedef})</li>`).join("")}
-              </ul>
-            </div>
-          </div>
-        `:""}
+            <div class="exbc"><ul style="margin-left:18px;line-height:1.9">
+              ${topM.slice(0,3).map(t2=>`<li><b>${esc(t2.title)}</b> — %${Math.round(t2.rate)} (${t2.gerc}/${t2.hedef})</li>`).join("")}
+            </ul></div>
+          </div>`:""}
         ${weakM.length>0?`
           <div class="exb" style="border-left-color:var(--re)">
             <div class="exbt">⚠️ Dikkat Gerektiren Alanlar</div>
-            <div class="exbc">
-              <ul style="margin-left:18px;line-height:1.9">
-                ${weakM.slice(0,3).map(t2=>`<li><b>${esc(t2.title)}</b> — %${Math.round(t2.rate)} (${t2.gerc}/${t2.hedef})</li>`).join("")}
-              </ul>
-            </div>
-          </div>
-        `:""}
+            <div class="exbc"><ul style="margin-left:18px;line-height:1.9">
+              ${weakM.slice(0,3).map(t2=>`<li><b>${esc(t2.title)}</b> — %${Math.round(t2.rate)} (${t2.gerc}/${t2.hedef})</li>`).join("")}
+            </ul></div>
+          </div>`:""}
         <div class="exb" style="border-left-color:var(--n6)">
           <div class="exbt">🎯 Öneriler</div>
           <div class="exbc">
@@ -1810,7 +1631,6 @@ function renderMonthly(){
         </div>
       </div>
     </div>`;
-
   document.querySelectorAll("#view-monthly .mbtn").forEach(btn=>{
     btn.addEventListener("click",()=>{selMonth=btn.dataset.m; renderMonthly()});
   });
@@ -1825,23 +1645,19 @@ function renderSummary(){
     return{title:table.title,cat:table.cat,hedef:mm.hedef,gerc:mm.gerc,
       rate:(mm.hedef!=null&&mm.hedef>0&&mm.gerc!=null)?(mm.gerc/mm.hedef)*100:null};
   }).filter(x=>x.hedef!=null||x.gerc!=null);
-
   const th=mt.reduce((a,r)=>a+(r.hedef||0),0);
   const tg=mt.reduce((a,r)=>a+(r.gerc||0),0);
   const tr=th>0?(tg/th)*100:null;
   const tb=bdg(tr);
-
   const onc=mt.filter(x=>x.rate!=null&&x.rate>=ANALYSIS.thrGreen);
   const dk=mt.filter(x=>x.rate!=null&&x.rate<ANALYSIS.thrOrange);
   const gl=mt.filter(x=>x.rate!=null&&x.rate>=ANALYSIS.thrOrange&&x.rate<ANALYSIS.thrBlue);
-
   let filled=0,tot=0;
   t.tables.forEach(td=>{const cc=td.isSingle?1:2;
     td.rows.forEach(r=>{for(let c=0;c<cc;c++){tot++;
       const i=td.isSingle?mi:(mi*2+c);
       if((r.values[i]||"").trim()!=="")filled++}})});
   const fr=tot>0?filled/tot:0;
-
   let prevCmp=null;
   if(mi>0){
     let ph=0,pg=0,anyH=false,anyG=false;
@@ -1859,7 +1675,6 @@ function renderSummary(){
       <div class="msel">
         ${M.map(m=>`<button class="mbtn ${m===selMonth?"active":""}" data-m="${m}">${m}</button>`).join("")}
       </div>
-
       <div class="exs">
         <div class="exsh">
           <div class="sn">📋</div>
@@ -1868,7 +1683,6 @@ function renderSummary(){
             <div class="exsm">${esc(school?school.name:"")} · ${esc(school&&school.type?school.type:"")}</div>
           </div>
         </div>
-
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:22px">
           <div style="background:linear-gradient(135deg,var(--n7),var(--n8));color:#fff;padding:16px 18px;border-radius:12px">
             <div style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.7;font-weight:800;margin-bottom:6px">Aylık Hedef</div>
@@ -1893,7 +1707,6 @@ function renderSummary(){
             <div style="font-size:11px;color:var(--g6);margin-top:4px">${filled}/${tot} hücre</div>
           </div>
         </div>
-
         <div class="exb">
           <div class="exbt">📌 1. Genel Durum</div>
           <div class="exbc">
@@ -1904,7 +1717,6 @@ function renderSummary(){
               :`${selMonth} ayı için veri girişi bulunmamaktadır.`}
           </div>
         </div>
-
         ${onc.length>0?`
           <div class="exb">
             <div class="exbt">⭐ 2. Öne Çıkan Göstergeler</div>
@@ -1914,9 +1726,7 @@ function renderSummary(){
               </ul>
               ${onc.length>5?`<div style="font-size:11.5px;color:var(--g6);margin-top:8px;font-style:italic">+ ${onc.length-5} gösterge daha</div>`:""}
             </div>
-          </div>
-        `:""}
-
+          </div>`:""}
         ${dk.length>0?`
           <div class="exb" style="border-left-color:var(--re)">
             <div class="exbt">⚠️ 3. Dikkat Gerektiren Alanlar</div>
@@ -1926,9 +1736,7 @@ function renderSummary(){
               </ul>
               ${dk.length>5?`<div style="font-size:11.5px;color:var(--g6);margin-top:8px;font-style:italic">+ ${dk.length-5} gösterge daha</div>`:""}
             </div>
-          </div>
-        `:""}
-
+          </div>`:""}
         ${gl.length>0?`
           <div class="exb" style="border-left-color:var(--ye)">
             <div class="exbt">🔎 4. Gelişim Alanları</div>
@@ -1937,9 +1745,7 @@ function renderSummary(){
                 ${gl.slice(0,5).map(x=>`<li><b>${esc(x.title)}</b> — %${Math.round(x.rate)} <span style="color:var(--g6);font-size:11.5px">(${x.gerc}/${x.hedef})</span></li>`).join("")}
               </ul>
             </div>
-          </div>
-        `:""}
-
+          </div>`:""}
         <div class="exb" style="border-left-color:var(--n6)">
           <div class="exbt">🎯 5. Önerilen İzleme</div>
           <div class="exbc">
@@ -1947,7 +1753,6 @@ function renderSummary(){
               :"Bu ay için tüm göstergeler hedef doğrultusundadır. Mevcut uygulama düzeyinin sürdürülmesi değerlendirilebilir."}
           </div>
         </div>
-
         ${fr<0.7?`
           <div class="exb" style="border-left-color:var(--o5);background:#fff8f2">
             <div class="exbt">📊 Veri Tamamlama Önerisi</div>
@@ -1955,11 +1760,9 @@ function renderSummary(){
               Bu ayın veri doluluk oranı <b>%${Math.round(fr*100)}</b> düzeyindedir.
               Değerlendirme kalitesinin artırılması için eksik verilerin tamamlanması önerilmektedir.
             </div>
-          </div>
-        `:""}
+          </div>`:""}
       </div>
     </div>`;
-
   document.querySelectorAll("#view-summary .mbtn").forEach(btn=>{
     btn.addEventListener("click",()=>{selMonth=btn.dataset.m; renderSummary()});
   });
@@ -1974,12 +1777,10 @@ function renderAnnual(){
     const r=h>0?(g/h)*100:null;
     return{title:table.title,hedef:h,gerc:g,rate:r,tr:trend(months.map(x=>x.gerc))};
   }).filter(x=>x.hedef>0||x.gerc>0);
-
   const th=yearly.reduce((a,x)=>a+x.hedef,0);
   const tg=yearly.reduce((a,x)=>a+x.gerc,0);
   const ov=th>0?(tg/th)*100:null;
   const ob=bdg(ov);
-
   document.getElementById("view-annual").innerHTML=`
     <div class="slide">
       <div class="sh"><div class="sn">📘</div>
@@ -2063,7 +1864,6 @@ function renderCompare(){
 
 /* CENTRAL */
 function renderCentral(){
-  if(!isAd())return;
   const all=SCHOOLS.map(s=>({school:s,totals:calc(s.id)}));
   const th=all.reduce((a,r)=>a+r.totals.totalHedef,0);
   const tg=all.reduce((a,r)=>a+r.totals.totalGerc,0);
@@ -2071,7 +1871,6 @@ function renderCentral(){
   const fc=all.reduce((a,r)=>a+r.totals.filledCells,0);
   const ov=th>0?(tg/th)*100:null;
   const ob=bdg(ov);
-
   document.getElementById("view-central").innerHTML=`
     <div class="slide">
       <div class="sh"><div class="sn">📈</div>
@@ -2086,9 +1885,8 @@ function renderCentral(){
         <div class="gc"><div class="gch"><div class="gci">📝</div><div class="gct">Veri Girişi</div></div>
           <div class="gcv">${fc}<small>/ ${tc}</small></div>
           <div class="gcd">${tc>0?"%"+Math.round((fc/tc)*100)+" dolu":"—"}</div></div>
-        <div class="gc"><div class="gch"><div class="gci">👥</div><div class="gct">Kullanıcı</div></div>
-          <div class="gcv">${USERS.length}</div>
-          <div class="gcd">${USERS.filter(u=>u.role==="admin").length} admin · ${USERS.filter(u=>u.role==="teacher").length} öğretmen</div></div>
+        <div class="gc"><div class="gch"><div class="gci">📈</div><div class="gct">Toplam Hedef</div></div>
+          <div class="gcv">${th}</div><div class="gcd">Gerçekleşen: ${tg}</div></div>
       </div>
       <div style="font-size:13px;font-weight:800;color:var(--n8);text-transform:uppercase;margin:22px 0 12px">📊 Okul Bazlı Detaylı Tablo</div>
       <div class="tw" style="margin-bottom:22px">
@@ -2144,9 +1942,7 @@ document.getElementById("backupBtn").addEventListener("click",async()=>{
   toast("Yedek alındı","success","📸");
 });
 document.getElementById("schoolSelect").addEventListener("change",e=>{
-  const nid=e.target.value;
-  if(!canAcc(nid)){toast("Bu okula erişim yetkiniz yok","error","🔒"); renderSchSel(); return}
-  currentSchoolId=nid;
+  currentSchoolId=e.target.value;
   localStorage.setItem(K.CURRENT,currentSchoolId);
   Persistence.touch("currentSchool");
   render(); refreshV(); updSchSt();
@@ -2219,66 +2015,16 @@ fi.addEventListener("change",async e=>{
   if(err>0)toast(`${err} dosya okunamadı`,"error","⚠️");
 });
 
-/* USER MENU */
-const um=document.getElementById("userMenu");
-um.addEventListener("click",e=>{
-  if(e.target.closest(".udi"))return;
-  um.classList.toggle("open");
+/* ADMIN BUTTON */
+document.getElementById("adminBtn").addEventListener("click",()=>{
+  const m=document.getElementById("adminModal");
+  m.classList.add("active");
+  fillG(); fillA(); renderSchools(); renderBks(); renderSlides(); renderAgenda();
+  updSt();
 });
-document.addEventListener("click",e=>{if(!um.contains(e.target))um.classList.remove("open")});
-document.getElementById("menuProfile").addEventListener("click",()=>{
-  um.classList.remove("open");
-  toast(`${currentUser.displayName} · ${currentUser.role==="admin"?"Yönetici":"Öğretmen"}`,"info","👤");
-});
-document.getElementById("menuPass").addEventListener("click",()=>{
-  um.classList.remove("open");
-  const np=prompt("Yeni şifre (min 4):");
-  if(np&&np.length>=4){currentUser.password=np; su(); toast("Şifre güncellendi","success","🔑")}
-  else if(np)toast("En az 4 karakter","error","⚠️");
-});
-document.getElementById("menuLogout").addEventListener("click",()=>{
-  if(!confirm("Çıkış yapmak istediğinize emin misiniz?"))return;
-  logout();
-});
-document.getElementById("menuBackups").addEventListener("click",async()=>{
-  um.classList.remove("open");
-  document.getElementById("backupsModal").classList.add("active");
-  const l=document.getElementById("backupsViewList");
-  const bks=await Persistence.listBackups();
-  if(!bks.length){l.innerHTML='<div class="emp">Henüz yedek yok.</div>'; return}
-  l.innerHTML=bks.map(b=>`
-    <div class="bkp">
-      <div class="bkpi">💾</div>
-      <div class="bkpi2">
-        <strong>${esc(b.date)}</strong>
-        <span>${(b.size/1024).toFixed(1)} KB · ${b.schools} okul · ${b.cells} hücre · ${b.reason}</span>
-      </div>
-      <button class="mbtn2 mbtn2-p mbtn2-s" data-rb="${b.id}">↻ Geri Yükle</button>
-    </div>`).join("");
-  l.querySelectorAll("[data-rb]").forEach(btn=>{
-    btn.addEventListener("click",async()=>{
-      if(!confirm("Bu yedeğe dönülecek. Devam?"))return;
-      const ok=await Persistence.restoreBackup(parseInt(btn.dataset.rb));
-      if(ok)setTimeout(()=>location.reload(),800);
-    });
-  });
-});
-document.getElementById("backupsModalClose").addEventListener("click",()=>document.getElementById("backupsModal").classList.remove("active"));
-
-/* =====================================================
-   ADMIN PANEL
-===================================================== */
-const am=document.getElementById("adminModal");
-document.getElementById("menuAdmin").addEventListener("click",()=>{
-  um.classList.remove("open");
-  if(!isAd()){toast("Sadece yöneticiler","error","🔒"); return}
-  am.classList.add("active");
-  fillG(); fillA(); renderUsers(); renderSlides(); renderAgenda(); renderSchools();
-  renderBks(); updSt();
-});
-document.getElementById("adminClose").addEventListener("click",()=>am.classList.remove("active"));
-document.getElementById("adminCloseFooter").addEventListener("click",()=>am.classList.remove("active"));
-am.addEventListener("click",e=>{if(e.target===am)am.classList.remove("active")});
+document.getElementById("adminClose").addEventListener("click",()=>document.getElementById("adminModal").classList.remove("active"));
+document.getElementById("adminCloseFooter").addEventListener("click",()=>document.getElementById("adminModal").classList.remove("active"));
+document.getElementById("adminModal").addEventListener("click",e=>{if(e.target===document.getElementById("adminModal"))document.getElementById("adminModal").classList.remove("active")});
 
 document.querySelectorAll(".mtb").forEach(tab=>{
   tab.addEventListener("click",()=>{
@@ -2287,7 +2033,6 @@ document.querySelectorAll(".mtb").forEach(tab=>{
     tab.classList.add("active");
     const p=document.querySelector(`.mpn[data-panel="${tab.dataset.tab}"]`);
     if(p)p.classList.add("active");
-    if(tab.dataset.tab==="users")renderUsers();
     if(tab.dataset.tab==="backups")renderBks();
   });
 });
@@ -2312,67 +2057,6 @@ document.getElementById("saveGeneral").addEventListener("click",()=>{
   sc(); render();
   toast("Kaydedildi","success","💾");
 });
-
-/* USERS */
-function renderUsers(){
-  const l=document.getElementById("usersList"); if(!l)return;
-  l.innerHTML=`<div class="tw"><table class="ut">
-    <thead><tr><th>Ad</th><th>Kullanıcı</th><th>Rol</th><th>Okullar</th><th></th></tr></thead>
-    <tbody>
-      ${USERS.map(u=>`<tr>
-        <td><b>${esc(u.displayName)}</b></td>
-        <td>${esc(u.username)}</td>
-        <td><span class="urb ${u.role==="admin"?"urb-a":"urb-t"}">${u.role==="admin"?"🔐 Admin":"👨‍🏫 Öğretmen"}</span></td>
-        <td style="font-size:11px;color:var(--g6)">${u.role==="admin"?"Tümü":(u.schoolIds||[]).map(id=>SCHOOLS.find(s=>s.id===id)?.name||id).join(", ")||"—"}</td>
-        <td><button class="mbtn2 mbtn2-g mbtn2-s" data-ue="${u.id}">✏️</button>
-          ${u.id!==(currentUser&&currentUser.id)?`<button class="mbtn2 mbtn2-g mbtn2-s" data-ud="${u.id}" style="color:#dc2626">🗑</button>`:""}
-        </td>
-      </tr>`).join("")}
-    </tbody>
-  </table></div>`;
-  l.querySelectorAll("[data-ue]").forEach(b=>b.addEventListener("click",()=>openUser(b.dataset.ue)));
-  l.querySelectorAll("[data-ud]").forEach(b=>b.addEventListener("click",()=>{
-    if(!confirm("Silinsin mi?"))return;
-    USERS=USERS.filter(x=>x.id!==b.dataset.ud);
-    su(); renderUsers();
-    toast("Kullanıcı silindi","info","🗑");
-  }));
-}
-let editUid=null;
-function openUser(id){
-  editUid=id;
-  const u=id?USERS.find(x=>x.id===id):{id:"u-"+Date.now(),displayName:"",username:"",password:"",role:"teacher",schoolIds:[]};
-  if(!id)USERS.push(u);
-  document.getElementById("userModalTitle").textContent=id?"Düzenle":"Yeni Kullanıcı";
-  document.getElementById("uName").value=u.displayName;
-  document.getElementById("uUsername").value=u.username;
-  document.getElementById("uPassword").value=u.password;
-  document.getElementById("uRole").value=u.role;
-  renderUSchk(u.schoolIds||[]);
-  document.getElementById("userModal").classList.add("active");
-}
-function renderUSchk(sel){
-  const c=document.getElementById("uSchoolChecks");
-  c.innerHTML=SCHOOLS.map(s=>`<label class="sch ${sel.includes(s.id)?"checked":""}">
-    <input type="checkbox" value="${esc(s.id)}" ${sel.includes(s.id)?"checked":""}>
-    <span>${esc(s.name)}</span></label>`).join("");
-  c.querySelectorAll("input").forEach(cb=>cb.addEventListener("change",()=>cb.closest(".sch").classList.toggle("checked",cb.checked)));
-}
-document.getElementById("userModalClose").addEventListener("click",()=>document.getElementById("userModal").classList.remove("active"));
-document.getElementById("userModalCancel").addEventListener("click",()=>document.getElementById("userModal").classList.remove("active"));
-document.getElementById("userModalSave").addEventListener("click",()=>{
-  const u=USERS.find(x=>x.id===editUid); if(!u)return;
-  u.displayName=document.getElementById("uName").value.trim()||"Kullanıcı";
-  u.username=document.getElementById("uUsername").value.trim().toLowerCase();
-  u.password=document.getElementById("uPassword").value||"123456";
-  u.role=document.getElementById("uRole").value;
-  u.schoolIds=Array.from(document.querySelectorAll("#uSchoolChecks input:checked")).map(i=>i.value);
-  if(u.role==="admin")u.schoolIds=[];
-  su(); renderUsers();
-  document.getElementById("userModal").classList.remove("active");
-  toast("Kaydedildi","success","💾");
-});
-document.getElementById("addUserBtn").addEventListener("click",()=>openUser(null));
 
 /* SCHOOLS */
 function renderSchools(){
@@ -2581,7 +2265,7 @@ document.getElementById("saveAnalysis").addEventListener("click",()=>{
   toast("Kaydedildi","success","💾");
 });
 
-/* FULL BACKUP / RESET */
+/* FULL BACKUP */
 document.getElementById("backupFullBtn").addEventListener("click",async()=>{
   const s=await Persistence.buildSnapshot();
   const blob=new Blob([JSON.stringify(s,null,2)],{type:"application/json"});
@@ -2609,84 +2293,9 @@ function updSt(){
     }
   });
   const el=document.getElementById("storageStats");
-  if(el)el.textContent=`📦 ${(t/1024).toFixed(2)} KB · ${cc} hücre · ${SCHOOLS.length} okul · ${USERS.length} kullanıcı`;
+  if(el)el.textContent=`📦 ${(t/1024).toFixed(2)} KB · ${cc} hücre · ${SCHOOLS.length} okul`;
 }
 
-/* AUTH UI */
-function renderDemos(){
-  const c=document.getElementById("demos"); if(!c)return;
-  c.innerHTML=USERS.slice(0,3).map(u=>`
-    <div class="demo" data-u="${esc(u.username)}" data-p="${esc(u.password)}">
-      <div class="demo-ic">${u.role==="admin"?"🔐":"👨‍🏫"}</div>
-      <div class="demo-info">
-        <strong>${esc(u.displayName)}</strong>
-        <span>${esc(u.username)} · ${u.role==="admin"?"Yönetici":"Öğretmen"}</span>
-      </div>
-    </div>`).join("");
-  c.querySelectorAll("[data-u]").forEach(el=>{
-    el.addEventListener("click",()=>{
-      document.getElementById("loginUser").value=el.dataset.u;
-      document.getElementById("loginPass").value=el.dataset.p;
-      document.getElementById("btnLogin").click();
-    });
-  });
-}
-function renderRegSchk(){
-  const c=document.getElementById("regSchoolChecks"); if(!c)return;
-  c.innerHTML=SCHOOLS.map(s=>`<label class="sch"><input type="checkbox" value="${esc(s.id)}"><span>${esc(s.name)}</span></label>`).join("");
-  c.querySelectorAll("input").forEach(cb=>cb.addEventListener("change",()=>cb.closest(".sch").classList.toggle("checked",cb.checked)));
-}
-document.getElementById("tabLogin").addEventListener("click",()=>{
-  document.getElementById("tabLogin").classList.add("active");
-  document.getElementById("tabRegister").classList.remove("active");
-  document.getElementById("loginForm").style.display="block";
-  document.getElementById("registerForm").style.display="none";
-});
-document.getElementById("tabRegister").addEventListener("click",()=>{
-  document.getElementById("tabRegister").classList.add("active");
-  document.getElementById("tabLogin").classList.remove("active");
-  document.getElementById("loginForm").style.display="none";
-  document.getElementById("registerForm").style.display="block";
-  renderRegSchk();
-});
-document.getElementById("btnLogin").addEventListener("click",()=>{
-  const u=document.getElementById("loginUser").value.trim();
-  const p=document.getElementById("loginPass").value;
-  const e=document.getElementById("loginError"); e.textContent="";
-  if(!u||!p){e.textContent="⚠️ Kullanıcı adı ve şifre gerekli"; return}
-  const r=login(u,p);
-  if(!r.ok){e.textContent="❌ "+r.error; return}
-  hideAuthStart();
-});
-document.getElementById("loginPass").addEventListener("keydown",e=>{if(e.key==="Enter")document.getElementById("btnLogin").click()});
-document.getElementById("btnRegister").addEventListener("click",()=>{
-  const name=document.getElementById("regName").value.trim();
-  const un=document.getElementById("regUser").value.trim().toLowerCase();
-  const pw=document.getElementById("regPass").value;
-  const role=document.getElementById("regRole").value;
-  const sids=Array.from(document.querySelectorAll("#regSchoolChecks input:checked")).map(i=>i.value);
-  const e=document.getElementById("regError"); e.textContent="";
-  if(!name||!un||!pw){e.textContent="⚠️ Tüm alanlar gerekli"; return}
-  if(pw.length<4){e.textContent="⚠️ Min 4 karakter"; return}
-  if(findU(un)){e.textContent="⚠️ Bu kullanıcı zaten kayıtlı"; return}
-  USERS.push({id:"u-"+Date.now(),username:un,password:pw,displayName:name,role,
-    schoolIds:role==="admin"?[]:sids});
-  su();
-  toast("Hesap oluşturuldu","success","✨");
-  setTimeout(()=>{login(un,pw); hideAuthStart()},700);
-});
-function hideAuthStart(){
-  const o=document.getElementById("authOv");
-  o.classList.add("hidden");
-  const ini=(currentUser.displayName||"U").split(" ").map(w=>w[0]).slice(0,2).join("").toUpperCase();
-  document.getElementById("userAvatar").textContent=ini;
-  document.getElementById("userName").textContent=currentUser.displayName;
-  document.getElementById("userRole").textContent=currentUser.role==="admin"?"Yönetici":"Öğretmen";
-  document.body.classList.toggle("is-admin",isAd());
-  document.getElementById("menuAdmin").style.display=isAd()?"flex":"none";
-  renderSchSel(); render(); updCnt(); updSchSt();
-  toast(`Hoş geldiniz, ${currentUser.displayName}`,"success","👋");
-}
 function showRB(txt){
   const a=document.getElementById("recoveryArea"); if(!a)return;
   a.innerHTML=`<div class="rb">
@@ -2701,7 +2310,6 @@ function showRB(txt){
 
 /* INIT */
 window.addEventListener("DOMContentLoaded",async()=>{
-  renderDemos();
   let src="empty";
   try{
     const r=await Persistence.init();
@@ -2710,7 +2318,7 @@ window.addEventListener("DOMContentLoaded",async()=>{
     if(src==="idb"||src==="backup"){
       CONFIG=lj(K.CONFIG,DC); SCHOOLS=lj(K.SCHOOLS,DS);
       AGENDA=lj(K.AGENDA,DA); SLIDES=lj(K.SLIDES,DSL);
-      ANALYSIS=lj(K.ANALYSIS,DAN); USERS=lj(K.USERS,DU);
+      ANALYSIS=lj(K.ANALYSIS,DAN);
       currentSchoolId=localStorage.getItem(K.CURRENT)||currentSchoolId;
     }
     Persistence.on('onSave',info=>{if(info.type==="save")updPI("active","Aktif")});
@@ -2718,13 +2326,12 @@ window.addEventListener("DOMContentLoaded",async()=>{
     updPI("active","Aktif");
   }catch(e){console.error("Persistence:",e); updPI("error","Hata")}
 
-  if(restoreS()&&currentUser){
-    hideAuthStart();
-    if(src==="backup")showRB("Verileriniz önceki bir yedekten geri yüklendi.");
-    else if(src==="idb")showRB("Verileriniz otomatik olarak geri yüklendi.");
-  } else {
-    setTimeout(()=>document.getElementById("loginUser").focus(),400);
-  }
+  /* Direkt başlat — giriş yok */
+  renderSchSel(); render(); updCnt(); updSchSt();
+  document.body.classList.add("is-admin");
+
+  if(src==="backup")showRB("Verileriniz önceki bir yedekten geri yüklendi.");
+  else if(src==="idb")showRB("Verileriniz otomatik olarak geri yüklendi.");
 });
 
 /* KEYBOARD */
